@@ -10,6 +10,27 @@
     a little change does very little
     blah blah
 </p>
+<p>
+    Machine name:
+    @Environment.MachineName
+</p>
+<p>
+    computer name:
+@System.Environment.GetEnvironmentVariable("COMPUTERNAME")
+</p>
+<p>
+    tcp ip based host name:
+    @System.Net.Dns.GetHostName()
+</p>
+<p>
+    server ip:
+    @Request.ServerVariables["LOCAL_ADDR"];
+</p>
+
+
+
+
+
 
 <ul data-role="listview" data-inset="true">
     <li data-role="list-divider">Navigation</li>
