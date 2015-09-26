@@ -4,23 +4,59 @@
 <head>
     <meta charset="utf-8" />
     <title></title>
+
+    <style>
+        table {
+            width: 100%;
+            max-width: 700px;
+        }
+        
+        td {
+            border-top: 1px red solid;
+        }
+
+        .date {
+            width: 0;
+            white-space: nowrap;
+        }
+
+        .description {
+            /*width: 30%;*/
+        }
+
+        .amount {
+            width: 0;
+            white-space: nowrap;
+        }
+
+        .more {
+            /*width: 30%;*/
+        }
+
+    </style>
 </head>
 <body>
     <table>
         <thead>
             <tr>
-                <th>Date</th>
-                <th>Description</th>
-                <th>Amount</th>
-                <th>More</th>
+                <th class="date">Date</th>
+                <th class="description">Description</th>
+                <th class="amount">Amount</th>
+                <th class="more">More</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td>24 Aug 2015</td>
-                <td>The great white mouse stormed onto the beach</td>
-                <td>$4300.33</td>
-                <td>White, with red eyes</td>
+                <td class="date">24 Aug 2015</td>
+                <td class="description">The great white mouse stormed onto the beach</td>
+                <td class="amount">$4300.33</td>
+                <td class="more">White, with red eyes</td>
+            </tr>
+            <tr>
+                <td class="date">24 Aug 2016</td>
+                <td class="description">The little big cat fell asleep on the beach after eating the great white mouse</td>
+                <td class="amount">$4300</td>
+                <td class="more">White, with red eyes and a very big mouth</td>
             </tr>
         </tbody>
     </table>
