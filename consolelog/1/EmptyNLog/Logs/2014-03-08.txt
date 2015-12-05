@@ -1,0 +1,78 @@
+2014-03-08 16:51:02.1478  13 Warn                           serverlogger                   Warn Message generated on server 
+2014-03-08 16:52:27.7417  16 Warn                           serverlogger                   Warn Message generated on server 
+2014-03-08 16:53:25.2910  32 Warn                           serverlogger                   Warn Message generated on server 
+2014-03-08 16:53:25.7910  17 Fatal                          jsLogger                       log message 
+2014-03-08 16:53:43.2880  16 Warn                           serverlogger                   Warn Message generated on server 
+2014-03-08 16:53:43.3110  31 Fatal                          jsLogger                       log message 
+2014-03-08 18:04:06.8056  40 Warn                           serverlogger                   Warn Message generated on server 
+2014-03-08 18:04:06.8396  44 Fatal                          jsLogger                       log message 
+2014-03-08 18:04:22.4375  42 Warn                           serverlogger                   Warn Message generated on server, Level1/Page1 
+2014-03-08 18:04:22.7295  38 Fatal                          jsLogger                       log message from Level1/Page1 
+2014-03-08 18:05:20.0348  27 Warn                           serverlogger                   Warn Message generated on server 
+2014-03-08 18:05:20.0538 109 Fatal                          jsLogger                       log message 
+2014-03-08 18:07:33.4474 109 Warn                           serverlogger                   Warn Message generated on server 
+2014-03-08 18:07:35.1665 109 Fatal                          jsLogger                       log message 
+2014-03-08 18:08:51.4949 125 Warn                           serverlogger                   Warn Message generated on server 
+2014-03-08 18:08:51.8019 116 Fatal                          jsLogger                       log message 
+2014-03-08 18:09:06.8698 124 Warn                           serverlogger                   Warn Message generated on server 
+2014-03-08 18:09:06.9078 129 Fatal                          jsLogger                       log message 
+2014-03-08 18:09:15.4583 116 Warn                           serverlogger                   Warn Message generated on server, on ConsoleAppender page 
+2014-03-08 18:09:15.4963 123 Fatal                          jsLoggerConsoleAndAjax         fatal log message from jsLoggerConsoleAndAjax 
+2014-03-08 18:13:12.1478 129 Warn                           serverlogger                   Warn Message generated on server, on ConsoleAppender page 
+2014-03-08 18:13:12.4178 119 Fatal                          jsLoggerConsoleAndAjax         fatal log message from jsLoggerConsoleAndAjax 
+2014-03-08 18:13:50.5380 131 Warn                           serverlogger                   Warn Message generated on server, on ConsoleAppender page 
+2014-03-08 18:13:50.8140 100 Fatal                          jsLoggerConsoleAndAjax         fatal log message from jsLoggerConsoleAndAjax 
+2014-03-08 18:15:45.7606 131 Warn                           serverlogger                   Warn Message generated on server, on ConsoleAppender page 
+2014-03-08 18:15:46.0276 110 Fatal                          jsLoggerConsoleAndAjax         fatal log message from jsLoggerConsoleAndAjax 
+2014-03-08 18:19:36.5008  29 Warn                           serverlogger                   Warn Message generated on server, on ConsoleAppender page 
+2014-03-08 18:19:36.8438 116 Fatal                          jsLoggerConsoleAndAjax         fatal log message from jsLoggerConsoleAndAjax 
+2014-03-08 18:19:52.8487  29 Warn                           serverlogger                   Warn Message generated on server, on ConsoleAppender page 
+2014-03-08 18:19:52.9007  22 Fatal                          jsLoggerConsoleAndAjax         fatal log message from jsLoggerConsoleAndAjax 
+2014-03-08 18:21:10.8252 129 Warn                           serverlogger                   Warn Message generated on server, on ConsoleAppender page 
+2014-03-08 18:21:11.6732  24 Fatal                          jsLoggerConsoleAndAjax         fatal log message from jsLoggerConsoleAndAjax 
+2014-03-08 18:21:27.0921  22 Warn                           serverlogger                   Warn Message generated on server, on ConsoleAppender page 
+2014-03-08 18:21:27.1921  37 Fatal                          jsLoggerConsoleAndAjax         fatal log message from jsLoggerConsoleAndAjax 
+2014-03-08 18:23:47.7312  24 Warn                           serverlogger                   Warn Message generated on server, on ConsoleAppender page 
+2014-03-08 18:23:47.8292  44 Fatal                          jsLoggerConsoleAndAjax         fatal log message from jsLoggerConsoleAndAjax 
+2014-03-08 18:26:49.0155 110 Warn                           serverlogger                   Warn Message generated on server, on ConsoleAppender page 
+2014-03-08 18:26:49.0765 101 Fatal                          jsLoggerConsoleAndAjax         fatal log message from jsLoggerConsoleAndAjax 
+2014-03-08 18:43:46.4057   5 Warn                           serverlogger                   Warn Message generated on server, on ConsoleAppender page 
+2014-03-08 18:43:46.5997  20 Fatal                          jsLoggerConsoleAndAjax         fatal log message from jsLoggerConsoleAndAjax 
+2014-03-08 18:47:29.5485  75 Warn                           serverlogger                   Warn Message generated on server, on ConsoleAppender page 
+2014-03-08 18:47:29.6195  53 Fatal                          jsLoggerConsoleAndAjax         fatal log message from jsLoggerConsoleAndAjax 
+2014-03-08 18:47:42.3022  53 Warn                           serverlogger                   Warn Message generated on server, on ConsoleAppender page 
+2014-03-08 18:47:42.4812  16 Fatal                          jsLoggerConsoleAndAjax         fatal log message from jsLoggerConsoleAndAjax 
+2014-03-08 18:54:59.6032  16 Warn                           serverlogger                   Warn Message generated on server, on ConsoleAppender page 
+2014-03-08 18:54:59.8982  34 Fatal                          jsLoggerConsoleAndAjax         fatal log message from jsLoggerConsoleAndAjax 
+2014-03-08 18:56:14.9115 140 Warn                           serverlogger                   Warn Message generated on server, on ConsoleAppender page 
+2014-03-08 18:56:15.2055  56 Fatal                          jsLoggerConsoleAndAjax         fatal log message from jsLoggerConsoleAndAjax 
+2014-03-08 18:58:01.8906  89 Warn                           serverlogger                   Warn Message generated on server, on ConsoleAppender page 
+2014-03-08 18:58:02.1867  61 Fatal                          jsLoggerConsoleAndAjax         fatal log message from jsLoggerConsoleAndAjax 
+2014-03-08 19:04:40.6045 101 Warn                           serverlogger                   Warn Message generated on server, on ConsoleAppender page 
+2014-03-08 19:04:40.6755  85 Fatal                          jsLoggerConsoleAndAjax         fatal log message from jsLoggerConsoleAndAjax 
+2014-03-08 19:10:52.2797 116 Warn                           serverlogger                   Warn Message generated on server 
+2014-03-08 19:10:52.4637 109 Fatal                          jsLogger                       log message 
+2014-03-08 19:11:06.8365  24 Warn                           serverlogger                   Warn Message generated on server, on ConsoleAppender page 
+2014-03-08 19:11:06.8705 128 Fatal                          jsLoggerConsoleAndAjax         fatal log message from jsLoggerConsoleAndAjax 
+2014-03-08 19:13:12.9798 114 Warn                           serverlogger                   Warn Message generated on server, on ConsoleAppender page 
+2014-03-08 19:13:13.0568  26 Fatal                          jsLoggerConsoleAndAjax         fatal log message from jsLoggerConsoleAndAjax 
+2014-03-08 19:14:10.5881 137 Warn                           serverlogger                   Warn Message generated on server, on ConsoleAppender page 
+2014-03-08 19:14:10.6841 106 Fatal                          jsLoggerConsoleAndAjax         fatal log message from jsLoggerConsoleAndAjax 
+2014-03-08 19:14:58.1548  92 Warn                           serverlogger                   Warn Message generated on server, on ConsoleAppender page 
+2014-03-08 19:14:58.2398 137 Fatal                          jsLoggerConsoleAndAjax         fatal log message from jsLoggerConsoleAndAjax 
+2014-03-08 19:15:24.6783  93 Warn                           serverlogger                   Warn Message generated on server, on ConsoleAppender page 
+2014-03-08 19:15:24.7793  84 Fatal                          jsLoggerConsoleAndAjax         fatal log message from jsLoggerConsoleAndAjax 
+2014-03-08 19:15:34.1858  93 Warn                           serverlogger                   Warn Message generated on server, on ConsoleAppender page 
+2014-03-08 19:15:34.2658  21 Fatal                          jsLoggerConsoleAndAjax         fatal log message from jsLoggerConsoleAndAjax 
+2014-03-08 19:20:54.1191  93 Warn                           serverlogger                   Warn Message generated on server, on ConsoleAppender page 
+2014-03-08 19:20:54.2111 113 Fatal                          jsLoggerConsoleAndAjax         fatal log message from jsLoggerConsoleAndAjax 
+2014-03-08 19:22:13.7487  96 Warn                           serverlogger                   Warn Message generated on server, on ConsoleAppender page 
+2014-03-08 19:22:13.9517 137 Fatal                          jsLoggerConsoleAndAjax         fatal log message from jsLoggerConsoleAndAjax 
+2014-03-08 19:25:22.9215  85 Warn                           serverlogger                   Warn Message generated on server, on ConsoleAppender page 
+2014-03-08 19:25:23.0005 122 Fatal                          jsLoggerConsoleAndAjax         fatal log message from jsLoggerConsoleAndAjax 
+2014-03-08 19:26:59.9251 109 Warn                           serverlogger                   Warn Message generated on server, on ConsoleAppender page 
+2014-03-08 19:28:55.7077  53 Fatal                          jsLoggerConsoleAndAjax         fatal log message from jsLoggerConsoleAndAjax 
+2014-03-08 22:51:15.1495   7 Warn                           serverlogger                   Warn Message generated on server 
+2014-03-08 22:51:16.5536   7 Fatal                          jsLogger                       log message 
+2014-03-08 23:12:17.9618   7 Warn                           serverlogger                   Warn Message generated on server, on ConsoleAppender page 
+2014-03-08 23:12:18.5918   7 Fatal                          jsLoggerConsoleAndAjax         fatal log message from jsLoggerConsoleAndAjax 

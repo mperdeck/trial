@@ -1,0 +1,10 @@
+{
+  "AppSettings": {
+    "SiteTitle": "FreshWebProject"
+  },
+  "Data": {
+    "DefaultConnection": {
+      "ConnectionString": "Server=(localdb)\\mssqllocaldb;Database=aspnet5-FreshWebProject-0515f9e6-bad0-40e8-bc0e-b27807955172;Trusted_Connection=True;MultipleActiveResultSets=true"
+    }
+  }
+}

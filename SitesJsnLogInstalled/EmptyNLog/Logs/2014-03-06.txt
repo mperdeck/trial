@@ -1,0 +1,4 @@
+2014-03-06 21:49:18.4357   6 Warn                           serverlogger                   Warn Message generated on server 
+2014-03-06 21:49:19.3208   6 Fatal                          jsLogger                       log message 
+2014-03-06 21:49:23.8820  14 Warn                           serverlogger                   Warn Message generated on server, Level1/Page1 
+2014-03-06 21:49:24.0880  16 Fatal                          jsLogger                       log message from Level1/Page1 

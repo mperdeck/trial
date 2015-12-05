@@ -1,0 +1,4 @@
+2015-11-14 12:22:13,256 | INFO | serverlogger | Info Message generated on server
+2015-11-14 12:22:29,873 | FATAL | jsLogger | client log message
+2015-11-14 12:22:59,293 | INFO | serverlogger | Info Message generated on server
+2015-11-14 12:22:59,431 | FATAL | jsLogger | client log message

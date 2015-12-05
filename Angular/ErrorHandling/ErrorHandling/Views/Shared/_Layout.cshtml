@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html ng-app="main">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body ng-controller='MainController'>
+    @RenderBody()
+
+
+    @Html.Raw(JSNLog.JavascriptLogging.Configure())
+
+    @Scripts.Render("~/bundles/jquery")
+
+    <script src="~/Scripts/module-main.js"></script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

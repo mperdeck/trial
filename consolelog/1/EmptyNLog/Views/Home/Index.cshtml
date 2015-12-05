@@ -1,0 +1,343 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EmptyLog4Net</title>
+    @Html.Raw(JSNLog.JavascriptLogging.Configure())  
+</head>
+<body>
+    <h1>EmptyNLog</h1>
+    <script>
+
+        function JLError(name, message, data, inner) {
+            this.name = name;
+            this.message = message;
+            this.data = data;
+            this.inner = inner;
+        }
+
+        JLError.prototype = new Error();
+        JLError.prototype.constructor = JLError;
+
+
+
+        function buildexcobject(e) {
+            var excObject = {};
+
+            if (e.stack) { excObject.stack = e.stack; } else { excObject.e = e; }
+            if (e.message) { excObject.message = e.message; }
+            if (e.name) { excObject.name = e.name; }
+            if (e.data) { excObject.data = e.data; }
+            if (e.inner) {
+                excObject.inner = buildexcobject(e.inner);
+            }
+
+            return excObject;
+        }
+
+        function logexc(e) {
+            var excObject = buildexcobject(e);
+            JL("jsLoggerConsole").fatal(excObject);
+        }
+
+        //        JL("jsLogger").fatal("log message");
+
+
+        // =====================================================================
+
+        var JL;
+        (function (JL) {
+            var Exception = (function () {
+                // name, message: same as Error (standard exceptions are based on Error)
+                // data, inner are additional payloads.
+                // data: Additional data (normally a JSON object). Can be null or undefined.
+                // inner: inner exception. Can be null or undefined.
+                function Exception(name, message, data, inner) {
+                    this.name = name;
+                    this.message = message;
+                    this.data = data;
+                    this.inner = inner;
+                }
+                return Exception;
+            })();
+
+            Exception.prototype = new Error();
+
+
+            JL.Exception = Exception;
+        })(JL || (JL = {}));
+
+
+        function xxx()
+        {
+     //       iiii.aaa = 3;
+
+            var ex0 = "xxxxxx";
+            throw new JL.Exception("my exc 11", "my message x0", { i: 0 }, ex0)
+
+        }
+
+        function yy()
+        {
+            xxx();
+        }
+
+        yy();
+
+        try {
+        yy();
+        }
+        catch (e5) {
+            console.log("e5:", e5);
+            console.log("typeof e5:", typeof e5);
+            console.log("inst:", e5 instanceof JL.Exception);
+            console.log("inst2:", e5 instanceof Error);
+            console.log("inst3:", e5 instanceof Exception);
+
+
+        }
+
+//        alert('nlog3');
+
+        console.log(0)
+
+
+                        //function logexc(e) {
+                //    var excObject;
+
+                //    var s = "NO STACK";
+                //    if (e.stack)
+                //    {
+                //        excObject.stack = e.stack;
+                //        if (e.message) { excObject.message = e.message; }
+                //        if (e.name) { excObject.name = e.name; }
+                //        if (e.data) { excObject.data = e.data; }
+
+                //        JL("jsLoggerConsole").fatal(excObject);
+
+                //        //JL("jsLoggerConsole").fatal(
+                //        //    {
+                //        //        s: e.stack,
+                //        //        m: (e.message) ? e.message : "NO MESSAGE",
+                //        //        n: (e.name) ? e.name : "NO NAME"
+                //        //    });
+                //    }
+                //    else
+                //    {
+                //        JL("jsLoggerConsole").fatal(e);
+                //    }
+
+
+
+                //}
+
+
+        console.log(1)
+
+
+                function a() {
+                    i.dont.exist += 0; //doesn't exist- that's the point
+                }
+
+                function b() {
+                    try {
+                        a();
+                    }
+                    catch(ex0)
+                    {
+                        throw new JLError(null, "my message x0", {i: 0}, ex0)
+                    }
+                }
+
+                try {
+                    b();
+
+                    alert(9)
+                    alert(9)
+                    alert(9)
+                    alert(9)
+
+                } catch (e) {
+
+                    console.log("b: e=", e);
+
+
+
+                    logexc(e);
+
+        //            if (e.stack) {
+        //                console.log("e:", e);
+        //                console.log("e.stack:", e.stack);
+
+        //            }
+        //            else {
+        //console.log("no e.stack")
+        //            }
+
+        //            JL("jsLoggerConsole").info("------- own exc -1 ------------------------")
+        //            var es1a = "NO STACK0";
+        //            if (e.stack) { es1a = e.stack; JL("jsLoggerConsole").fatal(es1a); } else { JL("jsLoggerConsole").fatal("NO STACJ FIR SUNOKE  e"); JL("jsLoggerConsole").fatal(e); }
+
+        //            JL("jsLoggerConsole").fatal(e);
+
+
+
+                }
+
+        console.log(2)
+
+        function exc1() {
+                JL("jsLoggerConsole").info("------- own exc ------------------------")
+
+                function c() {
+                    throw "help me here is my exception !!!!!!!!!!"
+                }
+
+                function d() {
+                    try {
+                        c();
+
+                    }
+                    catch (ex1) {
+                        console.log("ex1:", ex1);
+                        throw new JLError("ex1 name", "my message x1", { j: 1 }, ex1)
+                    }
+
+                }
+
+                try {
+                    d();
+                } catch (e1) {
+                    console.log("e1:", e1);
+
+                    logexc(e1);
+
+
+                  ////  JL("jsLoggerConsole").fatal(e1);
+
+                  //  var es1 = "NO STACK0";
+                  //  if (e1.stack) { es1 = e1.stack; JL("jsLoggerConsole").fatal(es1); } else { JL("jsLoggerConsole").fatal("NO STACJ FIR SUNOKE"); JL("jsLoggerConsole").fatal(e1); }
+
+
+
+                }
+        }
+
+                function exc2() {
+                   JL("jsLoggerConsole").info("------- own error exc55 ------------------------")
+
+                    function c2() {
+            //            throw new Error("my error message2");  // <<<<<<<<<<<, gives stacktrace
+                        throw new JLError("ex20 name", "my message x20", { j: 10, x2: 'hello 0' });
+                    }
+
+                    function d2() {
+                        try {
+                            c2();
+
+                        }
+                        catch (ex2) {
+                            throw new JLError("ex2 name", "my message x2", { j: 1, x2: 'hello' }, ex2)
+                        }
+                    }
+
+
+                    try {
+                        d2();
+                    } catch (e2) {
+                        logexc(e2);
+                        //            JL("jsLoggerConsole").fatal(e2);
+
+                        //var es = "NO STACK";
+                        //if (e2.stack) { es = e2.stack; }
+                        //JL("jsLoggerConsole").fatal(es);
+                    }
+
+                }
+
+
+                function exc3() {
+                    JL("jsLoggerConsole").info("------- own error exc55 ------------------------")
+
+                    function c3() {
+                        //            throw new Error("my error message2");  // <<<<<<<<<<<, gives stacktrace
+                        throw new JLError("ex30 name", "my message x30");
+                    }
+
+                    function d3() {
+                        try {
+                            c3();
+
+                        }
+                        catch (ex3) {
+                            throw new JLError("ex3 name", "my message x3", { j: 1, x2: 'hello' }, ex3)
+                        }
+                    }
+
+                    function d3a() {
+                        try {
+                            d3();
+
+                        }
+                        catch (ex3a) {
+                            console.log("ex3a:", ex3a);
+                            throw new JLError("ex3a name", "my message x3", null, ex3a)
+                        }
+                    }
+
+
+                    try {
+                        d3a();
+                    } catch (e3) {
+                        logexc(e3);
+                        //            JL("jsLoggerConsole").fatal(e2);
+
+                        //var es = "NO STACK";
+                        //if (e2.stack) { es = e2.stack; }
+                        //JL("jsLoggerConsole").fatal(es);
+                    }
+
+                }
+
+        console.log("start funcs")
+
+                b();
+
+
+
+                exc1();
+                exc2();
+                exc3();
+
+
+
+                //JL("jsLoggerConsoleAndAjax").fatal("fatal log message from jsLoggerConsoleAndAjax");
+                //JL("jsLoggerConsole").fatal("fatal log message from jsLoggerConsole");
+                //JL("jsLoggerConsole").error("error log message from jsLoggerConsole");
+                //JL("jsLoggerConsole").warn("warn log message from jsLoggerConsole");
+                //JL("jsLoggerConsole").info("info log message from jsLoggerConsole");
+                //JL("jsLoggerConsole").debug("debug log message from jsLoggerConsole");
+                //JL("jsLoggerConsole").trace("trace log message from jsLoggerConsole");
+
+                //var ob2 = { "a2": "b", "c2": "d", "e2": "f" };
+                //var ob = { "a": "b", "c": "d", "e": "f", "g": ob2 };
+                // JL("jsLoggerConsole").debug(ob);
+
+                // console.log(ob);
+                // console.dir(ob);
+
+                //console.debug("xxxxx")
+                // console.debug(ob);
+
+
+                //alert('nlog');
+    </script>
+
+
+
+    <div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+{
+  "AppSettings": {
+    "SiteTitle": "Fresh2"
+  },
+
+  "JSNLog": {
+    "maxMessages": 10,
+    "loggers": [
+      {
+        "appenders": "appssss",
+        "name": "nnn222"
+      },
+      {
+        "appenders": "appssss2",
+        "name": "nnn222-2",
+        "onceOnlies": [
+          { "regex":  "rrrrrrrrrrxx" },
+          { "regex":  "rrrrrrrrrrxx222" }
+        ]
+      }
+    ],
+    "ajaxAppenders": [
+      {
+        "url": "uuuuuuurl",
+        "name": "aaaaannn222"
+      }
+    ],
+    "consoleAppenders": [
+      {
+        "name": "acccccaaaannn222"
+      }
+    ]
+  },
+
+  "JSNLog2": {
+    "st1": "5",
+    "it2": 4,
+
+    "dl1": [
+        {
+          "s1": "abc",
+          "s2": "def"
+        },
+    {
+      "s1": "abc2",
+      "s2": "def2"
+    },
+  {
+    "s1": "abc3",
+    "s2": "def3"
+  }
+    ],
+
+
+
+    "d1": [
+      [
+        "k1",
+        {
+          "s1": "abc",
+          "s2": "def"
+        }
+      ],
+  [
+    "k2",
+    {
+      "s1": "abc2",
+      "s2": "def2"
+    }
+  ],
+[
+  "k3",
+  {
+    "s1": "abc3",
+    "s2": "def3"
+  }
+]
+    ]
+  },
+
+  "Data": {
+    "DefaultConnection": {
+      "ConnectionString": "Server=(localdb)\\mssqllocaldb;Database=aspnet5-Fresh2-c80af5d9-39ed-4163-9ea4-676850362ff5;Trusted_Connection=True;MultipleActiveResultSets=true"
+    }
+  }
+}

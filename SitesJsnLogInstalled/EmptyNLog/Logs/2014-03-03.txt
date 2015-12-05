@@ -1,0 +1,20 @@
+2014-03-03 18:45:15.5227  12 Warn                           serverlogger                   Warn Message generated on server 
+2014-03-03 18:52:34.9168  34 Warn                           serverlogger                   Warn Message generated on server 
+2014-03-03 18:53:50.6641  28 Warn                           serverlogger                   Warn Message generated on server 
+2014-03-03 19:00:32.2201  46 Warn                           serverlogger                   Warn Message generated on server 
+2014-03-03 19:03:35.8136  59 Warn                           serverlogger                   Warn Message generated on server 
+2014-03-03 19:03:41.6639  58 Warn                           serverlogger                   Warn Message generated on server, Level1/Page1 
+2014-03-03 20:23:55.6273   6 Warn                           serverlogger                   Warn Message generated on server 
+2014-03-03 20:23:56.4933   6 Fatal                          jsLogger                       log message 
+2014-03-03 20:24:55.3237  14 Warn                           serverlogger                   Warn Message generated on server, Level1/Page1 
+2014-03-03 20:35:03.3015  24 Warn                           serverlogger                   Warn Message generated on server 
+2014-03-03 20:35:03.3325  23 Fatal                          jsLogger                       log message 
+2014-03-03 20:35:14.6801  24 Warn                           serverlogger                   Warn Message generated on server, Level1/Page1 
+2014-03-03 20:35:32.0111  24 Warn                           serverlogger                   Warn Message generated on server, Level1/Page1 
+2014-03-03 20:36:26.4472  17 Warn                           serverlogger                   Warn Message generated on server 
+2014-03-03 20:36:26.5042  28 Fatal                          jsLogger                       log message 
+2014-03-03 20:36:29.8964  38 Warn                           serverlogger                   Warn Message generated on server, Level1/Page1 
+2014-03-03 20:39:31.0468  45 Warn                           serverlogger                   Warn Message generated on server, Level1/Page1 
+2014-03-03 20:39:31.1658  44 Fatal                          jsLogger                       log message from Level1/Page1 
+2014-03-03 20:39:58.3764  46 Warn                           serverlogger                   Warn Message generated on server, Level1/Page1 
+2014-03-03 20:39:58.4414  43 Fatal                          jsLogger                       log message from Level1/Page1 

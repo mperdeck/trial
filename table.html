@@ -7,12 +7,17 @@
 
     <style>
         table {
-            width: 100%;
+            /*width: 100%;*/
+            /*max-width: 700px;*/
             max-width: 700px;
+            table-layout: fixed;
+            min-width: 400px;
         }
         
-        td {
+        th, td {
             border-top: 1px red solid;
+            padding: 10px 10px;
+            vertical-align: top;
         }
 
         .date {
@@ -21,16 +26,21 @@
         }
 
         .description {
+            /*width: 200px;*/
             /*width: 30%;*/
         }
 
         .amount {
             width: 0;
             white-space: nowrap;
+            text-align: right;
         }
 
         .more {
             /*width: 30%;*/
+            width: 0;
+            white-space: nowrap;
+            text-align: right;
         }
 
     </style>
@@ -50,13 +60,19 @@
                 <td class="date">24 Aug 2015</td>
                 <td class="description">The great white mouse stormed onto the beach</td>
                 <td class="amount">$4300.33</td>
-                <td class="more">White, with red eyes</td>
+                <td class="more">89</td>
             </tr>
             <tr>
                 <td class="date">24 Aug 2016</td>
                 <td class="description">The little big cat fell asleep on the beach after eating the great white mouse</td>
                 <td class="amount">$4300</td>
-                <td class="more">White, with red eyes and a very big mouth</td>
+                <td class="more">1200</td>
+            </tr>
+            <tr>
+                <td class="date">24 Aug 2015</td>
+                <td class="description">The great white mouse stormed onto the beach</td>
+                <td class="amount">$4300.33</td>
+                <td class="more">89</td>
             </tr>
         </tbody>
     </table>
