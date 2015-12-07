@@ -1,0 +1,10 @@
+{
+  "AppSettings": {
+    "SiteTitle": "Fresh4"
+  },
+  "Data": {
+    "DefaultConnection": {
+      "ConnectionString": "Server=(localdb)\\mssqllocaldb;Database=aspnet5-Fresh4-a8771338-6a47-4c97-b195-91f0f4363f6a;Trusted_Connection=True;MultipleActiveResultSets=true"
+    }
+  }
+}
