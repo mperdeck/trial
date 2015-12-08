@@ -16,9 +16,50 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using WebApplication1.Models;
 using WebApplication1.Services;
+using Microsoft.AspNet.Http;
+using System.Text;
 
 namespace WebApplication1
 {
+    public class BasicAuthentication
+    {
+        private readonly RequestDelegate next;
+
+        public BasicAuthentication(RequestDelegate next)
+        {
+            this.next = next;
+        }
+
+        public async Task Invoke(HttpContext context)
+        {
+            try
+            {
+                await next(context);
+
+
+                byte[] toBytes = Encoding.UTF8.GetBytes("<hr /><p>blah blah</p>");
+                int len = toBytes.GetLength(0);
+
+                context.Response.Body.Write(toBytes,0, len);
+
+
+            }
+            catch (Exception)
+            {
+            }
+        }
+    }
+
+    public static class BasicAuthenticationExtensions
+    {
+        public static void UseBasicAuthentication(this IApplicationBuilder builder)
+        {
+            builder.UseMiddleware<BasicAuthentication>();
+        }
+    }
+
+    // ----------------------------------------------------------------
+
     public class Startup
     {
         public Startup(IHostingEnvironment env)
@@ -90,6 +131,9 @@ namespace WebApplication1
             }
 
             app.UseIISPlatformHandler(options => options.AuthenticationDescriptions.Clear());
+
+            //###################################
+            app.UseBasicAuthentication();
 
             app.UseStaticFiles();
 
