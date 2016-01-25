@@ -1,0 +1,127 @@
+{
+  "locked": false,
+  "version": 2,
+  "targets": {
+    ".NETFramework,Version=v4.0": {
+      "Common.Logging/3.3.1": {
+        "type": "package",
+        "dependencies": {
+          "Common.Logging.Core": "3.3.1"
+        },
+        "compile": {
+          "lib/net40/Common.Logging.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Common.Logging.dll": {}
+        }
+      },
+      "Common.Logging.Core/3.3.1": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Common.Logging.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Common.Logging.Core.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.0/win7-x86": {
+      "Common.Logging/3.3.1": {
+        "type": "package",
+        "dependencies": {
+          "Common.Logging.Core": "3.3.1"
+        },
+        "compile": {
+          "lib/net40/Common.Logging.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Common.Logging.dll": {}
+        }
+      },
+      "Common.Logging.Core/3.3.1": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Common.Logging.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Common.Logging.Core.dll": {}
+        }
+      }
+    },
+    ".NETFramework,Version=v4.0/win7-x64": {
+      "Common.Logging/3.3.1": {
+        "type": "package",
+        "dependencies": {
+          "Common.Logging.Core": "3.3.1"
+        },
+        "compile": {
+          "lib/net40/Common.Logging.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Common.Logging.dll": {}
+        }
+      },
+      "Common.Logging.Core/3.3.1": {
+        "type": "package",
+        "compile": {
+          "lib/net40/Common.Logging.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net40/Common.Logging.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Common.Logging/3.3.1": {
+      "type": "package",
+      "sha512": "Wv07G5iQ+yUHI3RWqXGFys3N7Gd7vx+OYFGw4kcqfCSoWMJJLNVZqB/zyqPC8kqxE7Ezcj1YrU7zGC3/gUXF3A==",
+      "files": [
+        "Common.Logging.3.3.1.nupkg",
+        "Common.Logging.3.3.1.nupkg.sha512",
+        "Common.Logging.3.3.1.zip",
+        "Common.Logging.3.3.1/[Content_Types].xml",
+        "Common.Logging.3.3.1/_rels/.rels",
+        "Common.Logging.3.3.1/Common.Logging.nuspec",
+        "Common.Logging.3.3.1/lib/net35/Common.Logging.dll",
+        "Common.Logging.3.3.1/lib/net35/Common.Logging.pdb",
+        "Common.Logging.3.3.1/lib/net35/Common.Logging.xml",
+        "Common.Logging.3.3.1/lib/net40/Common.Logging.dll",
+        "Common.Logging.3.3.1/lib/net40/Common.Logging.pdb",
+        "Common.Logging.3.3.1/lib/net40/Common.Logging.xml",
+        "Common.Logging.3.3.1/package/services/metadata/core-properties/561e297200d744029f9c05ea28a4e893.psmdcp",
+        "Common.Logging.nuspec",
+        "lib/net35/Common.Logging.dll",
+        "lib/net35/Common.Logging.pdb",
+        "lib/net35/Common.Logging.xml",
+        "lib/net40/Common.Logging.dll",
+        "lib/net40/Common.Logging.pdb",
+        "lib/net40/Common.Logging.xml"
+      ]
+    },
+    "Common.Logging.Core/3.3.1": {
+      "type": "package",
+      "sha512": "geJ4X7mjL/KDXNMfJbq6TnZfZ0bbEFi1HpS3Ayv09ZKxBgKaL0KysAw4k8w7DSE/nk0nDwkQEmStRxBIpBlsAQ==",
+      "files": [
+        "Common.Logging.Core.3.3.1.nupkg",
+        "Common.Logging.Core.3.3.1.nupkg.sha512",
+        "Common.Logging.Core.nuspec",
+        "lib/net35/Common.Logging.Core.dll",
+        "lib/net35/Common.Logging.Core.pdb",
+        "lib/net35/Common.Logging.Core.xml",
+        "lib/net40/Common.Logging.Core.dll",
+        "lib/net40/Common.Logging.Core.pdb",
+        "lib/net40/Common.Logging.Core.xml",
+        "lib/portable-win+net40+sl40+wp7/Common.Logging.Core.dll",
+        "lib/portable-win+net40+sl40+wp7/Common.Logging.Core.pdb",
+        "lib/portable-win+net40+sl40+wp7/Common.Logging.Core.XML"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "": [
+      "Common.Logging >= 3.3.1"
+    ],
+    ".NETFramework,Version=v4.0": []
+  }
+}

@@ -1,0 +1,14 @@
+﻿{
+  "version": "1.0.0",
+  "description": "Helpers Class Library",
+  "authors": [ "mperdeck" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+  "frameworks": {
+    "net40": { }
+  },
+  "dependencies": {
+    "Common.Logging": "3.3.1"
+  }
+}

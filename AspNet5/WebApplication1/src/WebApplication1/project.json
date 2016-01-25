@@ -34,7 +34,11 @@
   },
 
   "frameworks": {
-    "dnx451": { }
+    "dnx451": {
+      "dependencies": {
+        "Test2TagHelpers": "1.0.0-*"
+      }
+    }
   },
 
   "exclude": [

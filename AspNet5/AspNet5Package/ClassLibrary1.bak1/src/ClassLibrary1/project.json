@@ -1,0 +1,22 @@
+﻿{
+  "version": "1.1.0",
+  "description": "ClassLibrary1 Class Library",
+  "authors": [ "mperdeck" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+
+  "frameworks": {
+    "dnx45": {
+      "dependencies": {
+      }
+    },
+    "dnxcore50": {
+      "dependencies": {
+        "System.Runtime": "4.0.20",
+        "System.Runtime.InteropServices": "4.0.20"
+      }
+    },
+    "net40": { }
+  }
+}

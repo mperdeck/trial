@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>ClassLibrary1</id>
+    <version>1.19.0</version>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <authors>mperdeck</authors>
+    <owners>mperdeck</owners>
+    <description>ClassLibrary1 Class Library</description>
+    <dependencies>
+      <group targetFramework="DNX4.5.1">
+        <dependency id="Common.Logging" version="3.3.1" />
+       <!-- 
+        <dependency id="Microsoft.AspNet.Http.Abstractions" version="1.0.0-rc1-final" />
+-->
+      </group>
+      <group targetFramework="DNXCore5.0">
+        <dependency id="System.Runtime" version="4.0.20" />
+        <dependency id="System.Runtime.InteropServices" version="4.0.20" />
+       <!-- 
+<dependency id="Microsoft.AspNet.Http.Abstractions" version="1.0.0-rc1-final" /> 
+-->
+      </group>
+      <group targetFramework=".NETFramework4.0">
+        <dependency id="Common.Logging" version="3.3.1" />
+        <dependency id="Microsoft.Owin" version="2.1.0" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="mscorlib" targetFramework="DNX4.5.1" />
+      <frameworkAssembly assemblyName="System" targetFramework="DNX4.5.1" />
+      <frameworkAssembly assemblyName="System.Core" targetFramework="DNX4.5.1" />
+      <frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework="DNX4.5.1" />
+      <frameworkAssembly assemblyName="mscorlib" targetFramework=".NETFramework4.0" />
+      <frameworkAssembly assemblyName="System" targetFramework=".NETFramework4.0" />
+      <frameworkAssembly assemblyName="System.Core" targetFramework=".NETFramework4.0" />
+      <frameworkAssembly assemblyName="Microsoft.CSharp" targetFramework=".NETFramework4.0" />
+    </frameworkAssemblies>
+  </metadata>
+  <files>
+        <file src="bin\Release\net40\*"     target="lib\net40\" />
+        <file src="bin\Release\dnx451\*"    target="lib\dnx451\" />
+        <file src="bin\Release\dnxcore50\*" target="lib\dnxcore50\" />
+
+        <file src="NuGet\content\Scripts\*.*"   target="content\Scripts" />
+        <file src="NuGet\content\App_Start\*.*" target="content\App_Start" />
+        <file src="NuGet\content\*.*"           target="content" />
+        <file src="NuGet\readme.txt"            target="" />
+  </files>
+</package>
+

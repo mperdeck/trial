@@ -19,6 +19,8 @@ using WebApplication1.Services;
 using Microsoft.AspNet.Http;
 using System.Text;
 
+using Microsoft.Extensions.Primitives;
+
 namespace WebApplication1
 {
     public class BasicAuthentication
@@ -35,6 +37,10 @@ namespace WebApplication1
             try
             {
                 await next(context);
+
+
+                var x = new StringValues();
+                IReadableStringCollection y = null;
 
 
                 byte[] toBytes = Encoding.UTF8.GetBytes("<hr /><p>blah blah</p>");
