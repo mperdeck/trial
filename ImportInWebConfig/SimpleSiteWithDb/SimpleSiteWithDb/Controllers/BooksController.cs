@@ -31,7 +31,7 @@ namespace SimpleSiteWithDb.Controllers
         {
             using (var db = new BookStoreContext("BookStoreConnectionString"))
             {
-                string testkey = WebConfigurationManager.AppSettings["TestKey"];
+                string testkey = WebConfigurationManager.AppSettings["TestKey2"];
                 book.Name += testkey;
 
 

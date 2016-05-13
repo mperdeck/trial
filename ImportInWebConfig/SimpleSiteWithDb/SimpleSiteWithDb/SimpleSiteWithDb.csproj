@@ -168,34 +168,12 @@
     <Content Include="Deploy.ps1" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="admin.config">
+    <Content Include="config\admin.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="admin.Debug.config">
-      <DependentUpon>admin.config</DependentUpon>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="admin.Release.config">
-      <DependentUpon>admin.config</DependentUpon>
-      <SubType>Designer</SubType>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="environmentAppSettings.config">
-      <SubType>Designer</SubType>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="environmentAppSettings.Debug.config">
-      <DependentUpon>environmentAppSettings.config</DependentUpon>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="environmentAppSettings.Release.config">
-      <DependentUpon>environmentAppSettings.config</DependentUpon>
+    <Content Include="config\environmentAppSettings.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
