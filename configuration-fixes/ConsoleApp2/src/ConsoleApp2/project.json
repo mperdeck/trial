@@ -1,6 +1,6 @@
-{
+﻿{
   "version": "1.0.0-*",
-  "description": "ConsoleApp1 Console Application",
+  "description": "ConsoleApp2 Console Application",
   "authors": [ "mperdeck" ],
   "tags": [ "" ],
   "projectUrl": "",
@@ -11,12 +11,10 @@
   },
 
   "dependencies": {
-    "Microsoft.Extensions.Configuration": "1.0.0-rc1-final",
-    "Microsoft.Extensions.Configuration.CommandLine": "1.0.0-rc1-final"
   },
 
   "commands": {
-    "ConsoleApp1": "ConsoleApp1"
+    "ConsoleApp2": "ConsoleApp2"
   },
 
   "frameworks": {

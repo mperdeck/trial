@@ -1,0 +1,13 @@
+
+cd C:\Dev\trial\Angular2\angular2-quickstart
+cd C:\Dev\trial\Angular2\angular2-tour-of-heroes
+
+
+npm install
+
+npm start
+
+
+
+
+

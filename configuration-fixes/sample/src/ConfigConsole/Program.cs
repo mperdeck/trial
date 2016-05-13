@@ -7,7 +7,7 @@ namespace ConfigConsole
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public void Main(string[] args)
         {
             var builder = new ConfigurationBuilder();
             Console.WriteLine("Initial Config Providers: " + builder.Providers.Count());
@@ -27,5 +27,3 @@ namespace ConfigConsole
         }
     }
 }
-
-

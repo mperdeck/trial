@@ -1,14 +1,10 @@
 {
   "version": "1.0.0-*",
-  "description": "ConsoleApp1 Console Application",
-  "authors": [ "mperdeck" ],
+  "description": "ConfigConsole Console Application",
+  "authors": [ "" ],
   "tags": [ "" ],
   "projectUrl": "",
   "licenseUrl": "",
-
-  "compilationOptions": {
-    "emitEntryPoint": true
-  },
 
   "dependencies": {
     "Microsoft.Extensions.Configuration": "1.0.0-rc1-final",
@@ -16,7 +12,7 @@
   },
 
   "commands": {
-    "ConsoleApp1": "ConsoleApp1"
+    "ConfigConsole": "ConfigConsole"
   },
 
   "frameworks": {
