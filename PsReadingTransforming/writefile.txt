@@ -1,11 +1,17 @@
 
 $config = @"
-key1`tvalue1
-key2`tvalue2
-key4`tvalue4
+WebsiteDomain`tuat.ctars.com.au
+Version`t10.1.5
+DbServer`tkkkk.cccc
 "@
-new-item "d:\temp2" -itemtype directory -force
-$config | Out-File -filePath "d:\temp2\somefile.csv" -encoding "UTF8" -force
+new-item "C:\Dev\trial\PsReadingTransforming\config" -itemtype directory -force
+$config | Out-File -filePath "C:\Dev\trial\PsReadingTransforming\config\environment.csv" -encoding "UTF8" -force
 
+------------------------------------
+cd C:\dev\trial\PsReadingTransforming
+
+copy C:\Dev\trial\PsReadingTransforming\website\Web.config.original C:\Dev\trial\PsReadingTransforming\website\Web.config
+
+.\UpdateFile -webConfigPath C:\Dev\trial\PsReadingTransforming\website\Web.config -environmentCsvPath C:\Dev\trial\PsReadingTransforming\config\environment.csv
 
 

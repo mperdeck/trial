@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- For more information on using web.config transformation visit http://go.microsoft.com/fwlink/?LinkId=125889 -->
+
+<configuration xmlns:xdt="http://schemas.microsoft.com/XML-Document-Transform">
+  <configSections>
+    <section name="RaygunSettings" type="Mindscape.Raygun4Net.RaygunSettings, Mindscape.Raygun4Net" xdt:Transform="Insert" />
+  </configSections>
+  <appSettings>
+    <add key="EnforceHttps" value="true" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
+    <add key="EnforcedDomain" value="{{WebsiteDomain}}" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
+    <add key="SiteVersion" value="{{Version}}" xdt:Transform="SetAttributes" xdt:Locator="Match(key)" />
+  </appSettings>
+  <connectionStrings xdt:Transform="Insert">
+    <add name="BlueChilli.CTARS.Data.DataContext" providerName="System.Data.SqlClient"
+      connectionString="Data Source={{DbServer}};Initial Catalog=CTARS;User Id={{DbUsername}}; Password={{DbPassword}};"/>
+  </connectionStrings>
+  <system.net>
+    <mailSettings>
+      <smtp>
+        <network enableSsl="true" host="email-smtp.us-east-1.amazonaws.com" port="587" userName="AKIAJZNZYKLVCO2WG6TQ" password="AlrMcooM2bE2FGFyLxITIO5Hhq5unSHYZEgfMXUKVZEF" xdt:Transform="SetAttributes" />
+      </smtp>
+    </mailSettings>
+  </system.net>
+  <system.web>
+    <compilation xdt:Transform="RemoveAttributes(debug)" />
+    <httpModules>
+      <add name="RaygunErrorModule" type="Mindscape.Raygun4Net.RaygunHttpModule" xdt:Transform="Insert" />
+    </httpModules>
+  </system.web>
+  <system.webServer>
+    <modules runAllManagedModulesForAllRequests="true">
+      <add name="RaygunErrorModule" type="Mindscape.Raygun4Net.RaygunHttpModule" xdt:Transform="Insert" />
+    </modules>
+  </system.webServer>
+  <api apikey="FE1D5A81-E90B-41B0-8697-416F006D6895" xdt:Transform="Replace"/>
+  <BlueChilliProjectConfiguration baseUrl="https://app.ctars.com.au" projectEnvironment="Production" xdt:Transform="SetAttributes">
+    <googleAnalytics enabled="false" account="insert key here" xdt:Transform="Replace" />
+    <s3 bucket="ctars-live" accessKeyId="AKIAIOHFOCXB3EKLUBVQ" secretAccessKey="0sihvCDhoZSl7b9XxWU1joZ/iuxB2KZXJo/zWYCc" offline="false" host="s3-ap-southeast-2.amazonaws.com" xdt:Transform="Replace" />
+  </BlueChilliProjectConfiguration>
+  <resizer xdt:Transform="Replace">
+    <plugins>
+      <add name="S3Reader2" buckets="ctars-live" accessKeyId="AKIAIOHFOCXB3EKLUBVQ" secretAccessKey="0sihvCDhoZSl7b9XxWU1joZ/iuxB2KZXJo/zWYCc" checkForModifiedFiles="true" />
+      <add name="AutoRotate" />
+      <add name="DiskCache" />
+      <add name="PrettyGifs" />
+    </plugins>
+    <diskCache dir="~/App_Data/ImageCache" />
+  </resizer>
+  <StripeService apiKey="insert key here" planId="" discountPlanId="" discountThreshold="5" planInterval="Monthly" useSalesRegister="true" salesRegisterIsTestMode="true" xdt:Transform="Replace"/>
+  <RaygunSettings apikey="g7I2MDwo2deGMFfhQvwDtw==" xdt:Transform="Insert" />
+  <location path="elmah.axd">
+  </location>
+</configuration>
