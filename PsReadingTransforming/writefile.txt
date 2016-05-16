@@ -1,0 +1,59 @@
+
+#Construct an out-array to use for data export
+$OutArray = @()
+#The computer loop you already have
+foreach ($server in $serverlist)
+    {
+        #Construct an object
+        $myobj = "" | Select "computer","Speed","Regcheck"
+        #fill the object
+        $myobj.computer = $computer
+        $myobj.speed = $speed
+        $myobj.regcheck = $regcheck
+
+        #Add the object to the out-array
+        $outarray += $myobj
+
+        #Wipe the object just to be sure
+        $myobj = $null
+    }
+
+#After the loop, export the array to CSV
+$outarray | export-csv "c:\temp\somefile.csv"
+
+----------------------------
+
+$configArray = @()
+$config = "" | Select "key","value"
+$config.key = 'key1' ; $config.value = 'value1' ; $configArray += $config
+$config.key = 'key2' ; $config.value = 'valu''e2' ; $configArray += $config
+$config.key = 'key3' ; $config.value = 'valu"e2' ; $configArray += $config
+$configArray | export-csv "d:\temp\somefile.csv"
+
+-----------------------
+
+$x = @"
+"Curiouser and curiouser!" `tcried Alice       (she was so much surprised, 
+that for the moment she quite`tforgot how to speak good English); 
+"now I'm opening out like the largest telescope that ever was! 
+Good-bye, feet!" 
+"@
+new-item "d:\temp2" -itemtype directory -force
+$x | Out-File -filePath "d:\temp2\somefile.csv" -encoding "UTF8" -force
+
+
+-----------------------
+
+$config = @"
+key1`tvalue1
+key2`tvalue2
+key4`tvalue4
+"@
+new-item "d:\temp2" -itemtype directory -force
+$config | Out-File -filePath "d:\temp2\somefile.csv" -encoding "UTF8" -force
+
+
+new-item "d:\temp2" -itemtype directory -force
+
+
+
