@@ -46,7 +46,7 @@ namespace SimpleSiteWithDb.Controllers
                 db.Books.Add(book);
 
                 var booklet = new Booklet { ISDNlet = "88" };
-                var booklet2 = new Booklet2 { ISDNlet = "88" };
+                var booklet2 = new Booklet2 { ISDNlet2 = "88" };
 
                 db.Booklets.Add(booklet);
               db.Booklet2s.Add(booklet2);

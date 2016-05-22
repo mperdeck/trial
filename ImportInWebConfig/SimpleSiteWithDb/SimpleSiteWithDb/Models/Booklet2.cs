@@ -9,7 +9,7 @@ namespace SimpleSiteWithDb.Models
     {
         public int Booklet2Id { get; set; }
         public string Name { get; set; }
-        public string ISDNlet { get; set; }
+        public string ISDNlet2 { get; set; }
 
     }
 }
