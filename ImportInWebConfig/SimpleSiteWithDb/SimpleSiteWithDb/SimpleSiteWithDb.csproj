@@ -136,6 +136,10 @@
     <Compile Include="Migrations\201605221440387_3.Designer.cs">
       <DependentUpon>201605221440387_3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605221458067_renamefield.cs" />
+    <Compile Include="Migrations\201605221458067_renamefield.Designer.cs">
+      <DependentUpon>201605221458067_renamefield.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Booklet3.cs" />
     <Compile Include="Models\Booklet2.cs" />
@@ -201,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605221440387_3.resx">
       <DependentUpon>201605221440387_3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605221458067_renamefield.resx">
+      <DependentUpon>201605221458067_renamefield.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
