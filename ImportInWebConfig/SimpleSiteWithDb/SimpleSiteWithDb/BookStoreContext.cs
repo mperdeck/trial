@@ -9,11 +9,18 @@ namespace SimpleSiteWithDb
 {
     public class BookStoreContext: DbContext
     {
+        public BookStoreContext()
+            : this("BookStoreConnectionString")
+        {
+        }
+
         public BookStoreContext(string connString)
             : base(connString)
         {
         }
         
-        public DbSet<Book> Books { get; set; } 
+        public DbSet<Book> Books { get; set; }
+        public DbSet<Booklet> Booklets { get; set; }
+//        public DbSet<Booklet> Booklet2s { get; set; }
     }
 }
