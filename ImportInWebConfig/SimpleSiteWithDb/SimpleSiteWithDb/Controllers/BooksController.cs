@@ -14,7 +14,7 @@ namespace SimpleSiteWithDb.Controllers
     {
         public ActionResult Index()
         {
-            using (var db = new BookStoreContext("BookStoreConnectionString"))
+            using (var db = new BookStoreContext())
             {
                 return View(db.Books.ToList());
             } 
@@ -30,7 +30,7 @@ namespace SimpleSiteWithDb.Controllers
         [HttpPost]
         public ActionResult Add(Book book)
         {
-            using (var db = new BookStoreContext("BookStoreConnectionString"))
+            using (var db = new BookStoreContext())
             {
                 NameValueCollection test = (NameValueCollection)ConfigurationManager.GetSection("genericAppSettings");
                 NameValueCollection test2 = (NameValueCollection)ConfigurationManager.GetSection("genericAppSettings2");
