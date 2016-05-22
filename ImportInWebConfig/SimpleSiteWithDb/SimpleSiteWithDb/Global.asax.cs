@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BlueChilli.CTARS.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -15,6 +16,7 @@ namespace SimpleSiteWithDb
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+            DatabaseInitialization.Initialize();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
