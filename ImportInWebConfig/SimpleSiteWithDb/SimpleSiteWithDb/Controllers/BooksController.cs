@@ -49,7 +49,7 @@ namespace SimpleSiteWithDb.Controllers
                 var booklet2 = new Booklet2 { ISDNlet = "88" };
 
                 db.Booklets.Add(booklet);
- //               db.Booklet2s.Add(booklet2);
+              db.Booklet2s.Add(booklet2);
                 db.SaveChanges(); 
             }
             return View(book);
