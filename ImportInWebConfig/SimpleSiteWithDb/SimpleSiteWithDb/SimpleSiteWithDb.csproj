@@ -128,17 +128,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201605221257385_booklet.cs" />
-    <Compile Include="Migrations\201605221257385_booklet.Designer.cs">
-      <DependentUpon>201605221257385_booklet.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605221415114_booklet2.cs" />
-    <Compile Include="Migrations\201605221415114_booklet2.Designer.cs">
-      <DependentUpon>201605221415114_booklet2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605221423361_book.cs" />
-    <Compile Include="Migrations\201605221423361_book.Designer.cs">
-      <DependentUpon>201605221423361_book.cs</DependentUpon>
+    <Compile Include="Migrations\201605221432477_init.cs" />
+    <Compile Include="Migrations\201605221432477_init.Designer.cs">
+      <DependentUpon>201605221432477_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Booklet2.cs" />
@@ -199,14 +191,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605221257385_booklet.resx">
-      <DependentUpon>201605221257385_booklet.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605221415114_booklet2.resx">
-      <DependentUpon>201605221415114_booklet2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605221423361_book.resx">
-      <DependentUpon>201605221423361_book.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201605221432477_init.resx">
+      <DependentUpon>201605221432477_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
