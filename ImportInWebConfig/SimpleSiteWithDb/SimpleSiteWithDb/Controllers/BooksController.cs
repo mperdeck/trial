@@ -40,7 +40,7 @@ namespace SimpleSiteWithDb.Controllers
 
 
                 string testkey = WebConfigurationManager.AppSettings["TestKey2"];
-                book.Name += testkey + a;
+                book.Name += "v1:" + testkey + a;
 
 
                 db.Books.Add(book);

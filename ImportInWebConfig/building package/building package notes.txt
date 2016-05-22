@@ -1,0 +1,10 @@
+http://stackoverflow.com/questions/16246562/using-msbuild-to-execute-a-file-system-publish-profile
+
+http://stackoverflow.com/questions/13920146/using-msbuild-exe-to-publish-a-asp-net-mvc-4-project-with-the-cmd-line
+
+http://sedodream.com/2012/10/27/msbuildhowtosettheconfigurationproperty.aspx
+
+cd C:\Dev\trial\ImportInWebConfig\SimpleSiteWithDb
+msbuild SimpleSiteWithDb.sln /p:DeployOnBuild=true /p:PublishProfile=test2
+
+
