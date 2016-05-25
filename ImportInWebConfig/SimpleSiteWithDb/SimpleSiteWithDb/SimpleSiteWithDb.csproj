@@ -128,10 +128,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201605251044532_booklet4.cs" />
-    <Compile Include="Migrations\201605251044532_booklet4.Designer.cs">
-      <DependentUpon>201605251044532_booklet4.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Booklet4.cs" />
     <Compile Include="Models\Booklet3.cs" />
@@ -191,11 +187,6 @@
     <None Include="Properties\PublishProfiles\test2.pubxml">
       <SubType>Designer</SubType>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605251044532_booklet4.resx">
-      <DependentUpon>201605251044532_booklet4.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
