@@ -7,13 +7,13 @@ namespace SimpleSiteWithDb.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class init : IMigrationMetadata
+    public sealed partial class data1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(data1));
         
         string IMigrationMetadata.Id
         {
-            get { return "201605251057483_init"; }
+            get { return "201605251141418_data1"; }
         }
         
         string IMigrationMetadata.Source

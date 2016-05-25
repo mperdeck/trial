@@ -24,6 +24,6 @@ namespace SimpleSiteWithDb
         public DbSet<Booklet2> Booklet2s { get; set; }
         public DbSet<Booklet3> Booklet3s { get; set; }
         public DbSet<Booklet4> Booklet4s { get; set; }
-        public DbSet<Booklet5> Booklet5s { get; set; }
+   //     public DbSet<Booklet5> Booklet5s { get; set; }
     }
 }
