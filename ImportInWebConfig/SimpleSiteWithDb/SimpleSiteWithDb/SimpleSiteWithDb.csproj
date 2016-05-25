@@ -128,19 +128,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201605221432477_init.cs" />
-    <Compile Include="Migrations\201605221432477_init.Designer.cs">
-      <DependentUpon>201605221432477_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605221440387_3.cs" />
-    <Compile Include="Migrations\201605221440387_3.Designer.cs">
-      <DependentUpon>201605221440387_3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605221458067_renamefield.cs" />
-    <Compile Include="Migrations\201605221458067_renamefield.Designer.cs">
-      <DependentUpon>201605221458067_renamefield.cs</DependentUpon>
+    <Compile Include="Migrations\201605251044532_booklet4.cs" />
+    <Compile Include="Migrations\201605251044532_booklet4.Designer.cs">
+      <DependentUpon>201605251044532_booklet4.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Booklet4.cs" />
     <Compile Include="Models\Booklet3.cs" />
     <Compile Include="Models\Booklet2.cs" />
     <Compile Include="Models\Booklet.cs" />
@@ -200,14 +193,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605221432477_init.resx">
-      <DependentUpon>201605221432477_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605221440387_3.resx">
-      <DependentUpon>201605221440387_3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605221458067_renamefield.resx">
-      <DependentUpon>201605221458067_renamefield.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201605251044532_booklet4.resx">
+      <DependentUpon>201605251044532_booklet4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
