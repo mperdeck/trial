@@ -9,8 +9,8 @@ namespace SimpleSiteWithDb.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
-            AutomaticMigrationDataLossAllowed = true;
+            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationDataLossAllowed = false;
         }
 
         protected override void Seed(SimpleSiteWithDb.BookStoreContext context)
