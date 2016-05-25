@@ -132,6 +132,10 @@
     <Compile Include="Migrations\201605251057483_init.Designer.cs">
       <DependentUpon>201605251057483_init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605251108405_4.cs" />
+    <Compile Include="Migrations\201605251108405_4.Designer.cs">
+      <DependentUpon>201605251108405_4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Booklet5.cs" />
     <Compile Include="Models\Booklet4.cs" />
@@ -196,6 +200,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201605251057483_init.resx">
       <DependentUpon>201605251057483_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605251108405_4.resx">
+      <DependentUpon>201605251108405_4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
