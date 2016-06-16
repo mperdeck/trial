@@ -1,0 +1,9 @@
+
+npm install https://github.com/indexzero/forever/tarball/v0.5.6
+https://github.com/jFensch/jsnlog-example
+
+npm install https://github.com/jFensch/jsnlog-example/tarball/v1.0.0
+
+npm install C:\Dev\trial\jldefproblem\jsnlog-example-master\jsnlog-example-master
+
+
