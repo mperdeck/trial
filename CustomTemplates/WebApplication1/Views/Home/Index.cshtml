@@ -1,0 +1,15 @@
+﻿@using WebApplication1.Models
+@model IEnumerable<Product>
+
+
+<table>
+    @foreach (var p in Model)
+    {
+        <tr>
+            <td>@p.Name</td>
+            <td>@p.CatalogId</td>
+        </tr>
+    }
+</table>
+
+@Html.ActionLink("Add", "Add")
