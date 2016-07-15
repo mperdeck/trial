@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WebApplication1.Models
 {
-    public class Product
+    public class Product: ProdBase
     {
         [ScaffoldColumn(false)]
         public int ProductId { get; set; }

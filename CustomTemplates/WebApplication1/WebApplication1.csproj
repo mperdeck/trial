@@ -199,6 +199,9 @@
     </Compile>
     <Compile Include="Models\dbInitialiser.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\prod2.cs" />
+    <Compile Include="Models\prod1.cs" />
+    <Compile Include="Models\ProdBase.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
