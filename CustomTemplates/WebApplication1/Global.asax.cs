@@ -16,6 +16,9 @@ namespace WebApplication1
 {
     public class MvcApplication : System.Web.HttpApplication
     {
+        public static int id = 5;
+
+
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
@@ -27,12 +30,24 @@ namespace WebApplication1
 
 
 
+            var initializer = new DropCreateAndMigrateDatabaseInitializer<ProductContext, Configuration>();
+            Database.SetInitializer<ProductContext>(initializer);
 
-            Database.SetInitializer<ProductContext>(new MigrateDatabaseToLatestVersion<ProductContext, Configuration>());
-            using (var db = new ProductContext())
+            using (var ctx = new ProductContext("DefaultConnection2"))
             {
-                db.Database.Initialize(true);
+                ctx.Database.Initialize(force: true);
             }
+
+
+
+
+
+            //Database.SetInitializer<ProductContext>(new MigrateDatabaseToLatestVersion<ProductContext, Configuration>());
+            //using (var db = new ProductContext())
+            //{
+            //    db.Database.Delete();
+            //    db.Database.Initialize(true);
+            //}
 
 
 
