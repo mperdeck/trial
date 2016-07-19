@@ -8,7 +8,7 @@ namespace WebApplication1.Models
 {
     public class ProductContext : DbContext
     {
-        public ProductContext() : base()
+        public ProductContext() : base("DefaultConnection")
         {
         }
 
