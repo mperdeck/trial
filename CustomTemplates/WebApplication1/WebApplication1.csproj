@@ -202,7 +202,6 @@
       <DependentUpon>201607191312073_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Configuration.cs" />
-    <Compile Include="Models\dbInitialiser.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\prod2.cs" />
     <Compile Include="Models\prod1.cs" />
