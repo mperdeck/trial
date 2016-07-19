@@ -6,6 +6,12 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
+
+using WebApplication1.Models;
+using System.Data.Entity;
+
+
+
 namespace WebApplication1
 {
     public class MvcApplication : System.Web.HttpApplication
@@ -16,6 +22,20 @@ namespace WebApplication1
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+
+
+
+
+
+            Database.SetInitializer<ProductContext>(new MigrateDatabaseToLatestVersion<ProductContext, Configuration>());
+            using (var db = new ProductContext())
+            {
+                db.Database.Initialize(true);
+            }
+
+
+
         }
     }
 }

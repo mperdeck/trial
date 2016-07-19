@@ -13,6 +13,15 @@ namespace WebApplication1.Controllers
         {
             using (var context = new ProductContext())
             {
+                var product = new Product();
+
+                product.Name = "xxxxxx";
+                product.Prod1 = new prod1() { p1a = "x", p1b = "y" };
+                product.Prod2 = new prod2() { p2a = "x2", p2b = "y2" };
+
+                context.Products.Add(product);
+                context.SaveChanges();
+
                 IEnumerable<Product> products = context.Products.ToList();
                 return View(products);
             }
@@ -34,6 +43,11 @@ namespace WebApplication1.Controllers
 
             using (var context = new ProductContext())
             {
+//                context.Database.Delete();
+
+
+
+
                 product.Prod1 = new prod1() { p1a = "x", p1b = "y" };
                 product.Prod2 = new prod2() { p2a = "x2", p2b = "y2" };
 

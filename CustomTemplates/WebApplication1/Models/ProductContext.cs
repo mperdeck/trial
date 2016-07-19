@@ -8,8 +8,10 @@ namespace WebApplication1.Models
 {
     public class ProductContext : DbContext
     {
-        public ProductContext() : base("DefaultConnection")
+        public ProductContext() : base("DefaultConnection2")
         {
+     //      Database.SetInitializer<ProductContext>(new CreateDatabaseIfNotExists<ProductContext>());
+
         }
 
         public DbSet<Product> Products { get; set; }
