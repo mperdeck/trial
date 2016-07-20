@@ -1,12 +1,14 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 
 namespace UnitTestProject1
 {
-    [TestClass]
-    public class UnitTest1
+    [TestFixture]
+    [Category("UITest")]
+    public class UnitTest1:TestBase
     {
-        [TestMethod]
+        [Test]
         public void TestMethod1()
         {
 
