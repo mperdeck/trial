@@ -13,7 +13,11 @@ namespace WebApplication1.Models
 
         public string Name { get; set; }
 
-        public int CatalogId { get; set; } 
+        public int CatalogId { get; set; }
+
+        public Product(): base()
+        {
+        }
     }
 }
 

@@ -22,7 +22,7 @@ namespace WebApplication1.Controllers
                 context.Products.Add(product);
                 context.SaveChanges();
 
-                IEnumerable<Product> products = context.Products.ToList();
+                List<Product> products = context.Products.ToList();
                 return View(products);
             }
         }

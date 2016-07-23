@@ -201,6 +201,7 @@
     <Compile Include="Migrations\201607191344434_init3.Designer.cs">
       <DependentUpon>201607191344434_init3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Child.cs" />
     <Compile Include="Models\Configuration.cs" />
     <Compile Include="Models\DropCreateAndMigrateDatabaseInitializer.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
