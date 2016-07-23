@@ -7,6 +7,7 @@ namespace WebApplication1.Models
 {
     public class Child
     {
+        public int ChildId { get; set; }
         public string First { get; set; }
         public string Last { get; set; }
 

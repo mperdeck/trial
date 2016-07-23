@@ -1,0 +1,80 @@
+﻿@model WebApplication1.Models.Product
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Product</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CatalogId)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CatalogId)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.base1)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.base1)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.base2)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.base2)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Prod1)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Prod1)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Prod2)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Prod2)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

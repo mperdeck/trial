@@ -1,0 +1,71 @@
+﻿@model IEnumerable<WebApplication1.Models.Product>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table" border="1">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CatalogId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.base1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.base2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prod1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prod2)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CatalogId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.base1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.base2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prod1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prod2)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.ProductId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.ProductId }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.ProductId })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>
