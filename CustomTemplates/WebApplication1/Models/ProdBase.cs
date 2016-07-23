@@ -17,6 +17,7 @@ namespace WebApplication1.Models
 
         public ProdBase()
         {
+            Children = new List<Child>();
         }
     }
 }
