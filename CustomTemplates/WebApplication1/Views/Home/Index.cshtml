@@ -5,10 +5,9 @@
 <table>
     @foreach (var p in Model)
     {
-        <tr>
-            <td>@p.Name</td>
-            <td>@p.CatalogId</td>
-        </tr>
+        <p>
+            @Html.DisplayFor(m=>p)
+        </p>
     }
 </table>
 
