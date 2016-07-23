@@ -16,57 +16,9 @@
     <div>
         <h4>Product</h4>
         <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.Name)
-            </dt>
     
-            <dd>
-                @Html.DisplayFor(model => model.Name)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.CatalogId)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.CatalogId)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.base1)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.base1)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.base2)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.base2)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Prod1)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Prod1)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Prod2)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Prod2)
-            </dd>
-    
-        </dl>
-    
+        @Html.DisplayFor(m=>m)
+
         @using (Html.BeginForm()) {
             @Html.AntiForgeryToken()
     

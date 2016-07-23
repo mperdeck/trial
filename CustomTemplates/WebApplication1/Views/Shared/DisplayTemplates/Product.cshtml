@@ -1,9 +1,22 @@
 ﻿@model WebApplication1.Models.Product
 
-<div>
-    <h4>Product</h4>
-    <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CatalogId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CatalogId)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.base1)
         </dt>
@@ -21,24 +34,19 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.Prod1)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Name)
+            @Html.DisplayFor(model => model.Prod1)
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.CatalogId)
+            @Html.DisplayNameFor(model => model.Prod2)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CatalogId)
+            @Html.DisplayFor(model => model.Prod2)
         </dd>
 
     </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
