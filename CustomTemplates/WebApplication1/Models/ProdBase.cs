@@ -10,8 +10,8 @@ namespace WebApplication1.Models
         public string base1 { get; set; }
         public string base2 { get; set; }
 
-        public prod1 Prod1 { get; set; }
-        public prod2 Prod2 { get; set; }
+        //public prod1 Prod1 { get; set; }
+        //public prod2 Prod2 { get; set; }
 
         public List<Child> Children { get; set; }
 

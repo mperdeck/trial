@@ -46,7 +46,7 @@ namespace WebApplication1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductId,Name,CatalogId,base1,base2,Prod1,Prod2")] Product product)
+        public ActionResult Create(Product product)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace WebApplication1.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductId,Name,CatalogId,base1,base2,Prod1,Prod2")] Product product)
+        public ActionResult Edit(Product product)
         {
             if (ModelState.IsValid)
             {

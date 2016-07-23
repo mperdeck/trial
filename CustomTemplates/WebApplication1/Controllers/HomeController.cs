@@ -16,8 +16,8 @@ namespace WebApplication1.Controllers
                 var product = new Product();
 
                 product.Name = "xxxxxx";
-                product.Prod1 = new prod1() { p1a = "x", p1b = "y" };
-                product.Prod2 = new prod2() { p2a = "x2", p2b = "y2" };
+                //product.Prod1 = new prod1() { p1a = "x", p1b = "y" };
+                //product.Prod2 = new prod2() { p2a = "x2", p2b = "y2" };
 
                 var children = new List<Models.Child>();
                 children.Add(new Child() { First = "f1", Last = "l1" });
@@ -53,8 +53,8 @@ namespace WebApplication1.Controllers
 
 
 
-                product.Prod1 = new prod1() { p1a = "x", p1b = "y" };
-                product.Prod2 = new prod2() { p2a = "x2", p2b = "y2" };
+                //product.Prod1 = new prod1() { p1a = "x", p1b = "y" };
+                //product.Prod2 = new prod2() { p2a = "x2", p2b = "y2" };
 
                 context.Products.Add(product);
                 context.SaveChanges();

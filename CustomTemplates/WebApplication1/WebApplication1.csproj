@@ -207,6 +207,10 @@
     <Compile Include="Migrations\201607231040138_2.Designer.cs">
       <DependentUpon>201607231040138_2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201607231324313_3.cs" />
+    <Compile Include="Migrations\201607231324313_3.Designer.cs">
+      <DependentUpon>201607231324313_3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Child.cs" />
     <Compile Include="Models\Configuration.cs" />
     <Compile Include="Models\DropCreateAndMigrateDatabaseInitializer.cs" />
@@ -314,6 +318,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201607231040138_2.resx">
       <DependentUpon>201607231040138_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607231324313_3.resx">
+      <DependentUpon>201607231324313_3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
