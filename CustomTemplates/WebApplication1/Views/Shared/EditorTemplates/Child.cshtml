@@ -1,0 +1,19 @@
+﻿@model WebApplication1.Models.Child
+
+@Html.HiddenFor(model => model.ChildId)
+
+<div class="form-group">
+    @Html.LabelFor(model => model.First, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.First, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.First, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.Last, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.Last, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Last, "", new { @class = "text-danger" })
+    </div>
+</div>

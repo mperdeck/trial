@@ -10,107 +10,107 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
-    public class ProductsController : Controller
+    public class ChildrenController : Controller
     {
         private ProductContext db = new ProductContext();
 
-        // GET: Products
+        // GET: Children
         public ActionResult Index()
         {
-            return View(db.Products.ToList());
+            return View(db.Children.ToList());
         }
 
-        // GET: Products/Details/5
+        // GET: Children/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Where(p=>p.ProductId == id).Include(p=>p.Children).FirstOrDefault();
-            if (product == null)
+            Child child = db.Children.Find(id);
+            if (child == null)
             {
                 return HttpNotFound();
             }
-            return View(product);
+            return View(child);
         }
 
-        // GET: Products/Create
+        // GET: Children/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Products/Create
+        // POST: Children/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductId,Name,CatalogId,base1,base2,Prod1,Prod2")] Product product)
+        public ActionResult Create([Bind(Include = "ChildId,First,Last")] Child child)
         {
             if (ModelState.IsValid)
             {
-                db.Products.Add(product);
+                db.Children.Add(child);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(product);
+            return View(child);
         }
 
-        // GET: Products/Edit/5
+        // GET: Children/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Where(p => p.ProductId == id).Include(p => p.Children).FirstOrDefault();
-            if (product == null)
+            Child child = db.Children.Find(id);
+            if (child == null)
             {
                 return HttpNotFound();
             }
-            return View(product);
+            return View(child);
         }
 
-        // POST: Products/Edit/5
+        // POST: Children/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductId,Name,CatalogId,base1,base2,Prod1,Prod2")] Product product)
+        public ActionResult Edit([Bind(Include = "ChildId,First,Last")] Child child)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(product).State = EntityState.Modified;
+                db.Entry(child).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(product);
+            return View(child);
         }
 
-        // GET: Products/Delete/5
+        // GET: Children/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Product product = db.Products.Where(p => p.ProductId == id).Include(p => p.Children).FirstOrDefault();
-            if (product == null)
+            Child child = db.Children.Find(id);
+            if (child == null)
             {
                 return HttpNotFound();
             }
-            return View(product);
+            return View(child);
         }
 
-        // POST: Products/Delete/5
+        // POST: Children/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Product product = db.Products.Find(id);
-            db.Products.Remove(product);
+            Child child = db.Children.Find(id);
+            db.Children.Remove(child);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
