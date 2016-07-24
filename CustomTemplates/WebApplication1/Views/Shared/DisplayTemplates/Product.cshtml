@@ -1,8 +1,18 @@
 ﻿@model WebApplication1.Models.Product
 
-@Html.HiddenFor(m=>m.ProductId)
+@Html.HiddenFor(m => m.ProductId)
 
-    <dl class="dl-horizontal">
+@{
+    Type t = typeof(WebApplication1.Models.Product);
+    var members = t.GetMembers().Where(m=>m.MemberType == System.Reflection.MemberTypes.Property).OrderBy(m => m.Name);
+}
+
+@foreach (var member in members)
+{
+    <p>@member.Name</p>
+}
+
+<dl class="dl-horizontal">
     <dt>
         @Html.DisplayNameFor(model => model.Name)
     </dt>
