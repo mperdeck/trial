@@ -7,66 +7,17 @@
     var members = t.GetMembers().Where(m=>m.MemberType == System.Reflection.MemberTypes.Property).OrderBy(m => m.Name);
 }
 
-@foreach (var member in members)
-{
-    <p>@member.Name</p>
-}
-
 <dl class="dl-horizontal">
-    <dt>
-        @Html.DisplayNameFor(model => model.Name)
-    </dt>
-
-    <dd>
-        @Html.DisplayFor(model => model.Name)
-    </dd>
-
-    <dt>
-        @Html.DisplayNameFor(model => model.CatalogId)
-    </dt>
-
-    <dd>
-        @Html.Display("CatalogId")
-    </dd>
-
-    <dt>
-        @Html.DisplayNameFor(model => model.base1)
-    </dt>
-
-    <dd>
-        @Html.Display("base1")
-    </dd>
-
+    @foreach (var member in members)
+    {
+        <hr/>
+        <p>@member.Name</p>
         <dt>
-            @Html.DisplayNameFor(model => model.Children)
+            @Html.DisplayName(member.Name)
         </dt>
 
         <dd>
-            @Html.Display("Children")
+            @Html.Display(member.Name)
         </dd>
-
-    <dt>
-        @Html.DisplayNameFor(model => model.base2)
-    </dt>
-
-    <dd>
-        @Html.DisplayFor(model => model.base2)
-    </dd>
-
-   <dt>
-        @Html.DisplayName("Prod1")
-    </dt>
-
-    <dd>
-        @Html.Display("Prod1")
-    </dd>
-
-    @*<dt>
-        @Html.DisplayNameFor(model => model.Prod2)
-    </dt>
-
-    <dd>
-        @Html.DisplayFor(model => model.Prod2)
-    </dd>*@
-
+    }
 </dl>
