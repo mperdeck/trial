@@ -15,6 +15,7 @@ namespace WebApplication1.Models
         public Prod1 Prod1 { get; set; }
         //public prod2 Prod2 { get; set; }
 
+        [UIHint("Children")]
         public List<Child> Children { get; set; }
 
         public ProdBase()
