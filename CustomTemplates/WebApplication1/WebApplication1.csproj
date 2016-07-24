@@ -215,12 +215,16 @@
     <Compile Include="Migrations\201607231413090_4.Designer.cs">
       <DependentUpon>201607231413090_4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201607241036159_5.cs" />
+    <Compile Include="Migrations\201607241036159_5.Designer.cs">
+      <DependentUpon>201607241036159_5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Child.cs" />
     <Compile Include="Models\Configuration.cs" />
     <Compile Include="Models\DropCreateAndMigrateDatabaseInitializer.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\prod2.cs" />
-    <Compile Include="Models\prod1.cs" />
+    <Compile Include="Models\Prod1.cs" />
     <Compile Include="Models\ProdBase.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductContext.cs" />
@@ -300,6 +304,9 @@
     <Content Include="Views\Children\Index.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\Child.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Child.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Prod1.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Prod1.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\Children.cshtml" />
     <None Include="Web.UITest.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -327,6 +334,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201607231413090_4.resx">
       <DependentUpon>201607231413090_4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607241036159_5.resx">
+      <DependentUpon>201607241036159_5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -16,7 +16,7 @@
     </dt>
 
     <dd>
-        @Html.DisplayFor(model => model.CatalogId)
+        @Html.Display("CatalogId")
     </dd>
 
     <dt>
@@ -24,12 +24,14 @@
     </dt>
 
     <dd>
-        @Html.DisplayFor(model => model.base1)
+        @Html.Display("base1")
     </dd>
 </dl>
 
         <hr />
 <h4>children</h4>
+
+
 
         @if (Model.Children.Count() == 0)
         {
@@ -54,15 +56,15 @@
         @Html.DisplayFor(model => model.base2)
     </dd>
 
-    @*<dt>
-        @Html.DisplayNameFor(model => model.Prod1)
+   <dt>
+        @Html.DisplayName("Prod1")
     </dt>
 
     <dd>
-        @Html.DisplayFor(model => model.Prod1)
+        @Html.Display("Prod1")
     </dd>
 
-    <dt>
+    @*<dt>
         @Html.DisplayNameFor(model => model.Prod2)
     </dt>
 
