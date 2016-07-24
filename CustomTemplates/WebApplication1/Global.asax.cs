@@ -30,7 +30,9 @@ namespace WebApplication1
 
 
 
-            var initializer = new DropCreateAndMigrateDatabaseInitializer<ProductContext, Configuration>();
+       //     var initializer = new DropCreateAndMigrateDatabaseInitializer<ProductContext, Configuration>();
+
+            var initializer = new MigrateDatabaseToLatestVersion<ProductContext, Configuration>();
             Database.SetInitializer<ProductContext>(initializer);
 
             using (var ctx = new ProductContext("DefaultConnection2"))

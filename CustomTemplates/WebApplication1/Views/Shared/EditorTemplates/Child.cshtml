@@ -1,6 +1,7 @@
 ﻿@model WebApplication1.Models.Child
 
 @Html.HiddenFor(model => model.ChildId)
+@Html.HiddenFor(model => model.ProductId)
 
 <div class="form-group">
     @Html.LabelFor(model => model.First, htmlAttributes: new { @class = "control-label col-md-2" })

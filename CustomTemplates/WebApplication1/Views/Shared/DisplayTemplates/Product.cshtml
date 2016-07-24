@@ -1,5 +1,7 @@
 ﻿@model WebApplication1.Models.Product
 
+@Html.HiddenFor(m=>m.ProductId)
+
     <dl class="dl-horizontal">
     <dt>
         @Html.DisplayNameFor(model => model.Name)
@@ -52,7 +54,7 @@
         @Html.DisplayFor(model => model.base2)
     </dd>
 
-    <dt>
+    @*<dt>
         @Html.DisplayNameFor(model => model.Prod1)
     </dt>
 
@@ -66,6 +68,6 @@
 
     <dd>
         @Html.DisplayFor(model => model.Prod2)
-    </dd>
+    </dd>*@
 
 </dl>

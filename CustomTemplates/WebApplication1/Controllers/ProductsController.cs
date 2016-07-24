@@ -83,6 +83,11 @@ namespace WebApplication1.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(product).State = EntityState.Modified;
+                foreach(var child in product.Children)
+                {
+                    db.Entry(child).State = EntityState.Modified;
+                }
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
