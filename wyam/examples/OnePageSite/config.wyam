@@ -8,7 +8,7 @@
 #a **/*
 
 Pipelines.Add(
-    ReadFiles("index.md"),  // Read the index page
+    ReadFiles("*.md"),  // Read the index page
     Markdown(),  // Convert it to HTML         
     Append(      
         ReadFiles("projects/*.md"),  // Read each project
