@@ -9,8 +9,7 @@ using System.Web.Routing;
 
 using WebApplication1.Models;
 using System.Data.Entity;
-
-
+using System.Collections.ObjectModel;
 
 namespace WebApplication1
 {
@@ -21,6 +20,12 @@ namespace WebApplication1
 
         protected void Application_Start()
         {
+            ReadOnlyCollection<TimeZoneInfo> timeZones = TimeZoneInfo.GetSystemTimeZones();
+            var ids = timeZones.Select(i => i.Id);
+            var names = timeZones.Select(i => i.StandardName);
+
+
+
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

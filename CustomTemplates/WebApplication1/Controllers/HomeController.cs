@@ -41,6 +41,7 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public ActionResult Add(Product product)
         {
+
             if (!ModelState.IsValid)
             {
                 return View();
