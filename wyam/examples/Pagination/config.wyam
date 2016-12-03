@@ -1,7 +1,8 @@
 // This directive installs packages from NuGet and it what yuo would normally use
 // NOTE: If running the example against a downloaded version of Wyam, uncomment this line and comment the next line
-// #n -p Wyam.Markdown
-// #n -p Wyam.Razor
+#n -p Wyam.Markdown
+#n -p Wyam.Razor
+#n -p Wyam.Yaml
 
 // This directive loads modules directly from the local build and is used for testing
 // NOTE: If running the example against modules built from source, call wyam.exe from the Wyam.Examples.Tests/bin/Debug folder 
@@ -9,6 +10,7 @@
 
 Pipelines.Add("Content",
 	ReadFiles("*.md"),
+    FrontMatter(Yaml()),  // Move the frontmatter to metadata
 	Markdown(),
 	WriteFiles("html")
 );

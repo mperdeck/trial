@@ -6,7 +6,7 @@
 		<h1>Page @Model.String("CurrentPage") of @Model.String("TotalPages")</h1>
 		@foreach(IDocument doc in Model.Get<IEnumerable<IDocument>>("PageDocuments"))
 		{
-			<div><a href="@doc.String("DestinationFileName")">@Html.Raw(doc.Content)</a></div>
+			<div><a href="@doc.String("DestinationFileName")">@Html.Raw(@doc.String("Title"))</a></div>
 			<hr />
 		}
 		<div>
