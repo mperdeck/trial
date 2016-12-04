@@ -91,64 +91,19 @@ var safeStringify = function(o) {
         parents[value] = this;
 
         var parent = this;
-    //    parents[parent] = null; //<<<<<<
 
-        console.log('================');
-        console.log('key=' + key);
-        console.log('value');
-        console.dir(value);
-        console.log('this');
-        console.dir(this);
-        console.log('parents[value]')
-        console.dir(parents[value])
-        console.log('parents[parent]')
-        console.dir(parents[parent])
-        console.log('len=' + parents.length)
-        //console.log('================ parents');
-
-        //var j = 0;
-        //for (j = 0; j < parents.length; j++) {
-        //    console.dir()
-        //}
-
-        console.log('================');
-
-        var i;
-        for (i=0; i<100;i++) {
-
-            console.log('chck parent');
-            console.dir(parent);
-            console.log('-------------');
-
-
+        for (; ;) {
             if (!parent) {
                 // Got to the end of the parent chain
-                break;
+                return value;
             }
 
             if (parent == value) {
                 return "__circular__";
             }
 
-            console.log('after >>>');
-            console.dir(parents[parent]);
-            console.dir(parent);
-            console.log('after <<<');
-
-            if (parent == parents[parent]) {
-                console.log('>>>>')
-                console.log('parent == parents[parent]')
-                console.dir(parent);
-                console.log('<<<<')
-                break;
-            }
             parent = parents[parent];
-
         }
-
-        console.log('returning val')
-        console.dir(value)
-        return value;
     }
 
     var result = JSON.stringify(o, replacer, 4);
