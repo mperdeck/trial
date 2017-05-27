@@ -1,16 +1,19 @@
 var path = require('path');
 
 module.exports = {
-    entry: './src/js/app.js',
+    entry: './src/js/app.ts',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
         publicPath: '/dist'
     },
+    resolve: {
+        extensions: ['.ts', '.js']
+    },
     module: {
         rules: [
             {
-                test: /\.js$/,
+                test: /\.ts$/,
                 use: [
                     {
                         loader: 'babel-loader',
