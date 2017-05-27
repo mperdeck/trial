@@ -1,4 +1,5 @@
 var path = require('path');
+var helpers = require('./config/helpers');
 
 module.exports = {
     entry: './src/js/app.ts',
@@ -16,9 +17,9 @@ module.exports = {
                 test: /\.ts$/,
                 use: [
                     {
-                        loader: 'babel-loader',
+                        loader: 'awesome-typescript-loader',
                         options: {
-                            presets: ['es2015']
+                            configFileName: helpers.root('src', 'tsconfig.json')
                         }
                     }
                 ]

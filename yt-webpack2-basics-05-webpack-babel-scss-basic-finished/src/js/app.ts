@@ -4,11 +4,11 @@ const outputParagraph = document.querySelector('#outputParagraph');
 
 const outputRandomInt = () => {
     var x: string = 'blah';
-    outputParagraph.textContent = RandomGenerator.randomInteger();
+    outputParagraph.textContent = RandomGenerator.randomInteger().toString();
 };
 
 const outputRandomRange = () => {
-    outputParagraph.textContent = RandomGenerator.randomRange(1, 500);
+    outputParagraph.textContent = RandomGenerator.randomRange(1, 500).toString();
 };
 
 const buttonRndInt = document.querySelector('#randomInt');
