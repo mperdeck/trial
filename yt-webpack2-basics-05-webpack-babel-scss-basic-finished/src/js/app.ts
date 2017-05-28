@@ -4,7 +4,7 @@ const outputParagraph = document.querySelector('#outputParagraph');
 
 const outputRandomInt = () => {
     var x: string = 'blah';
-    outputParagraph.textContent = RandomGenerator.randomInteger().toString();
+    outputParagraph.textContent = RandomGenerator.randomInteger().toString() + 'xxvvxx';
 };
 
 const outputRandomRange = () => {
