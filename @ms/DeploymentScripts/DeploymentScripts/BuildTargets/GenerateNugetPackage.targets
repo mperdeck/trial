@@ -1,0 +1,69 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<!--
+	Import this .targets file in the .csproj of projects that need to be exported to other solutions.
+	Only do this if NugetPackagesDir doesn't already have a value, to prevent this file being imported multiple times - which would give you build warnings.
+	-->
+	<Import Project="$(MSBuildProjectDirectory)\..\..\DeploymentScripts\BuildTargets\CommonDefinitions.targets" Condition=" '$(NugetPackagesDir)' == '' "/> 
+	
+  <PropertyGroup>
+	<MajorPackageVersion>5</MajorPackageVersion>
+	<OctoPackPackageVersion>$(MajorPackageVersion).$([System.DateTime]::Now.ToString(yyMMdd)).$([System.DateTime]::Now.ToString(hhmmss))</OctoPackPackageVersion>
+	<GenerateNugetPackage Condition=" '$(GenerateNugetPackage)' == '' ">true</GenerateNugetPackage>
+	<RunOctoPack>false</RunOctoPack>
+	<RunOctoPack Condition=" ('$(Configuration)' == 'Release') And ('$(GenerateNugetPackage)' == 'true') ">true</RunOctoPack>
+  </PropertyGroup>
+
+  <Target Name="AfterOctoPack" AfterTargets="OctoPack" Condition="$(RunOctoPack) And $(GenerateNugetPackage)">
+	  <Message Text="Copying @(OctoPackBuiltPackages) to $(NugetPackagesDir)" Importance="High" />
+	  <!-- 
+	  For each built package, first find the package name (take file name, get rid of version suffix). Then remove all packages with that name from Nuget Packages Directory.  
+	  -->
+	  <ItemGroup>
+		  <PackageNameMajorMinorBuildToGenerate Include="%(OctoPackBuiltPackages.Filename)"></PackageNameMajorMinorBuildToGenerate>
+		  <PackageNameMajorMinorToGenerate Include="%(PackageNameMajorMinorBuildToGenerate.Filename)"></PackageNameMajorMinorToGenerate>
+		  <PackageNameMajorToGenerate Include="%(PackageNameMajorMinorToGenerate.Filename)"></PackageNameMajorToGenerate>
+		  <PackageFileNameToGenerate Include="%(PackageNameMajorToGenerate.Filename)"></PackageFileNameToGenerate>
+	  </ItemGroup>
+		  
+	  <MSBuild Projects ="$(MSBuildProjectFullPath)"
+		 Properties="PackageToDeleteName=%(PackageFileNameToGenerate.Identity)"
+		 Targets="DeletePackages" />
+
+	  <!-- 
+	  Copy the package that was just built by OctoPack to the Nuget Packages Directory 
+	  -->
+	  <Copy SourceFiles="@(OctoPackBuiltPackages)" DestinationFolder="$(NugetPackagesDir)" />  
+	  
+	  <!-- If a GeneratedDllsCopyDestination is set, copy the generated dll to that directory -->
+      <ItemGroup>
+		<DllSourcePath Include="$(MSBuildProjectDirectory)\bin\Release\$(MSBuildProjectName).dll" />
+		<DllSourcePath Include="$(MSBuildProjectDirectory)\bin\Release\$(MSBuildProjectName).xml" />
+	  </ItemGroup>
+	  
+	  <Message Text="Copying @(DllSourcePath) to $(GeneratedDllsCopyDestination)" Importance="High" 
+	        Condition=" '$(GeneratedDllsCopyDestination)' != '' " />
+	  
+	  <Copy SourceFiles="@(DllSourcePath)" DestinationFolder="$(GeneratedDllsCopyDestination)" 
+	        Condition=" '$(GeneratedDllsCopyDestination)' != '' " /> 
+			
+	  <!--
+			-->
+  </Target>
+
+  <Target Name="DeletePackages">
+	  <ItemGroup>
+		<!-- 
+		The name of this package may overlap with the names of other packages. 
+		For example, Decideware.* matches not only all Decideware packages, but also Decideware.Entities.*
+		To prevent this, add MajorPackageVersion in the search expression as a delimiter.
+		-->
+		<FilesToDelete Include="$(NugetPackagesDir)\$(PackageToDeleteName).$(MajorPackageVersion).*"></FilesToDelete>
+	  </ItemGroup>
+	  <Message Text="Deleting @(FilesToDelete)" Importance="High" />
+	  <Delete Files="@(FilesToDelete)"></Delete>
+  </Target>
+
+  <Target Name="WarnNoPackageForDebugBuild" AfterTargets="Build">
+	  <Message Text="*******%0a******* No Nuget package created - Nuget packages only get created for Release builds where GenerateNugetPackage has not been set to false%0a*******" Condition="'$(RunOctoPack)' != 'true'" Importance="High" />
+  </Target>
+</Project>

@@ -1,0 +1,11 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+<!-- Import this file in all .csproj files in the ALM solution. We need this, because that solution has a different directory structure. -->
+
+    <PropertyGroup>
+		<DecidewareDevRoot Condition=" '$(DecidewareDevRoot)' == '' ">$(MSBuildProjectDirectory)\..\..\..\..</DecidewareDevRoot>
+    </PropertyGroup>
+
+  <Import Project="$(DecidewareDevRoot)\DeploymentScripts\BuildTargets\DecidewareCommon.targets" />
+
+</Project>

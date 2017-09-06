@@ -1,0 +1,132 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<!--
+	Import this .targets file in the .csproj of projects that use libraries exported by other solutions.
+	-->
+	<Import Project="$(DecidewareDevRoot)\DeploymentScripts\BuildTargets\CommonDefinitions.targets" Condition=" '$(NugetPackagesDir)' == '' "/> 
+
+	<PropertyGroup>
+		<PackageConfigPath>$(MSBuildProjectDirectory)\packages.config</PackageConfigPath>
+		<AutoUpdateNugetPackageDependencies Condition=" '$(AutoUpdateNugetPackageDependencies)' == '' ">true</AutoUpdateNugetPackageDependencies>
+		<OutputFileExtension>dll</OutputFileExtension>
+		<OutputFileExtension Condition=" '$(OutputType)' == 'Exe' ">exe</OutputFileExtension>
+		<OutputFilePath></OutputFilePath>
+	</PropertyGroup>
+	
+	<ItemGroup>
+	  <AllGeneratedPackageFileNames Include="$(NugetPackagesDir)\*.nupkg"></AllGeneratedPackageFileNames>
+	</ItemGroup>
+
+	
+    <!-- 
+	Update all packages used in this project that are generated from Decideware libraries.
+	-->
+  <Target Name="UpdateDecidewareLibraries" BeforeTargets="PrepareForBuild" Condition="Exists('$(PackageConfigPath)') And $(AutoUpdateNugetPackageDependencies)" Inputs="@(AllGeneratedPackageFileNames)" Outputs="$(MSBuildProjectDirectory)\$(OutputPath)$(AssemblyName).exe">
+
+
+
+  	<PropertyGroup>
+		<OutputFileExtension>dll</OutputFileExtension>
+		<OutputFileExtension Condition=" '$(OutputType)' == 'Exe' ">exe</OutputFileExtension>
+		<OutputFilePath>$(OutputPath)\$(AssemblyName).$(OutputFileExtension)</OutputFilePath>
+	</PropertyGroup>
+	
+
+  
+  
+  
+
+	  <!-- 
+	   Inputs="@(AllGeneratedPackageFileNames)" Outputs="$(OutputPath)$(AssemblyName).*"
+	  
+	  
+			<OutputFilePath>$(OutputPath)\$(AssemblyName).$(OutputFileExtension)</OutputFilePath>
+-->
+	
+	
+<Message Text="22222############ $(OutputFilePath)  complete: $(OutputPath)$(AssemblyName).$(OutputFileExtension) |  out: $(AssemblyName)  out2:  $(OutputPath) outtype:  $(OutputType)    buld: $(MSBuildExtensionsPath)" Importance="High" />
+
+	
+	
+	
+
+
+
+
+  <!-- 
+	Get the names of the packages to automatically update.
+
+	
+	Inputs="@(AllGeneratedPackageFileNames)" Outputs="@(Compile->'$(BackupFolder)%(Identity).bak')"
+	
+	
+	
+	Do not update all packages, because that may break things and can be very annoying.
+	Only update the packages generated from our own libraries.
+
+	To find the packages generated from our own libraries, do not look at the references in the project - the project may have a dependency on a package without a reference to that package,
+	if it is some other package that has the dependency. For example, this project is dependent on package X, which is dependent on package Y. We have to update Y as well as X, but
+	Y is not in the references.
+
+	Solution here is to look at the names of the generated nuget packages in the NuGet-Packages\generated folder. That ensures you don't update too many packages.
+	Then only update those packages that appear in the packages.config file.
+	-->
+	
+	<!--
+	The file names of the nupkg files contain major version, minor version and build number. Need to strip those off.
+	-->
+	<ItemGroup>
+	  <PackageNameMajorMinorBuildToUpdate Include="%(AllGeneratedPackageFileNames.Filename)"></PackageNameMajorMinorBuildToUpdate>
+	  <PackageNameMajorMinorToUpdate Include="%(PackageNameMajorMinorBuildToUpdate.Filename)"></PackageNameMajorMinorToUpdate>
+	  <PackageNameMajorToUpdate Include="%(PackageNameMajorMinorToUpdate.Filename)"></PackageNameMajorToUpdate>
+	  <PackageFileNameToUpdate Include="%(PackageNameMajorToUpdate.Filename)"></PackageFileNameToUpdate>
+	</ItemGroup>
+	<MSBuild Projects="$(MSBuildProjectFullPath)" Properties="PackageToUpdateName=%(PackageFileNameToUpdate.Identity)" Targets="UpdatePackage" />
+  </Target>
+
+  <Target Name="UpdatePackage" Inputs="@(AllGeneratedPackageFileNames)" Outputs="$(MSBuildProjectDirectory)\$(OutputPath)$(AssemblyName).exe">
+  
+  
+  
+  		<Message Text="33332############ @(AllGeneratedPackageFileNames) kkkk $(OutputFilePath)  complete: $(MSBuildProjectDirectory)\$(OutputPath)$(AssemblyName).$(OutputFileExtension) |  out: $(AssemblyName) outpath: $(BaseOutputPath) out2:  $(OutputPath) outtype:  $(OutputType)" Importance="High" />
+
+  
+  
+  
+  
+  
+	<!-- Get contents of packages.config file. -->
+	<ReadLinesFromFile File="$(PackageConfigPath)" >
+    <Output
+        TaskParameter="Lines"
+        ItemName="PackageConfigLines"/>
+	</ReadLinesFromFile>
+
+  	<ItemGroup>
+	  <MatchingLines Include="@(PackageConfigLines)" Condition="$([System.String]::new('%(PackageConfigLines.Identity)').Contains('id=&quot;$(PackageToUpdateName)&quot;'))"></MatchingLines>
+	</ItemGroup>
+	
+	<!--There should be 1 line in MatchingLines if $(PackageToUpdateName) is found in the packages.config file. Otherwise there will be 0. --> 
+	<Error Text="More than one item in MatchingLines" Condition="'@(MatchingLines->Count())' &gt; 1" />
+	
+	
+	
+	<MSBuild Projects="$(MSBuildProjectFullPath)" Properties="FilteredPackageToUpdateName=$(PackageToUpdateName)" Condition="'@(MatchingLines->Count())' &gt; 0" Targets="UpdateFilteredPackage" />
+	
+	
+	
+  </Target>
+  
+  
+  
+  
+  <Target Name="UpdateFilteredPackage">
+    <Message Text="Updating package $(FilteredPackageToUpdateName) for project file $(MSBuildProjectFile) from $(NugetPackagesDir)" Importance="High" />
+	
+	
+	<Message Text="############ out: $(AssemblyName) outpath: $(BaseOutputPath) out2:  $(OutputPath) outtype:  $(OutputType)" Importance="High" />
+	
+	
+ <!--   <Exec Command="$(NugetExeDir)nuget update $(MSBuildProjectFile) -Id $(FilteredPackageToUpdateName) -Source $(NugetPackagesDir)" /> -->
+  </Target>
+</Project>
+

@@ -1,0 +1,14 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+<!-- Import this file in all .csproj files -->
+
+    <PropertyGroup>
+		<DecidewareDevRoot Condition=" '$(DecidewareDevRoot)' == '' ">$(MSBuildProjectDirectory)\..\..</DecidewareDevRoot>
+    </PropertyGroup>
+	
+	
+	<!-- ############################# -->
+  	<Import Project="$(DecidewareDevRoot)\DeploymentScripts\BuildTargets\UpdatePackageVersions.targets"/> 
+	
+
+</Project>
