@@ -254,10 +254,20 @@
 
   
   
-   <Target Name="UpdateDecidewareLibraries" BeforeTargets="PrepareForBuild"  Inputs="@(theinputs)" Outputs="$(binout)" >
+   <Target Name="UpdateDecidewareLibraries" BeforeTargets="PrepareForBuild"  Inputs="@(theinputs)" Outputs="$(OutputPath)\$(AssemblyName).dll" >
        <Message Text="22222############ $(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Importance="High" />
        <Message Text="iiii @(theinputs)" Importance="High" />
        <Message Text="oooo @(theoutputs)" Importance="High" />
+	   
+   	<PropertyGroup>
+		<OutputFileExtension>dll</OutputFileExtension>
+		<OutputFileExtension Condition=" '$(OutputType)' == 'Exe' ">exe</OutputFileExtension>
+		<OutputFilePath>$(OutputPath)\$(AssemblyName).$(OutputFileExtension)</OutputFilePath>
+	</PropertyGroup>
+
+       <Message Text="---$(OutputFilePath)---" Importance="High" />
+	   
+	   
    </Target>
   
   <!--
