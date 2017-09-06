@@ -248,15 +248,21 @@
     <theoutputs Include="@outputs\*.*" />
     </ItemGroup>
 
+      <PropertyGroup>
+      <binout>C:\Dev\trial\@ms\testsite\testsite\@outputs\binout.txt</binout>
+	  </PropertyGroup>
+
   
   
-  
-   <Target Name="UpdateDecidewareLibraries" BeforeTargets="PrepareForBuild"  Inputs="@(theinputs)" Outputs="@(theoutputs)" >
+   <Target Name="UpdateDecidewareLibraries" BeforeTargets="PrepareForBuild"  Inputs="@(theinputs)" Outputs="$(binout)" >
        <Message Text="22222############ $(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Importance="High" />
        <Message Text="iiii @(theinputs)" Importance="High" />
        <Message Text="oooo @(theoutputs)" Importance="High" />
    </Target>
   
+  <!--
+   <Target Name="UpdateDecidewareLibraries" BeforeTargets="PrepareForBuild"  Inputs="@(theinputs)" Outputs="@(theoutputs)" >
+  -->
   
   
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
