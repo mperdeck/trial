@@ -249,25 +249,25 @@
     </ItemGroup>
 
       <PropertyGroup>
-      <binout>C:\Dev\trial\@ms\testsite\testsite\@outputs\binout.txt</binout>
+      <binout>$(OutputPath)binout.txt</binout>
 	  </PropertyGroup>
 
   
   
-   <Target Name="UpdateDecidewareLibraries" BeforeTargets="PrepareForBuild"  Inputs="@(theinputs)" Outputs="$(OutputPath)\$(AssemblyName).dll" >
-       <Message Text="22222############ $(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Importance="High" />
-       <Message Text="iiii @(theinputs)" Importance="High" />
-       <Message Text="oooo @(theoutputs)" Importance="High" />
-	   
-   	<PropertyGroup>
-		<OutputFileExtension>dll</OutputFileExtension>
-		<OutputFileExtension Condition=" '$(OutputType)' == 'Exe' ">exe</OutputFileExtension>
-		<OutputFilePath>$(OutputPath)\$(AssemblyName).$(OutputFileExtension)</OutputFilePath>
-	</PropertyGroup>
+   <Target Name="UpdateDecidewareLibraries" BeforeTargets="PrepareForBuild"  Inputs="@(theinputs)" Outputs="$(binout)" >
+   
+       <ItemGroup>
+    <binoutlines Include="This file is used by .. to only update the references to library nuget packages if the current references are outdated. It is touched each time an update is done" />
+    </ItemGroup>
 
-       <Message Text="---$(OutputFilePath)---" Importance="High" />
-	   
-	   
+   
+   <WriteLinesToFile  
+            File="$(binout)"  
+            Lines="@(binoutlines)"  
+            Overwrite="true"/> 
+   
+   
+       <Message Text="22222############ $(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Importance="High" />
    </Target>
   
   <!--
