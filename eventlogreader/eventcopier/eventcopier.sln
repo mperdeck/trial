@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eventcopier", "eventcopier\eventcopier.csproj", "{C7752DD5-F1F5-4F07-B439-BA13E36A17C0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventLogHelpers", "EventLogHelpers\EventLogHelpers.csproj", "{5BCC933A-D1C8-4687-8166-5329ECA2C6AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C7752DD5-F1F5-4F07-B439-BA13E36A17C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C7752DD5-F1F5-4F07-B439-BA13E36A17C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7752DD5-F1F5-4F07-B439-BA13E36A17C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BCC933A-D1C8-4687-8166-5329ECA2C6AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BCC933A-D1C8-4687-8166-5329ECA2C6AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BCC933A-D1C8-4687-8166-5329ECA2C6AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BCC933A-D1C8-4687-8166-5329ECA2C6AA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
