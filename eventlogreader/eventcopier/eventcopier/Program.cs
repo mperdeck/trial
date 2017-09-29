@@ -1,5 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using Newtonsoft.Json;
+
+using Serilog;
+using Serilog.Events;
+
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,20 +17,67 @@ namespace eventcopier
     {
         static void Main(string[] args)
         {
-            var eventLogWatcher = new EventLogWatcher("Application");
-            eventLogWatcher.EventRecordWritten += eventLoggedHandler;
+            //if (!EventLog.SourceExists("testsrc"))
+            //{
+            //    EventLog.CreateEventSource("testsrc", "Application");
+            //}
 
+            var logger = new LoggerConfiguration()
+                            .WriteTo.LiterateConsole()
+                            .CreateLogger();
+            Log.Logger = logger;
+            Log.Information("The global logger has been configured");
+
+            // -----------------
+
+            var logs = new List<EventLog> ();
+
+            var names = new string[] {
+                "Application",
+                "System",
+            };
+            foreach (var n in names)
+            {
+                var log = new EventLog(n);
+                log.EnableRaisingEvents = true;
+                log.EntryWritten += new EntryWrittenEventHandler(OnEntryWritten);
+                logs.Add(log);
+                Console.WriteLine("added {0}", n);
+            }
 
             Console.WriteLine("listening for events. Hit any key to exit.");
             Console.ReadKey();
         }
 
-        public static void eventLoggedHandler(object sender, EventRecordWrittenEventArgs e)
+        protected static void OnEntryWritten(object source, EntryWrittenEventArgs evt)
         {
-            var id = e.EventRecord.Id;
+            // event type (information, etc)
+            // https://msdn.microsoft.com/en-us/library/system.diagnostics.eventlogentrytype(v=vs.110).aspx
+            // https://msdn.microsoft.com/en-us/library/system.diagnostics.eventlogentry.entrytype(v=vs.110).aspx
 
-            Console.WriteLine($"got event {id}");
-            return;
+
+            var e = evt.Entry;
+            Console.WriteLine("got {0}: {1}", e.Source, e.Message);
+            var v = new
+            {
+                EntryType = e.EntryType,
+                Index = e.Index,
+                InstanceId = e.InstanceId,
+                MachineName = e.MachineName,
+                Message = e.Message,
+                Source = e.Source,
+                TimeGenerated = e.TimeGenerated.ToUniversalTime(),
+                TimeWritten = e.TimeWritten.ToUniversalTime(),
+                UserName = e.UserName,
+            };
+
+            Log.Error("Here is the log: {@e}", e);
+
+
+
+
+            //var msg = JsonConvert.SerializeObject(v);
+            //Console.WriteLine(msg);
         }
     }
 }
