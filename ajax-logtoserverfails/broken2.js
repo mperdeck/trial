@@ -7,7 +7,7 @@ var xhr = new XMLHttpRequest();
 function onStateChanged() {
     console.log("new state - readyState: " + xhr.readyState);
     console.log("new state - status: " + xhr.status);
-    console.log("new state - responseText: " + xhr.responseText);
+    // console.log("new state - responseText: " + xhr.responseText);
     console.log("new state - responseText length: " + xhr.responseText ? xhr.responseText.length : 'no response yet');
     console.log("new state - response header Content-Length: " + xhr.getResponseHeader('Content-Length'));
     console.log("---------------");
