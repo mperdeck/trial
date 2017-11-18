@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>lib</PackageId>
+    <PackageVersion>2.5.90</PackageVersion>
+  </PropertyGroup>
+
+</Project>
