@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <ScriptLocation>C:\Dev\trial\corerestore\ClassLibrary1\obj\project.assets.json</ScriptLocation>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageVersion>6.0.0</PackageVersion>
+  </PropertyGroup>
+
+  <Target Name="CopyPackage" AfterTargets="Pack">
+    <Message Text="after pack" Importance="High" />
+  </Target>
+
+  <Target Name="CopyPackage2" BeforeTargets="Pack">
+    <Message Text="before pack" Importance="High" />
+  </Target>
+
+
+  <Target Name="UpdateDecidewareLibraries" BeforeTargets="PrepareForBuild">
+    <Message Text="Updating package###############" Importance="High" Condition="!Exists('$(ScriptLocation)')" />
+  </Target>
+
+
+  <ItemGroup>
+    <PackageReference Include="jsnlog.aspnetcore" Version="2.*" />
+  </ItemGroup>
+
+</Project>
+
+<!--
+    <CallTarget Targets="Restore" Condition="!Exists('$(ScriptLocation)')" />
+
+
+-->
+
