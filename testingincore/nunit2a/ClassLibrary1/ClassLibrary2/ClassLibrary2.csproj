@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net47</TargetFrameworks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NUnitTestAdapter" Version="2.1.*" />
+    <PackageReference Include="NUnit" Version="2.6.*" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.5.*" />
+  </ItemGroup>
+
+</Project>
