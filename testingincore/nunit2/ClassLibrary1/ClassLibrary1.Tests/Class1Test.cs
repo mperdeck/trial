@@ -13,7 +13,23 @@ namespace ClassLibrary1.Tests
         {
             int i = Class1.F1();
 
-            Assert.AreEqual(i,5);
+            Assert.AreEqual(i,6);
+        }
+
+        [Test]
+        public void Test2()
+        {
+            int i = Class1.F1();
+
+            Assert.AreEqual(i, 6);
+        }
+
+        [Test]
+        public void Test3()
+        {
+            int i = Class1.F1();
+
+            Assert.AreEqual(i, 6);
         }
     }
 }
