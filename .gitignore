@@ -6,6 +6,9 @@
 *.user
 *.sln.docstates
 
+*.lock
+.vs/
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/

@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net461</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="NUnitTestAdapter" Version="2.1.*" />
+    <PackageReference Include="NUnit" Version="2.6.*" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.5.*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj" />
+    <ProjectReference Include="..\ClassLibrary2.TestLib\ClassLibrary2.TestLib.csproj" />
+  </ItemGroup>
+
+</Project>

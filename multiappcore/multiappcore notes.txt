@@ -1,0 +1,4 @@
+
+dotnet run --project C:\Dev\trial\multiappcore\app1\WebApplication1\WebApplication1
+dotnet run --project C:\Dev\trial\multiappcore\app2\WebApplication2\WebApplication2
+
