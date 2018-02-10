@@ -1,11 +1,11 @@
 ﻿using FiltersSample.Filters;
 using Microsoft.AspNetCore.Mvc;
 using System.Globalization;
+using FiltersSample.Helper;
 
 namespace FiltersSample.Controllers
 {
-    [AddHeader("Author", "Steve Smith @xxxxxardalis")]
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         #region snippet_ServiceFilter
      //   [ServiceFilter(typeof(AddHeaderFilterWithDi))]
