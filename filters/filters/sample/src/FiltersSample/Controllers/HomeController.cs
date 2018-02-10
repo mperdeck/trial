@@ -4,25 +4,24 @@ using System.Globalization;
 
 namespace FiltersSample.Controllers
 {
+    [AddHeader("Author", "Steve Smith @xxxxxardalis")]
     public class HomeController : Controller
     {
         #region snippet_ServiceFilter
-        [ServiceFilter(typeof(AddHeaderFilterWithDi))]
+     //   [ServiceFilter(typeof(AddHeaderFilterWithDi))]
         public IActionResult Index()
         {
             return View();
         }
         #endregion
 
-        [AddHeader("Author", "Steve Smith @ardalis")]
         public IActionResult Hello(string name)
         {
             return Content($"Hello {name}");
         }
 
         #region snippet_TypeFilter
-        [TypeFilter(typeof(AddHeaderAttribute),
-            Arguments = new object[] { "Author", "Steve Smith (@ardalis)" })]
+  //      [TypeFilter(typeof(AddHeaderAttribute), Arguments = new object[] { "Author", "Steve Smith (@ardalis)" })]
         public IActionResult Hi(string name)
         {
             return Content($"Hi {name}");
@@ -31,7 +30,7 @@ namespace FiltersSample.Controllers
 
         #region snippet_MiddlewareFilter
         [Route("{culture}/[controller]/[action]")]
-        [MiddlewareFilter(typeof(LocalizationPipeline))]
+     //   [MiddlewareFilter(typeof(LocalizationPipeline))]
         public IActionResult CultureFromRouteData()
         {
             return Content($"CurrentCulture:{CultureInfo.CurrentCulture.Name},"
