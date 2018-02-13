@@ -12,6 +12,9 @@ public class AppSettings
     [Required]  // <<<<<<<<<<<<<<<<<<<
     public string s { get; set; }
 
+    [Required]  // <<<<<<<<<<<<<<<<<<<
+    public Window Window2 { get; set; }
+
     public Window Window { get; set; }
     public Connection Connection { get; set; }
     public Profile Profile { get; set; }

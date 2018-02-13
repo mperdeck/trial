@@ -47,23 +47,28 @@ public class Program
 
         foreach (var property in properties)
         {
+            var attributes = property.GetType().CustomAttributes;
+            bool isRequired = attributes.Any(a => a.AttributeType == typeof(RequiredAttribute));
+
+            bool propertyHasDefaultValue = (property.GetValue(options) == GetDefaultValue(property.GetType()));
+
+            if (isRequired)
+            {
+                // Default value of string is null, for int is 0, etc.
+                // This means a required int field cannot have value 0.
+                if (propertyHasDefaultValue)
+                {
+                    throw new ArgumentNullException(property.Name);
+                }
+            }
+
             // Check if the property is an object with its own properties
+            // If so, check those as well.
             if ((property.PropertyType != typeof(string)) && (property.PropertyType.BaseType.FullName == "System.Object"))
             {
-                EnforceRequiredStrings(property.GetValue(options));
-            }
-            else
-            {
-                bool isRequired = property.GetType().CustomAttributes.Any(a => a.AttributeType == typeof(RequiredAttribute));
-
-                if (isRequired)
+                if (!propertyHasDefaultValue)
                 {
-                    // Default value of string is null, for int is 0, etc.
-                    // This means a required int field cannot have value 0.
-                    if (property.GetValue(options) == GetDefaultValue(property.GetType()))
-                    {
-                        throw new ArgumentNullException(property.Name);
-                    }
+                    EnforceRequiredStrings(property.GetValue(options));
                 }
             }
         }
