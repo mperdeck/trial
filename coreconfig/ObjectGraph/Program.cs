@@ -47,10 +47,13 @@ public class Program
 
         foreach (var property in properties)
         {
-            var attributes = property.GetType().CustomAttributes;
+            var attributes = property.CustomAttributes;
             bool isRequired = attributes.Any(a => a.AttributeType == typeof(RequiredAttribute));
 
-            bool propertyHasDefaultValue = (property.GetValue(options) == GetDefaultValue(property.GetType()));
+            var propertyValue = property.GetValue(options);
+            var propertyDefaultValue = GetDefaultValue(property.PropertyType);
+
+            bool propertyHasDefaultValue = (propertyValue == propertyDefaultValue);
 
             if (isRequired)
             {
