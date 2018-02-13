@@ -1,4 +1,6 @@
-﻿public class AppSettings
+﻿using System.ComponentModel.DataAnnotations; // <<<<<<<<<<<<<<<<<<<
+
+public class AppSettings
 {
     public Window Window { get; set; }
     public Connection Connection { get; set; }
@@ -18,6 +20,8 @@ public class Window
 public class Connection
 {
     public string Value { get; set; }
+
+    [Required]  // <<<<<<<<<<<<<<<<<<<
     public string Value2 { get; set; }
     public string Value3 { get; set; } = "this is value 3";
 }
