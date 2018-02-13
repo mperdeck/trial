@@ -4,9 +4,10 @@ public class AppSettings
 {
     [Required]  // <<<<<<<<<<<<<<<<<<<
     public int i { get; set; }
-    public int? i2 { get; set; }
 
     [Required]  // <<<<<<<<<<<<<<<<<<<
+    public int? i2 { get; set; }
+
     public int i3 { get; set; }
 
     [Required]  // <<<<<<<<<<<<<<<<<<<
