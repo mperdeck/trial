@@ -33,12 +33,29 @@ public class Program
         Console.ReadKey();
     }
 
-    private static object GetDefaultValue(Type t)
-    {
-        if (t.IsValueType)
-            return Activator.CreateInstance(t);
+    //private static object GetDefaultValue(Type t)
+    //{
+    //    if (t.IsValueType)
+    //        return Activator.CreateInstance(t);
 
-        return null;
+    //    return null;
+    //}
+
+    private static bool PropertyHasDefaultValue(PropertyInfo property, object propertyValue)
+    {
+        Type propertyType = property.PropertyType;
+
+        if (propertyType.IsValueType)
+        {
+            object defaultValue = Activator.CreateInstance(propertyType);
+
+            string defaultValueString = Convert.ToString(defaultValue);
+            string propertyValueString = Convert.ToString(propertyValue);
+
+            return (defaultValueString == propertyValueString);
+        }
+
+        return (propertyValue == null);
     }
 
     private static void EnforceRequiredStrings(object options)// <<<<<<<<<<<<<<
@@ -51,9 +68,9 @@ public class Program
             bool isRequired = attributes.Any(a => a.AttributeType == typeof(RequiredAttribute));
 
             var propertyValue = property.GetValue(options);
-            var propertyDefaultValue = GetDefaultValue(property.PropertyType);
+            //###########  var propertyDefaultValue = GetDefaultValue(property.PropertyType);
 
-            bool propertyHasDefaultValue = (propertyValue == propertyDefaultValue);
+            bool propertyHasDefaultValue = PropertyHasDefaultValue(property, propertyValue);
 
             if (isRequired)
             {
