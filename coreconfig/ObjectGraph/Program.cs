@@ -33,16 +33,49 @@ public class Program
         Console.ReadKey();
     }
 
+    private static object GetDefaultValue(Type t)
+    {
+        if (t.IsValueType)
+            return Activator.CreateInstance(t);
+
+        return null;
+    }
+
     private static void EnforceRequiredStrings(object options)// <<<<<<<<<<<<<<
     {
-        var properties = options.GetType().GetTypeInfo().DeclaredProperties.Where(p => p.PropertyType == typeof(string));
-        var requiredProperties = properties.Where(p => p.CustomAttributes.Any(a => a.AttributeType == typeof(RequiredAttribute)));
+        var properties = options.GetType().GetTypeInfo().DeclaredProperties;
 
-        foreach (var property in requiredProperties)
+        foreach (var property in properties)
         {
-            if (string.IsNullOrEmpty((string)property.GetValue(options)))
-                throw new ArgumentNullException(property.Name);
+            // Check if the property is an object with its own properties
+            if ((property.PropertyType != typeof(string)) && (property.PropertyType.BaseType.FullName == "System.Object"))
+            {
+                EnforceRequiredStrings(property.GetValue(options));
+            }
+            else
+            {
+                bool isRequired = property.GetType().CustomAttributes.Any(a => a.AttributeType == typeof(RequiredAttribute));
+
+                if (isRequired)
+                {
+                    // Default value of string is null, for int is 0, etc.
+                    // This means a required int field cannot have value 0.
+                    if (property.GetValue(options) == GetDefaultValue(property.GetType()))
+                    {
+                        throw new ArgumentNullException(property.Name);
+                    }
+                }
+            }
         }
+
+        //var properties = options.GetType().GetTypeInfo().DeclaredProperties.Where(p => p.PropertyType == typeof(string));
+        //var requiredProperties = properties.Where(p => p.CustomAttributes.Any(a => a.AttributeType == typeof(RequiredAttribute)));
+
+        //foreach (var property in requiredProperties)
+        //{
+        //    if (string.IsNullOrEmpty((string)property.GetValue(options)))
+        //        throw new ArgumentNullException(property.Name);
+        //}
     }
 
 

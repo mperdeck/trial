@@ -2,6 +2,16 @@
 
 public class AppSettings
 {
+    [Required]  // <<<<<<<<<<<<<<<<<<<
+    public int i { get; set; }
+    public int? i2 { get; set; }
+
+    [Required]  // <<<<<<<<<<<<<<<<<<<
+    public int i3 { get; set; }
+
+    [Required]  // <<<<<<<<<<<<<<<<<<<
+    public string s { get; set; }
+
     public Window Window { get; set; }
     public Connection Connection { get; set; }
     public Profile Profile { get; set; }
@@ -9,9 +19,11 @@ public class AppSettings
 
 public class Window
 {
+    [Required]  // <<<<<<<<<<<<<<<<<<<
+    public int Depth { get; set; }
+
     public int Height { get; set; }
     public int Width { get; set; }
-    public int Depth { get; set; }
     public int Depth2 { get; set; } = 45;
     public bool b { get; set; }
     public bool b2 { get; set; } = true;
