@@ -12,4 +12,24 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
   </ItemGroup>
 
+  <Target Name="RemoveAllPackageFromOutputDir" BeforeTargets="Build">
+    <Message Text="--------------------------before publish" Importance="High" Condition="'$(Configuration)' == 'Debug'" />
+    <Message Text="--------------------------before publish 2" Importance="High" />
+
+  </Target>
+
+  <Target Name="ApplyXdtTransform" BeforeTargets="_TransformWebConfig">
+    <Message Text="--------------------------before publish" Importance="High" Condition="'$(Configuration)' == 'Debug'" />
+    <Message Text="--------------------------before publish 2" Importance="High" />
+
+    <Exec Command="C:\Windows\System32\inetsrv\appcmd.exe recycle apppool /apppool.name:Core" />
+
+
+  </Target>
+  <Target Name="ApplyXdtTransform2" AfterTargets="_TransformWebConfig">
+    <Message Text="--------------------------after publish" Importance="High" Condition="'$(Configuration)' == 'Debug'" />
+    <Message Text="--------------------------after publish2" Importance="High" />
+
+  </Target>
+  
 </Project>
