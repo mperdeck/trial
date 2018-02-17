@@ -8,22 +8,18 @@
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
 
     
-      <DotNetCliToolReference Include="Microsoft.DotNet.Xdt.Tools" Version="2.0.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
-  </ItemGroup>
 
   <ItemGroup>
   </ItemGroup>
 
   <Target Name="ApplyXdtTransform" BeforeTargets="_TransformWebConfig">
-    <PropertyGroup>
-      <_SourceWebConfig>$(MSBuildThisFileDirectory)Web.config</_SourceWebConfig>
-      <_XdtTransform>$(MSBuildThisFileDirectory)Web.$(Configuration).config</_XdtTransform>
-      <_TargetWebConfig>$(PublishDir)Web.config</_TargetWebConfig>
-    </PropertyGroup>
-    <Exec Command="dotnet transform-xdt --xml &quot;$(_SourceWebConfig)&quot; --transform &quot;$(_XdtTransform)&quot; --output &quot;$(_TargetWebConfig)&quot;" Condition="Exists('$(_XdtTransform)')" />
+    <Message Text="before publish" Importance="High" Condition="'$(Configuration)' == 'Debug'" />
+
+  </Target>
+  <Target Name="ApplyXdtTransform" AfterTargets="_TransformWebConfig">
+    <Message Text="after publish" Importance="High" Condition="'$(Configuration)' == 'Debug'" />
+
   </Target>
 </Project>
