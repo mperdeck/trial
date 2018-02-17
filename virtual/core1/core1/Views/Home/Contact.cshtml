@@ -1,4 +1,6 @@
-﻿@{
+﻿@model ViewModel
+
+@{
     ViewData["Title"] = "Contact";
 }
 <h2>@ViewData["Title"]</h2>
@@ -15,3 +17,14 @@
     <strong>Support:</strong> <a href="mailto:Support@example.com">Support@example.com</a><br />
     <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
 </address>
+
+@using (Html.BeginForm())
+{
+    @Html.EditorForModel()
+
+    <input type="submit" value="Submit to my will!!" />
+}
+
+
+
+

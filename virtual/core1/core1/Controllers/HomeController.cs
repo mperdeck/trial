@@ -8,7 +8,11 @@ using core1.Models;
 
 //#################
 using Microsoft.AspNetCore.Http.Extensions;
+using Microsoft.AspNetCore.Http;
 
+
+//################
+using Microsoft.Extensions.Primitives;
 
 namespace core1.Controllers
 {
@@ -88,12 +92,60 @@ p5: http://localhost:8202/core1/Home/About
             return View();
         }
 
+        [HttpGet]
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";
 
             return View();
         }
+
+        /************
+        [HttpPost]
+        public IActionResult Contact(ViewModel viewModel)
+        {
+            var modelState = ModelState;
+
+            var value = ModelState["String1"].AttemptedValue;
+
+            ModelState.SetModelValue("StringNew", value, value);
+            ModelState.Remove("String1");
+
+            var value2 = ModelState["StringNew"].AttemptedValue;
+
+            ViewData["Message"] = "Your contact page.";
+
+            return View();
+        }
+        **************/
+
+
+        [HttpPost]
+        public IActionResult Contact(IFormCollection collection) //<<<<<<<<<<<<<<<<<
+        {
+            var string1value = collection["String1"];
+
+            //       collection["FunctionId"] = "jjjhhgg";
+
+            var values = collection.ToList();
+//            var dict = new Dictionary<string, StringValues>(values);
+            var dict = new Dictionary<string, StringValues>(collection);
+            dict.Add("FunctionId", new StringValues("jjjhhgg"));
+
+
+            var newFormCollection = new FormCollection(dict);
+
+
+
+            var newValue = newFormCollection["FunctionId"];
+
+            ViewData["Message"] = "Your contact page.";
+
+            return View();
+        }
+
+
+
 
         public IActionResult Error()
         {
