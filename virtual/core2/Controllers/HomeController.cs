@@ -17,7 +17,7 @@ namespace core2.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
+            ViewData["Message"] = "Your application description page 44444444444444.";
 
             return View();
         }
