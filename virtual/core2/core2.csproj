@@ -12,7 +12,7 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
   </ItemGroup>
 
-  <Target Name="ApplyXdtTransform" BeforeTargets="_TransformWebConfig">
+  <Target Name="RecycleAppPoolCore" BeforeTargets="_TransformWebConfig" Condition=" '$(Configuration)' == 'Debug' ">
     <Exec Command="C:\Windows\System32\inetsrv\appcmd.exe recycle apppool /apppool.name:Core" />
   </Target>
 </Project>
