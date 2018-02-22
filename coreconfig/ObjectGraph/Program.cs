@@ -14,14 +14,20 @@ public class Program
     {
         var builder = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
-            .AddJsonFile("appsettings.json");
+            .AddJsonFile("appsettings.json")
+            .AddJsonFile("appsettings2.json")
+            .AddJsonFile("appsettings3.json");
 
         var config = builder.Build();
 
         var appConfig = new AppSettings();
         config.GetSection("App").Bind(appConfig);
 
-        EnforceRequiredStrings(appConfig);// <<<<<<<<<<<<<<
+      //  EnforceRequiredStrings(appConfig);// <<<<<<<<<<<<<<
+
+
+
+
 
 
         // --------------------

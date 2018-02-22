@@ -13,21 +13,38 @@ using Microsoft.AspNetCore.Http;
 
 //################
 using Microsoft.Extensions.Primitives;
+using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Hosting;
 
 namespace core1.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly AppSettings _options;
+        private readonly IHostingEnvironment _env;
+
+        public HomeController(IOptions<AppSettings> optionsAccessor, IHostingEnvironment env)
+        {
+            _options = optionsAccessor.Value;
+            _env = env;
+        }
+
+
         public IActionResult Index()
         {
             var p = HttpContext.Request.Path;
             var p2 = HttpContext.Request.PathBase;
-            ViewBag.p1 = Url.Content("~/");
+
+            ViewBag.p1 = $"env: {_env.EnvironmentName}, i: {_options.i}, isdev: {_env.IsDevelopment()}"; ;
+
+//            ViewBag.p1 = Url.Content("~/");
             ViewBag.p2 = p.Value;
             ViewBag.p3 = p2.Value;
             ViewBag.p4 = HttpContext.Request.GetDisplayUrl();
             ViewBag.p5 = HttpContext.Request.GetEncodedUrl();
 
+
+            string s1 = "kkkkk";
 
             return View();
         }

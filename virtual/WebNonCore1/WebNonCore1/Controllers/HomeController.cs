@@ -10,8 +10,26 @@ namespace WebNonCore1.Controllers
 {
     public class HomeController : Controller
     {
+        class c1
+        {
+            int i;
+        }
+
+        class c2: c1
+        {
+            int i2;
+        }
+
         public ActionResult Index()
         {
+            var c = HttpContext;
+            var u = c.User;
+
+            var v2 = new c2();
+
+            bool b2 = v2 is c2;
+            bool b = v2 is c1;
+
             return View();
         }
 
