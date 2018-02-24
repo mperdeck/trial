@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations; // <<<<<<<<<<<<<<<<<<<
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations; // <<<<<<<<<<<<<<<<<<<
 
 public class AppSettings
 {
@@ -19,6 +20,15 @@ public class AppSettings
     public Window Window { get; set; }
     public Connection Connection { get; set; }
     public Profile Profile { get; set; }
+
+    public List<ArrItem> Arr1 { get; set; }
+    public ArrItem Arr2 { get; set; }
+}
+
+public class ArrItem
+{
+    public string i { get; set; }
+    public int j { get; set; }
 }
 
 public class Window
