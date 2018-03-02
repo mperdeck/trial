@@ -1,7 +1,16 @@
 ﻿@model noncore1.Models.Row
 
+@{ 
+    string selectListId = ViewData.TemplateInfo.GetFullHtmlFieldId("S1.a-b_c[0].jan(fe'\"b)");
+} 
+
+
+
 <p>
-    @Html.TextBox("S1")
+    <b>@selectListId</b>
+    <p/>
+
+    @Html.TextBox("S1.a-b_c[0].jan(fe'\"b)")
     @Html.TextBox("S2")
 </p>
 

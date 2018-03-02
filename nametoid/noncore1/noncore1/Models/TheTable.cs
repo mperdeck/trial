@@ -9,6 +9,9 @@ namespace noncore1.Models
     {
         public string Header { get; set; }
         public IEnumerable<Row> Rows { get; set; }
+
+        public Row Row1 { get; set; }
+        public Row Row2 { get; set; }
     }
 }
 

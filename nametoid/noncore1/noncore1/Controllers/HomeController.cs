@@ -18,7 +18,9 @@ namespace noncore1.Controllers
 
             var theTable = new TheTable()
             {
-                Rows = rows
+                Rows = rows,
+                Row1 = new Row { S1 = "row1-1a", S2 = "row1-2a"},
+                Row2 = new Row { S1 = "row2-1a", S2 = "row2-2a" }
             };
 
             return View(theTable);

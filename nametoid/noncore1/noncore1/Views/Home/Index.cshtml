@@ -4,16 +4,21 @@
     ViewBag.Title = "Home Page";
 }
 
-@using (Html.BeginForm("FormTwo", "Form", FormMethod.Post))
+@using (Html.BeginForm())
 {
     <p>
         @Html.TextBox("Header")
     </p>
 
-    @foreach(var row in Model.Rows)
+    foreach(var row in Model.Rows)
     {
-        Html.Partial("RowPartial", row);
+        Html.RenderPartial("RowPartial", row);
     }
+
+    <hr />
+
+    Html.RenderPartial("RowPartial", Model.Row1);
+    Html.RenderPartial("RowPartial", Model.Row2);
 
     <input type="submit" value="Submit" />
 }
