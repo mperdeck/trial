@@ -23,7 +23,11 @@ namespace core1
         {
             services.AddOptions();
 
-            services.Configure<AppSettings>(Configuration.GetSection("App"));
+                    services.Configure<AppSettings>(Configuration.GetSection("App"));
+
+            // try loading into dictionary
+            var value = new Dictionary<string, string>();
+            Configuration.GetSection("appsettings").Bind(value);
 
             services.AddMvc();
         }
