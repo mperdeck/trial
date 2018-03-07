@@ -11,6 +11,12 @@
     <p>
         Some text before the React component.
     </p>
+    <p>
+        <label>Legacy input box</label>
+        <input type="text" id="legacyinput" />
+        <button id="legacybutton">copy legacy input to output at end of this page</button>
+    </p>
+
     <hr />
 
     <div id="content"></div>
@@ -19,12 +25,18 @@
     <p>
         Some text after the React component.
     </p>
+    <p>
+        <div id="legacycopy">legacy text will be copied in here</div>
+    </p>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-dom.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.7.1/remarkable.min.js"></script>
     <script src="@Url.Content("~/js/tutorial.jsx")"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="@Url.Content("~/js/legacycode.js")"></script>
 </body>
 </html>
 
