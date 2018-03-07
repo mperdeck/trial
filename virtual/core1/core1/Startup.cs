@@ -27,7 +27,7 @@ namespace core1
 
             // try loading into dictionary
             var value = new Dictionary<string, string>();
-            Configuration.GetSection("appsettings").Bind(value);
+            Configuration.GetSection("Connection").Bind(value);
 
             services.AddMvc();
         }
