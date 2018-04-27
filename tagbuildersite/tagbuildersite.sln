@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tagbuildersite", "tagbuildersite\tagbuildersite.csproj", "{5EE9DF5E-DF2B-4B20-835D-FC3CF1523210}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5EE9DF5E-DF2B-4B20-835D-FC3CF1523210}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EE9DF5E-DF2B-4B20-835D-FC3CF1523210}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EE9DF5E-DF2B-4B20-835D-FC3CF1523210}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EE9DF5E-DF2B-4B20-835D-FC3CF1523210}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {143EB9F0-62D2-43E1-B06E-B0AAD57012F2}
+	EndGlobalSection
+EndGlobal
