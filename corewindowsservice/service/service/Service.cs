@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using System.Configuration;
 using System.ServiceProcess;
 using Decideware.Platform;
-using Decideware.Logging.ServerSide;
-using Decideware.Logging.ServerSide.Net4;
+//using Decideware.Logging.ServerSide;
+//using Decideware.Logging.ServerSide.Net4;
 
 // -------------------------------------------------------------------------------------
 // This is currently still a non-Core application, because at the time of writing
@@ -39,23 +39,23 @@ namespace Decideware.Platform.ServerLogCopierService
 
     public class Service : ServiceBase
     {
-        private ServerLogToApplicationLogCopier serverLogCopier = null;
+        //private ServerLogToApplicationLogCopier serverLogCopier = null;
 
         public Service()
         {
-            this.ServiceName = "ServerLogCopierService";
-            this.CanStop = true;
-            this.CanPauseAndContinue = false;
-            this.AutoLog = true;
+            //this.ServiceName = "ServerLogCopierService";
+            //this.CanStop = true;
+            //this.CanPauseAndContinue = false;
+            //this.AutoLog = true;
 
-            string commaSeparatedLogNames = ConfigurationManager.AppSettings["LogNames"];
-            if (commaSeparatedLogNames == null)
-            {
-                throw new Exception("ServerLogCopierService: LogNames not found in AppSettings in app.config.");
-            }
+            //string commaSeparatedLogNames = ConfigurationManager.AppSettings["LogNames"];
+            //if (commaSeparatedLogNames == null)
+            //{
+            //    throw new Exception("ServerLogCopierService: LogNames not found in AppSettings in app.config.");
+            //}
 
-            string[] logNames = commaSeparatedLogNames.Split(',');
-            serverLogCopier = new ServerLogToApplicationLogCopier(logNames);
+            //string[] logNames = commaSeparatedLogNames.Split(',');
+            //serverLogCopier = new ServerLogToApplicationLogCopier(logNames);
         }
 
         protected override void OnStart(string[] args)
@@ -63,7 +63,7 @@ namespace Decideware.Platform.ServerLogCopierService
             //Logger logger = new Logger(this.GetType());
             //logger.LogMessage($"ServerLogCopierService - started copying {string.Join(", ", serverLogCopier.LogNames)}", LoggingLevel.Information);
 
-            serverLogCopier.StartCopying();
+            //serverLogCopier.StartCopying();
         }
 
         protected override void OnStop()
@@ -71,7 +71,7 @@ namespace Decideware.Platform.ServerLogCopierService
             //Logger logger = new Logger(this.GetType());
             //logger.LogMessage("ServerLogCopierService - stopped copying", LoggingLevel.Information);
 
-            serverLogCopier.StopCopying();
+            //serverLogCopier.StopCopying();
         }
 
         public static void Main()
