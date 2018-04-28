@@ -6,3 +6,8 @@ sc create @MyService binPath="C:\Dev\trial\corewindowsservice\coreservice\corese
 sc start @MyService
 
 
+$environment="abc123ss333s"
+[Environment]::SetEnvironmentVariable("ASPNETCORE_ENVIRONMENT", $environment, "User")
+
+[Environment]::GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT")
+

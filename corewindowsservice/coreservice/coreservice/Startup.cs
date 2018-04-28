@@ -16,6 +16,11 @@ namespace coreservice
                 //.AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
+
+
+            System.IO.File.WriteAllText(@"g:\temp\sc2env", env.EnvironmentName);
+
+
         }
 
         public IConfigurationRoot Configuration { get; }
