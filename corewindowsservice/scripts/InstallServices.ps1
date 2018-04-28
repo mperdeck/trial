@@ -37,14 +37,18 @@ Function InstallService([string]$serviceExeName)
 	
 	"-------------"
 	"Starting service $serviceExeName"
-	Start-Service -Name $serviceExeName
+# <<<<<<<<<<<<<<	Start-Service -Name $serviceExeName
+	sc.exe start $serviceExeName $environment
+
+
 } 
 
 # -------------------------------------
 # Install each service here
 
 # <<<<<<<<<<<<<<<<<
-[Environment]::SetEnvironmentVariable("ASPNETCORE_ENVIRONMENT", $environment, "Process")
+$environment
+[Environment]::SetEnvironmentVariable("ASPNETCORE_ENVIRONMENT", $environment, "User")
 
 foreach ($serviceExeName in $serviceExeFilesWithoutExtension) {
 	InstallService $serviceExeName

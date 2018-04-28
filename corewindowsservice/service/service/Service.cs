@@ -22,7 +22,12 @@ using System.IO;
 using System.Text;   //<<<<<<<<<<<<<<<<<<<<<<<<
 
 
+//<<<<<<<<<<<<<<<<<<<<<<<<
+// Add logNames to appsettings files
+
+
 using Newtonsoft.Json;
+using System.Collections;
 
 //using Decideware.Logging.ServerSide;
 //using Decideware.Logging.ServerSide.Net4;
@@ -45,6 +50,15 @@ using Newtonsoft.Json;
 /// </summary>
 namespace Decideware.Platform.ServerLogCopierService
 {
+    public class AppSettings
+    {
+        public string logNames;
+        public LoggingConfiguration loggingSettings;
+    }
+
+
+
+
     /// <summary>
     /// This windows service monitors the server logs. When a new entry is written to the server logs, it copies that entry
     /// to our application log. This way, our application logs contain all logs.
@@ -78,15 +92,100 @@ namespace Decideware.Platform.ServerLogCopierService
 
         protected override void OnStart(string[] args)
         {
+            // You cannot pass environment variables to windows services. So pass it as a parameter in the call to
+            // sc.exe start
+            // See https://stackoverflow.com/questions/31414578/set-environment-variable-for-windows-service
+            string environment = args[0];
+
+            string appSettingsFile =
+                (environment == "Development") ? @"..\..\appsettings.json" : "appsettings.release.json";
+
+            string appSettingsPath = Path.Combine(AppContext.BaseDirectory, appSettingsFile);
+
+            string json = System.IO.File.ReadAllText(appSettingsPath);
+
+            AppSettings appSettings = JsonConvert.DeserializeObject<AppSettings>(json);
+
+            LoggingConfiguration.Current = appSettings.loggingSettings;
+
+            string logSections = appSettings.logNames;
+
+
+
+            System.IO.File.WriteAllText(@"g:\temp\wsenv.txt", appSettingsPath);
+            System.IO.File.WriteAllText(@"g:\temp\wsenv2.txt", logSections);
+            System.IO.File.WriteAllText(@"g:\temp\wsenv3.txt", json);
+
+
+
+
+
+
             //Logger logger = new Logger(this.GetType());
             //logger.LogMessage($"ServerLogCopierService - started copying {string.Join(", ", serverLogCopier.LogNames)}", LoggingLevel.Information);
 
             //serverLogCopier.StartCopying();
 
 
+            //        System.IO.File.WriteAllText(@"g:\temp\wsstartarg.txt", args[0]);
+
+
+
+
+
+            //        // <<<<<<<<<<<<<<<<<< create library method for console programs
+
+            //        var builder = new ConfigurationBuilder()
+            //.SetBasePath(Path.Combine(AppContext.BaseDirectory))
+            //.AddJsonFile(@"..\..\appsettings.json", optional: true);
+
+            //        System.IO.File.WriteAllText(@"g:\temp\wsbasedir.txt", AppContext.BaseDirectory);
+
+
+
+            //        IDictionary environments = Environment.GetEnvironmentVariables();
+
+            //        
+
+
+
+
+            //        if (environment != "Development")
+            //        {
+            //            //builder
+            //            //    .AddJsonFile($@"..\..\appsettings.release.json", optional: false);
+            //            //builder
+            //            //    .AddJsonFile($@"..\..\appsettings.{environment}.json", optional: false);
+            //        }
+
+            //        CoreConfigurationManager.Configuration = builder.Build();
+
+
+
+            // <<<<<<<<<<<<<<<<<<<<
+            //   LoggingConfiguration.Current = CoreConfigurationManager.GetSection<LoggingConfiguration>("loggingSettings");
+
+
+
             // test code
-            string json = JsonConvert.SerializeObject(LoggingConfiguration.Current);
-            System.IO.File.WriteAllText(@"g:\temp\wsstart.txt", json);
+            string json2 = JsonConvert.SerializeObject(LoggingConfiguration.Current);
+            System.IO.File.WriteAllText(@"g:\temp\wsmain.txt", json2);
+
+
+
+
+
+
+
+
+
+
+
+
+
+            // test code
+            //string json = JsonConvert.SerializeObject(LoggingConfiguration.Current);
+         //   System.IO.File.WriteAllText(@"g:\temp\wsstart.txt", json);
 
         }
 
@@ -101,39 +200,6 @@ namespace Decideware.Platform.ServerLogCopierService
         public static void Main()
         {
             TelemetryDebugWriter.IsTracingDisabled = true; //<<<<<<<<<<<<<<<<<<<<<<<<
-
-
-            // <<<<<<<<<<<<<<<<<< create library method for console programs
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(Path.Combine(AppContext.BaseDirectory))
-                .AddJsonFile("appsettings.json", optional: true);
-
-            System.IO.File.WriteAllText(@"g:\temp\wsbasedir.txt", AppContext.BaseDirectory);
-
-
-            // The script that starts the service has to set this environment variable
-            string environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-
-            if (environment != "Development")
-            {
-                builder
-                    .AddJsonFile($"appsettings.release.json", optional: false);
-                builder
-                    .AddJsonFile($"appsettings.{environment}.json", optional: false);
-            }
-
-            CoreConfigurationManager.Configuration = builder.Build();
-
-
-
-            // <<<<<<<<<<<<<<<<<<<<
-            LoggingConfiguration.Current = CoreConfigurationManager.GetSection<LoggingConfiguration>("loggingSettings");
-
-
-
-            // test code
-            string json = JsonConvert.SerializeObject(LoggingConfiguration.Current);
-            System.IO.File.WriteAllText(@"g:\temp\wsmain.txt", json);
 
 
 
