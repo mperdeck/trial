@@ -1,0 +1,8 @@
+
+C:\Dev\trial\corewindowsservice\coreservice\coreservice\bin\PublishOutput
+
+sc stop @MyService
+sc create @MyService binPath="C:\Dev\trial\corewindowsservice\coreservice\coreservice\bin\PublishOutput\coreservice.exe"
+sc start @MyService
+
+
