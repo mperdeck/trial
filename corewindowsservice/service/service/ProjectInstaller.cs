@@ -28,7 +28,7 @@ namespace Decideware.Platform.ServerLogCopierService
             serviceInstaller.StartType = ServiceStartMode.Automatic;
 
             // ServiceName must equal those on ServiceBase derived classes.
-            serviceInstaller.ServiceName = "ServerLogCopierService";
+            serviceInstaller.ServiceName = "service";
 
             // Add installers to collection. Order is not important.
             Installers.Add(serviceInstaller);

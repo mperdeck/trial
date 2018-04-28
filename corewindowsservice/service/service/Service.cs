@@ -6,6 +6,24 @@ using System.Threading.Tasks;
 using System.Configuration;
 using System.ServiceProcess;
 using Decideware.Platform;
+
+
+// Create a Core Console program project //<<<<<<<<<<<<<<<<<<<<<<<<
+// ADD package Microsoft.Extensions.Configuration.Json
+
+// uses Microsoft.ApplicationInsights nuget package    
+using Microsoft.ApplicationInsights.Extensibility.Implementation;    //<<<<<<<<<<<<<<<<<<<<<<<<
+using Decideware.Logging.ServerSide;
+using Decideware.Configuration;
+using Microsoft.Extensions.Configuration;
+
+using System;
+using System.IO;
+using System.Text;   //<<<<<<<<<<<<<<<<<<<<<<<<
+
+
+using Newtonsoft.Json;
+
 //using Decideware.Logging.ServerSide;
 //using Decideware.Logging.ServerSide.Net4;
 
@@ -43,10 +61,10 @@ namespace Decideware.Platform.ServerLogCopierService
 
         public Service()
         {
-            //this.ServiceName = "ServerLogCopierService";
-            //this.CanStop = true;
-            //this.CanPauseAndContinue = false;
-            //this.AutoLog = true;
+            this.ServiceName = "service";
+            this.CanStop = true;
+            this.CanPauseAndContinue = false;
+            this.AutoLog = true;
 
             //string commaSeparatedLogNames = ConfigurationManager.AppSettings["LogNames"];
             //if (commaSeparatedLogNames == null)
@@ -64,6 +82,12 @@ namespace Decideware.Platform.ServerLogCopierService
             //logger.LogMessage($"ServerLogCopierService - started copying {string.Join(", ", serverLogCopier.LogNames)}", LoggingLevel.Information);
 
             //serverLogCopier.StartCopying();
+
+
+            // test code
+            string json = JsonConvert.SerializeObject(LoggingConfiguration.Current);
+            System.IO.File.WriteAllText(@"g:\temp\wsstart.txt", json);
+
         }
 
         protected override void OnStop()
@@ -76,6 +100,43 @@ namespace Decideware.Platform.ServerLogCopierService
 
         public static void Main()
         {
+            TelemetryDebugWriter.IsTracingDisabled = true; //<<<<<<<<<<<<<<<<<<<<<<<<
+
+
+            // <<<<<<<<<<<<<<<<<< create library method for console programs
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(Path.Combine(AppContext.BaseDirectory))
+                .AddJsonFile("appsettings.json", optional: true);
+
+            System.IO.File.WriteAllText(@"g:\temp\wsbasedir.txt", AppContext.BaseDirectory);
+
+
+            // The script that starts the service has to set this environment variable
+            string environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+
+            if (environment != "Development")
+            {
+                builder
+                    .AddJsonFile($"appsettings.release.json", optional: false);
+                builder
+                    .AddJsonFile($"appsettings.{environment}.json", optional: false);
+            }
+
+            CoreConfigurationManager.Configuration = builder.Build();
+
+
+
+            // <<<<<<<<<<<<<<<<<<<<
+            LoggingConfiguration.Current = CoreConfigurationManager.GetSection<LoggingConfiguration>("loggingSettings");
+
+
+
+            // test code
+            string json = JsonConvert.SerializeObject(LoggingConfiguration.Current);
+            System.IO.File.WriteAllText(@"g:\temp\wsmain.txt", json);
+
+
+
             ServiceBase.Run(new Service());
         }
     }
