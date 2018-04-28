@@ -10,15 +10,15 @@ namespace coreservice
     {
         public Startup(IHostingEnvironment env)
         {
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(env.ContentRootPath)
-                //.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
-                //.AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-                .AddEnvironmentVariables();
-            Configuration = builder.Build();
+            //var builder = new ConfigurationBuilder()
+            //    .SetBasePath(env.ContentRootPath)
+            //    //.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+            //    //.AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
+            //    .AddEnvironmentVariables();
+            //Configuration = builder.Build();
 
 
-            System.IO.File.WriteAllText(@"g:\temp\sc2env", env.EnvironmentName);
+            //System.IO.File.WriteAllText(@"g:\temp\sc2env", env.EnvironmentName);
 
 
         }
@@ -35,18 +35,18 @@ namespace coreservice
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
+        //    loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+        //    loggerFactory.AddDebug();
 
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-        //        app.UseBrowserLink();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-            }
+        //    if (env.IsDevelopment())
+        //    {
+        //        app.UseDeveloperExceptionPage();
+        ////        app.UseBrowserLink();
+        //    }
+        //    else
+        //    {
+        //        app.UseExceptionHandler("/Home/Error");
+        //    }
 
        //     app.UseStaticFiles();
 
