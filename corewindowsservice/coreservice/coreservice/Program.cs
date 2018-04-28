@@ -8,10 +8,13 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 
 
 using Microsoft.AspNetCore.Hosting.WindowsServices;
 using System.ServiceProcess;
+using Decideware.Logging.ServerSide;
+using Decideware.Configuration;
 
 
 // <<<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -35,6 +38,44 @@ namespace coreservice
 
         protected override void OnStarting(string[] args)
         {
+            string environment = args[0];
+
+
+
+
+
+            string appSettingsDir = AppContext.BaseDirectory;
+            if (environment == "Development")
+            {
+                appSettingsDir = Path.Combine(appSettingsDir, @"..\..");
+            }
+
+            System.IO.File.WriteAllText(@"g:\temp\sc2startdir.txt", appSettingsDir);
+
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(appSettingsDir)
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+
+            if (environment != "Development")
+            {
+                builder.AddJsonFile($"appsettings.release.json", optional: true);
+            }
+
+            var configuration = builder.Build();
+
+            CoreConfigurationManager.Configuration = configuration;
+
+            LoggingConfiguration.Current = CoreConfigurationManager.GetSection<LoggingConfiguration>("loggingSettings");
+
+            // <<<<<<<<<<<<<<<<<<<<<<
+
+            string json = JsonConvert.SerializeObject(LoggingConfiguration.Current);
+            System.IO.File.WriteAllText(@"g:\temp\sc2startjson", json);
+
+
+
+
+
             base.OnStarting(args);
         }
 
