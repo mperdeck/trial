@@ -7,6 +7,7 @@ const path = require('path');
 module.exports = {
     entry: './src/index.js',
     output: {
+        // the code "path.resolve(__dirname, 'wwwroot/js')" doesn't work, so just append the '/js'
         path: path.resolve(__dirname, 'wwwroot') + '/js',
         filename: 'main.js'
     }
