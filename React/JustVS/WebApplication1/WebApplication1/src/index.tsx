@@ -8,10 +8,15 @@ import { Hello } from "./components/Hello";
 
 (function () {
     var elements = document.getElementsByClassName("example");
-    var i;
+    var i: number;
+    var compiler: string;
+    var framework: string;
     for (i = 0; i < elements.length; i++) {
+        compiler = (elements[i] as any).dataset.compiler;
+        framework = (elements[i] as any).dataset.framework;
+
         ReactDOM.render(
-            <Hello compiler="TypeScript14" framework="React" />, elements[i]
+            <Hello compiler={compiler} framework={framework} />, elements[i]
         );
     }
 })();
