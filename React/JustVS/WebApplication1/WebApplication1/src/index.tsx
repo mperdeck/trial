@@ -5,7 +5,15 @@ import { Hello } from "./components/Hello";
 
 
 
-ReactDOM.render(
-    <Hello compiler="TypeScript" framework="React" />,
-    document.getElementById("example")
-);
+
+(function () {
+    var elements = document.getElementsByClassName("example");
+    var i;
+    for (i = 0; i < elements.length; i++) {
+        ReactDOM.render(
+            <Hello compiler="TypeScript14" framework="React" />, elements[i]
+        );
+    }
+})();
+
+
