@@ -1,3 +1,9 @@
         "module": "commonjs",
 
+npm i -g webpack
+npm i -g webpack-cli
+
+npm install --save react react-dom @types/react @types/react-dom
+
+
 
