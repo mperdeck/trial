@@ -3,9 +3,10 @@
 // By default, entry point is ./src/index.js and output is ./dist/main.js
 
 const path = require('path');
+const glob = require("glob");
 
 module.exports = {
-    entry: './src/module.js',
+    entry: ['./src/module.js'].concat(glob.sync('./Views/**/*.js')),
     output: {
         // the code "path.resolve(__dirname, 'wwwroot/js')" doesn't work, so just append the '/js'
         path: path.resolve(__dirname, 'wwwroot') + '/js',

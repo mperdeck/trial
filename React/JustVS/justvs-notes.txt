@@ -1,5 +1,8 @@
         "module": "commonjs",
 
+npm init          create packages.json, next to webpack config file
+npm install --save-dev glob
+
 npm i -g webpack
 npm i -g webpack-cli
 
@@ -10,4 +13,5 @@ webpack --mode=development
 
 msbuild.exe WebApplication1.sln /t:Build /p:Configuration=Release
 
-
+>>>>>>>>>>>>
+to solve: importing types without using import, just use ///  ?
