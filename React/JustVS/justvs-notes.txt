@@ -8,4 +8,6 @@ npm install --save react react-dom @types/react @types/react-dom
 webpack --mode=development
 
 
+msbuild.exe WebApplication1.sln /t:Build /p:Configuration=Release
+
 

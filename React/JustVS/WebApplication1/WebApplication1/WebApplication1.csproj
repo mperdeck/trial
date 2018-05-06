@@ -13,4 +13,12 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
   </ItemGroup>
 
+  <Target Name="Webpack" AfterTargets="Build">
+    <!--webpack by default uses mode=production-->
+
+		<Message Text="Running webpack in production mode" Importance="High" Condition="$(Configuration) == 'Release'" />
+
+    <Exec Condition="$(Configuration) == 'Release'" Command="webpack" />
+  </Target>
+  
 </Project>
