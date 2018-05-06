@@ -1,7 +1,9 @@
-import * as React from "react";
-import * as ReactDOM from "react-dom";
 
-import { Hello } from "./components/Hello";
+// It can't find the typings ########################
+import * as React from "../../src/node_modules/react/index";
+import * as ReactDOM from "../../src/node_modules/react-dom/index";
+
+import { Hello } from "../../src/components/Hello";
 
 
 
