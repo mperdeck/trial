@@ -5,9 +5,7 @@
   "main": "webpack.config.js",
   "dependencies": {
     "@types/react": "^16.3.13",
-    "@types/react-dom": "^16.0.5",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2"
+    "@types/react-dom": "^16.0.5"
   },
   "devDependencies": {
     "glob": "^7.1.2"
