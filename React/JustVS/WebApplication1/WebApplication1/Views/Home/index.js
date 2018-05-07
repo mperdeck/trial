@@ -2,7 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var ReactDOM = require("react-dom");
-var Hello_1 = require("./components/Hello");
+var Hello_1 = require("../../src/components/Hello");
+//mmmlllddd
 (function () {
     var elements = document.getElementsByClassName("example");
     var i;
