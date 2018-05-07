@@ -14,10 +14,12 @@
   </ItemGroup>
 
   <Target Name="Webpack" AfterTargets="Build" Condition="$(Configuration) == 'Release'">
+    <!--Assume that in debug mode, npm install gets done separately, such as in BuildAll.ps1-->
+    <Exec Command="npm install" />
+
+
     <!--webpack by default uses mode=production-->
-
 		<Message Text="Running webpack in production mode" Importance="High" />
-
     <Exec Command="webpack" />
   </Target>
   
