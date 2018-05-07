@@ -10,7 +10,7 @@ npm install --save react react-dom @types/react @types/react-dom
 
 webpack --mode=development
 
-
+cd C:\Dev\trial\React\JustVS\WebApplication1
 msbuild.exe WebApplication1.sln /t:Build /p:Configuration=Release
 
 >>>>>>>>>>>>
