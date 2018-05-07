@@ -1,12 +1,11 @@
 
-// It can't find the typings ########################
 import * as React from "react";
 import * as ReactDOM from "react-dom";
 
 import { Hello } from "../../src/components/Hello";
 
 
-
+//mmmllldddhhhh
 
 (function () {
     var elements = document.getElementsByClassName("example");
