@@ -1,11 +1,14 @@
+/// <r eference path="../../node_modules/@types/react-dom/index.d.ts" />
 
-import * as React from "react";
-import * as ReactDOM from "react-dom";
+import { Hello } from "../../src/components/Hello.js";
+// Must use .js extension, because this line will be used by the browser and it requires an extension
 
-import { Hello } from "../../src/components/Hello";
+// this works for both compiler and browser
+declare var ReactDOM: any;
+declare var React: any;
 
 
-//mmmllldddhhhh
+//mmmllldddhhhh445578866
 
 (function () {
     var elements = document.getElementsByClassName("example");

@@ -1,4 +1,6 @@
-import * as React from "react";
+// i mport * as React from "react";
+declare var ReactDOM: any;
+declare var React: any;
 
 export interface HelloProps { compiler: string; framework: string; }
 
