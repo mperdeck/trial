@@ -5,7 +5,10 @@
     "outDir": "./wwwroot/js",
     "sourceMap": true,
     "noImplicitAny": false,
-    "module": "commonjs",
+    "module": "ES2015",
+    // If you do not include moduleResolution: node, you'll get a weird compile error in the
+    // React typings files
+    "moduleResolution": "node",
     "target": "es5",
     "jsx": "react",
     // The lib definition is needed, because the node typings included uses of Map, Set, Symbol, WeakMap, WeakSet.
