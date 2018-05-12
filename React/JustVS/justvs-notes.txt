@@ -11,8 +11,10 @@ https://reactjs.org/docs/refs-and-the-dom.html
 typescript
 https://www.typescriptlang.org/docs/handbook/jsx.html
 https://www.typescriptlang.org/docs/handbook/react-&-webpack.html
+https://www.typescriptlang.org/docs/handbook/module-resolution.html#path-mapping
 
-        
+modules in browser
+https://jakearchibald.com/2017/es-modules-in-browsers/        
 
 
 
@@ -33,3 +35,103 @@ msbuild.exe WebApplication1.sln /t:Build /p:Configuration=Release
 
 >>>>>>>>>>>>
 to solve: importing types without using import, just use ///  ?
+
+=============================================
+
+if you use import for typings, chrome won't understand
+ts generates imports without extention, but chrome must have .js extention
+
+//import * as React from "react";
+//import * as ReactDOM from "react-dom";
+
+import { Hello } from "../../src/components/Hello.js";
+//import { Hello } from "../../src/components/Hello";
+
+++++++++++++++++++++++++++++++++++++++
+
+// this works for both compiler and browser
+declare var ReactDOM: any;
+declare var React: any;
+
+--------------
+Compiler says
+
+    Severity	Code	Description	Project	File	Line	Suppression State
+Error	TS2686	(TS) 'ReactDOM' refers to a UMD global, but the current file is a module. Consider adding an import instead.	WebApplication1 (tsconfig project)	C:\Dev\trial\React\JustVS\WebApplication1\WebApplication1\Views\Home\index.tsx	22	Active
+
+If you use
+* no declarations at all (according to
+https://www.typescriptlang.org/docs/handbook/tsconfig-json.html#types-typeroots-and-types
+this will pick up any @types declarations from node_modules in current dir, parent dir, etc.)
+
+* /// <reference path="../../node_modules/@types/react-dom/index.d.ts" />
+
+---------
+Compiler throws lots of "(TS) Duplicate identifier ...." error messages, such as
+
+Severity	Code	Description	Project	File	Line	Suppression State
+Error	TS2300	(TS) Duplicate identifier 'resolve'.	Miscellaneous	C:\Dev\trial\React\JustVS\WebApplication1\WebApplication1\node_modules\@types\node\index.d.ts	214	Active
+
+If you use:
+
+    "types": [ "ReactDOM", "React" ],
+in tsconfig.json, compilerOptions element.
+
+-----------------
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+
+This compiles, and I get Intellisense and type checking. But Chrome 66 now throws an error in the console, saying
+
+(index):1 Uncaught TypeError: Failed to resolve module specifier "react". Relative references must start with either "/", "./", or "../".
+
+----------------------
+import * as React from "../../node_modules/@types/react/index.d.ts";
+import * as ReactDOM from "../../node_modules/@types/react-dom/index.d.ts";
+
+compiler error:
+
+Severity	Code	Description	Project	File	Line	Suppression State
+Error	TS2691	(TS) An import path cannot end with a '.d.ts' extension. Consider importing '../../node_modules/@types/react/index' instead.	WebApplication1 (tsconfig project)	C:\Dev\trial\React\JustVS\WebApplication1\WebApplication1\Views\Home\index.tsx	1	Active
+
+----------------------
+
+import * as React from "../../node_modules/@types/react/index";
+import * as ReactDOM from "../../node_modules/@types/react-dom/index";
+
+compiles. But the browser now throws the error message:
+
+index.tsx:1 GET http://localhost:8400/js/node_modules/@types/react/index 404 (Not Found)
+index.tsx:2 GET http://localhost:8400/js/node_modules/@types/react-dom/index 404 (Not Found)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
