@@ -1,4 +1,22 @@
-        "module": "commonjs",
+course
+https://reactjs.org/docs/hello-world.html
+
+integrate with existing application
+https://reactjs.org/docs/integrating-with-other-libraries.html#integrating-with-other-view-libraries
+
+Referencing the DOM version of an element
+https://reactjs.org/docs/uncontrolled-components.html
+https://reactjs.org/docs/refs-and-the-dom.html
+
+typescript
+https://www.typescriptlang.org/docs/handbook/jsx.html
+https://www.typescriptlang.org/docs/handbook/react-&-webpack.html
+
+        
+
+
+
+"module": "commonjs",
 
 npm init          create packages.json, next to webpack config file
 npm install --save-dev glob
