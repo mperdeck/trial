@@ -2,6 +2,8 @@
   "compileOnSave": true,
   "removeComments": false,
   "compilerOptions": {
+    // Include .jsx files in the compilation
+    "allowJs": true,
     "outDir": "./wwwroot/js",
     "sourceMap": true,
     "noImplicitAny": false,
@@ -17,5 +19,9 @@
     // npm install (they are not explicitly mentioned in the package.json file). See
     // https://stackoverflow.com/questions/39416691/webpack-ts2304-cannot-find-name-map-set-promise/39418293
     "lib": [ "es5", "es6", "dom" ]
-  }
+  },
+  "include": [
+    "src/**/*",
+    "Views/**/*"
+  ]
 }

@@ -13,6 +13,11 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="dist\" />
+    <Folder Include="wwwroot\lib\" />
+  </ItemGroup>
+
   <Target Name="Webpack" AfterTargets="Build" Condition="$(Configuration) == 'Release'">
     <!--Assume that in debug mode, npm install gets done separately, such as in BuildAll.ps1-->
     <Exec Command="npm install" />

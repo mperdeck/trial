@@ -1,0 +1,30 @@
+﻿
+<h1>React trial</h1>
+<p>
+    Some text before the React component.
+</p>
+<p>
+    <label>Legacy input box</label>
+    <input type="text" id="legacyinput" />
+    <button id="legacybutton">copy legacy input to output at end of this page</button>
+</p>
+
+<hr />
+
+<div id="content"></div>
+
+<hr />
+<p>
+    Some text after the React component.
+</p>
+<p>
+    <div id="legacycopy">legacy text will be copied in here</div>
+</p>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/remarkable/1.7.1/remarkable.min.js"></script>
+    <script src="@Url.Content("~/js/src/components/tutorial.js")"></script>
+}
+
