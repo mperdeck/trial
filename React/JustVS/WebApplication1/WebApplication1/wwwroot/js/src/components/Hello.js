@@ -1,4 +1,5 @@
-export var Hello = function (props) { return React.createElement("h1", null,
+import { Message } from "./Message.js";
+export var Hello = function (props) { return React.createElement(Message, null,
     "Hello!oo! from ",
     props.compiler,
     " and ",
