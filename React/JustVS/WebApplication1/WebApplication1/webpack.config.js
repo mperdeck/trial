@@ -6,7 +6,13 @@ const path = require('path');
 const glob = require("glob");
 
 module.exports = {
-    entry: ['./src/module.js'].concat(glob.sync('./Views/**/*.js')),
+    watch: true,
+    watchOptions: {
+        aggregateTimeout: 300,
+        poll: 1000,
+        ignored: /node_modules/
+    },
+    entry: ['./wwwroot/js/src/module.js'].concat(glob.sync('./wwwroot/js/Views/**/*.js')),
     output: {
         // the code "path.resolve(__dirname, 'wwwroot/js')" doesn't work, so just append the '/js'
         path: path.resolve(__dirname, 'wwwroot') + '/js',

@@ -1,9 +1,12 @@
+import { React } from "./react-types.js";
+import { ReactDOM } from "./react-dom-types.js";
+
 import { Message } from "./Message.js";
 // Must use .js extension, because this line will be used by the browser and it requires an extension
 
 // this works for both compiler and browser
-declare var ReactDOM: any;
-declare var React: any;
+//declare var ReactDOM: any;
+//declare var React: any;
 
 export interface HelloProps { compiler: string; framework: string; }
 

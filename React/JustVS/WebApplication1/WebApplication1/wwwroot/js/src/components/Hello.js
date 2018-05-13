@@ -1,3 +1,4 @@
+import { React } from "./react-types.js";
 import { Message } from "./Message.js";
 export var Hello = function (props) { return React.createElement(Message, null,
     "Hello!oo! from ",

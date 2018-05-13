@@ -1,1 +1,2 @@
-export * as React from "react";
+import React from 'react';
+export const React = React;

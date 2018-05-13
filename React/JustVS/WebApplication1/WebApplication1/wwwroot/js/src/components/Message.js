@@ -1,6 +1,4 @@
-// this works for both compiler and browser
-//declare var ReactDOM: any;
-//declare var React: any;
+/// <reference path="../../node_modules/@types/react-dom/index.d.ts" />
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -11,7 +9,15 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-import * as React from "react";
+// this works for both compiler and browser
+//declare var ReactDOM: any;
+//declare var React: any;
+//import { React } from "./react-types.js";
+//import { ReactDOM } from "./react-dom-types.js";
+//import * as React from "react";
+//import * as ReactDOM from "react-dom";
+if (false) {
+}
 // 'HelloProps' describes the shape of props.
 // State is never set so we use the '{}' type.
 var Message = /** @class */ (function (_super) {

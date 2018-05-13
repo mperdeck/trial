@@ -1,9 +1,12 @@
+/// <reference path="../../node_modules/@types/react-dom/index.d.ts" />
+
+
 // this works for both compiler and browser
 //declare var ReactDOM: any;
 //declare var React: any;
 
-import * as React from "./react-types.js";
-import * as ReactDOM from "./react-dom-types.js";
+//import { React } from "./react-types.js";
+//import { ReactDOM } from "./react-dom-types.js";
 
 
 //import * as React from "react";
