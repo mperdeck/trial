@@ -24,7 +24,13 @@ namespace WebApplication1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            string keysDirectory = @"c:\temp\dataprotection-keys";
+            //   string keysDirectory = @"\\MEDIA-PC\Public\dataprotection-keys";
+            string keysDirectory = @"\\MPERDECKPC\Users\dataprotection-keys";
+
+
+            
+
+
 
             services.AddDataProtection()
                 .PersistKeysToFileSystem(new DirectoryInfo(keysDirectory));
