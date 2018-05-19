@@ -1,6 +1,20 @@
-﻿@{
+﻿@model TestViewModel
+
+@{
     ViewData["Title"] = "Home Page";
 }
+
+@using (Html.BeginForm())
+{
+    @Html.TextBoxFor(m => m.s1)
+    @Html.TextBoxFor(model => model.s2)
+
+    <input type="submit" value="Submit strongly type synchronous form" />
+}
+
+
+
+
 
 <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
     <ol class="carousel-indicators">

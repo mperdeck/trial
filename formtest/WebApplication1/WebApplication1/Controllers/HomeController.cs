@@ -15,6 +15,12 @@ namespace WebApplication1.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Index(TestViewModel tvm)
+        {
+            return View();
+        }
+
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";
