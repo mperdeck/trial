@@ -11,13 +11,20 @@ using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.AspNetCore.Mvc.TagHelpers;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Extensions.Caching.Memory;
+using WebApplication1;
 
 namespace Decideware.Platform.Applications.Web.TagHelpers
 {
+
+
     [HtmlTargetElement("script")]
     public class CacheBustingScriptTagHelper : ScriptTagHelper
     {
+        ISiteInfo _siteInfo;
+
+
         public CacheBustingScriptTagHelper(
+                    ISiteInfo siteInfo,
                     IHostingEnvironment hostingEnvironment,
                     IMemoryCache cache,
                     HtmlEncoder htmlEncoder,
@@ -28,7 +35,9 @@ namespace Decideware.Platform.Applications.Web.TagHelpers
                         htmlEncoder,
                         javaScriptEncoder,
                         urlHelperFactory)
-        { }
+        {
+            _siteInfo = siteInfo;
+        }
 
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
@@ -43,19 +52,22 @@ namespace Decideware.Platform.Applications.Web.TagHelpers
 
             if (applyCacheBusting)
             {
+
+                
                 // AppendVersion option appends a query string parameter with the version number of the script file.
                 // That version number is essentially a hash over the contents of the file.
 
+                //#############################
 
-                const string appendVersion = "asp-append-version";
-            if (!context.AllAttributes.Any(a => a.Name == appendVersion))
-            {
-                var attributes = new TagHelperAttributeList(context.AllAttributes);
-                attributes.Add(appendVersion, true);
-                context = new TagHelperContext(attributes, context.Items, context.UniqueId);
-            } // E
+                    //const string appendVersion = "asp-append-version";
+                    //if (!context.AllAttributes.Any(a => a.Name == appendVersion))
+                    //{
+                    var attributes = new TagHelperAttributeList();
+                    attributes.Add("src", $"{srcAttribute}?v={_siteInfo.GetVersion}");
+                    context = new TagHelperContext(attributes, context.Items, context.UniqueId);
+                    //} // E
 
-            base.AppendVersion = true; // C
+                    //base.AppendVersion = true; // C
            }
             base.Process(context, output); // D
 
