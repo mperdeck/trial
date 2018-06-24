@@ -1,0 +1,116 @@
+https://github.com/Microsoft/TypeScript/issues/24279
+
+Suggestion: Remove imports of type information in .ts / .tsx file from generated .js output
+
+<!-- 🚨 STOP 🚨 𝗦𝗧𝗢𝗣 🚨 𝑺𝑻𝑶𝑷 🚨
+
+Half of all issues filed here are duplicates, answered in the FAQ, or not appropriate for the bug tracker. Please read the FAQ first, especially the "Common Feature Requests" section.
+
+-->
+
+## Search Terms
+
+<!-- List of keywords you searched for before creating this issue. Write them down here so that others can find this suggestion more easily -->
+typescript exclude modules from compiled code
+typescript exclude type modules
+
+## Suggestion
+
+<!-- A summary of what you'd like to see added or changed -->
+In my .tsx files, in order to import the React types I have to include the lines:
+
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+
+Problem is that these lines get copied to the transpiled .js files (along with the other import statements). As a result, when I load the .js files in Chrome as part of my pages, Chrome throws an exception, saying it can't resolve the modules. For more details, see:
+https://stackoverflow.com/questions/50304192/how-to-import-type-information-in-module-meant-to-be-loaded-in-browsers
+
+My suggestion is to either:
+1) create a tsconfig.json option to automatically remove the type imports from the generated code, because they are only relevant during building and have no use at run time; or
+2) allow the developer to indicate what lines of code should not be copied to the generated code.
+
+I appreciate I could use webpack to process and combine the generated .js files. I'm indeed doing this for production builds. However, for debug builds, I strongly prefer loading the generated modules individually to make it easier to debug the code. Not using webpack during development also saves time and complexity.
+
+## Use Cases
+
+<!--
+What do you want to use this for?
+What shortcomings exist with current approaches?
+-->
+Debug builds, where you want
+1) the code loaded in the browser to be as close as possible to the source code;
+2) the modify-compile-test cycle as quick and simple as possible.
+
+Alternative approaches:
+* Use webpack to process the modules. But this takes time and adds complexity;
+* Write MSBuild code that removes the type imports. But that takes more time and is hacky.
+* Forgo type checking in my React files. But then I'm back to loosely typed JavaScript.
+
+## Examples
+
+<!-- Show how this would be used and what the behavior would be -->
+Developer would write type imports as per normal, and the TypeScript compiler would recognize those imports that only import types and remove those imports from the generated .js code.
+
+## Checklist
+
+My suggestion meets these guidelines:
+* [x] This wouldn't be a breaking change in existing TypeScript / JavaScript code
+* [x] This wouldn't change the runtime behavior of existing JavaScript code
+* [x] This could be implemented without emitting different JS based on the types of the expressions
+* [x] This isn't a runtime feature (e.g. new expression-level syntax)
+
+++++++++++++++++++++++++++++++++++++++++++++++++
+
+@nattthebear is right, I'm loading React and ReactDOM separately into the page from a CDN:
+````
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+````
+
+I would be using the two imports that I mentioned simply to load the React related types, not to load the React code itself.
+
+Looking at the solution put forward by @nattthebear, using "declare var React", etc.:
+I did look at
+````
+declare var ReactDOM: any;
+declare var React: any;
+````
+But that doesn't give me any React types. I could define the React related types myself based on DefinitivelyTyped types, but then I'd have to maintain all these types myself for the duration of the code base.
+
+Another avenue would be to load the React code from modules instead of with separate script tags. However, if you try
+````
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+````
+then the browser simply can't find the modules, because this syntax assumes there is a node_modules directory on the client.
+
+This doesn't work either:
+````
+import * as React from "../../node_modules/@types/react/index.d.ts";
+import * as ReactDOM from "../../node_modules/@types/react-dom/index.d.ts"
+````
+The compiler now complains that I should leave off the .d.ts extensions.
+
+But if I do that:
+import * as React from "../../node_modules/@types/react/index";
+import * as ReactDOM from "../../node_modules/@types/react-dom/index";
+Then the browser says it cannot find those files, even though I included the .d.ts files in the web site.
+
+With high hopes I also tried
+````
+/// <reference path="../../node_modules/@types/react-dom/index.d.ts" />
+````
+This would have been perfect, because due to the comment // the browser would have ignored this. But the compiler told me:
+````
+'ReactDOM' refers to a UMD global, but the current file is a module. Consider adding an import instead.
+````
+To be honest, this doesn't really make sense to me. 
+
+Essentially I'm looking at client side oriented modules (React and ReactDOM) but the way the types are delivered and compiled assume those modules are uses with Node, a server side technology.
+
+I appreciate my original suggestion may not have hit the mark. But the problem remains - how to use DefinitivelyTyped types and the TypeScript compiler to write strongly typed code that can be loaded as modules into the browser. 
+
+
+
+
+
