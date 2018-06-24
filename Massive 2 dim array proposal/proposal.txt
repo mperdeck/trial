@@ -1,0 +1,31 @@
+
+Sending a 2 dimensional array with lots of empty cells, versus sending a 1 dimensional array with indexes.
+
+
+
+
+send the data in multiple parallel sessions. say 10. That is, send 10 simultaneous ajax requests, each requesting 1/10 of the data. EAch request must have the "chunk" number.
+
+Wehn a cell is changed, save it immediately to the server
+* instant validation, instead of lengthy validation at the end.
+* ajax requests are aynchronous, so saves and validations can happen in parallel. If a cell gets changed while it still has an ajax request outstanding, cancel the first ajax request.
+* if user computer crashes, they won't lose their work.
+
+The saved data will often not be valid (fails validation) or incomplete. So the saved data could be treated as a draft. Only when the user hits a Save button would the draft become official. Similar to writing an email in Outlook, where it saves your work as a draft on the server while you're working on it.
+
+
+
+Initial validation
+
+When the user imports a spreadsheet and loads the data intho their browser, it would be great if they would see any validation errors inside the matrix on their screen, so they can easily fix the broken cells.
+
+when user imports a speadsheet, I guess that is done to the server first.
+You could validate each cell on the server, and send the validation results to the client. This could then highlight broken cells and allow the user to see the error message somehow.
+
+If the spreadsheet is loaded directly onto the client, it could send the data in chunks to the server asynchronously (say 1000 cells per chunk). The server than validates each chunk and sends a response. This would be async, so the data would load immediately and then broken cells would become highlighted as the validation results are received from the server.
+
+
+
+
+
+
