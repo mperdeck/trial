@@ -17,16 +17,48 @@ namespace ConsoleApplication4
             var signingCredentials = new SigningCredentials(signingKey,
                 SecurityAlgorithms.HmacSha256Signature, SecurityAlgorithms.Sha256Digest);
 
+            //###############
+//            long secondsSinceUnixEpoch = DateTimeOffset.UtcNow.ToUnixTimeSeconds();
+            long secondsSinceUnixEpoch = 123456;
+            string uniqueId = Guid.NewGuid().ToString();
+
+            string tags = @"[""production"",""poweruser"",""standardadmin""]";
+
+
             var claimsIdentity = new ClaimsIdentity(new List<Claim>()
             {
-                new Claim(ClaimTypes.NameIdentifier, "myemail@myprovider.com"),
-                new Claim(ClaimTypes.Role, "Administrator"),
-            }, "Custom");
+                //new Claim(ClaimTypes.NameIdentifier, "myemail@myprovider.com"),
+                //new Claim(ClaimTypes.Role, "Administrator"),
+
+                //new Claim(ClaimTypes.Email, "xzy@iiii.com"),
+                //new Claim(ClaimTypes.Name, "Dolly Parton"),
+
+                new Claim("email", "xzy@iiii.com"),
+                new Claim("name", "Dolly Parton"),
+
+                new Claim("iat", secondsSinceUnixEpoch.ToString()),
+                new Claim("jti", uniqueId),
+
+                new Claim("tags", tags)
+
+
+
+
+            //payload.Add("iat", secondsSinceUnixEpoch);
+
+            //// Add JSON Web Token Id
+
+            //payload.Add("jti", uniqueId);
+
+
+
+
+        }, "Custom");
 
             var securityTokenDescriptor = new SecurityTokenDescriptor()
             {
-                AppliesToAddress = "http://my.website.com",
-                TokenIssuerName = "http://my.tokenissuer.com",
+          //      AppliesToAddress = "http://my.website.com",
+          //      TokenIssuerName = "http://my.tokenissuer.com",
                 Subject = claimsIdentity,
                 SigningCredentials = signingCredentials,
             };
