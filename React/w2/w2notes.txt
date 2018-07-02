@@ -1,2 +1,6 @@
 
+cd C:\Dev\trial\React\w2
+.\watcher.ps1
+
+
 robocopy C:\Dev\trial\React\w2\w2\wwwroot C:\Dev\trial\React\w2\w2\bin\Release\PublishOutput\wwwroot /mir /MON:1 /MOT:0

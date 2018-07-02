@@ -1,3 +1,6 @@
+# See
+# https://superuser.com/questions/497205/can-robocopy-monitor-files-on-a-time-increment-of-less-than-one-minute
+
 $block = {    
     function Do-Something
     {
@@ -5,7 +8,10 @@ $block = {
         # function to call when event is raised
         # do a robocopy or whatever
 
-        Start-Process cmd.exe "/C echo $("{0} {1}" -f $event.SourceEventArgs.FullPath, $message)&pause"
+#        Start-Process cmd.exe "/C echo $("{0} {1}" -f $event.SourceEventArgs.FullPath, $message)&pause"
+cmd.exe "/C robocopy C:\Dev\trial\React\w2\w2\wwwroot C:\Dev\trial\React\w2\w2\bin\Release\PublishOutput\wwwroot /mir"
+
+
     }
 
     $watchedFolder = "C:\Dev\trial\React\w2\w2\wwwroot"
