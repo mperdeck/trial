@@ -1,0 +1,17 @@
+{
+  "compileOnSave": true,
+  "removeComments": false,
+  "compilerOptions": {
+    "sourceMap": true,
+    "noImplicitAny": false,
+    "module": "commonjs",
+    "target": "es5",
+    "jsx": "react",
+    // The lib definition is needed, because the node typings included uses of Map, Set, Symbol, WeakMap, WeakSet.
+    // However, these are ES6 symbols, and we're targeting ES5.
+    // We can do without the node typings (this is not a Node application), but they get included when doing an
+    // npm install (they are not explicitly mentioned in the package.json file). See
+    // https://stackoverflow.com/questions/39416691/webpack-ts2304-cannot-find-name-map-set-promise/39418293
+    "lib": [ "es5", "es6", "dom" ]
+  }
+}

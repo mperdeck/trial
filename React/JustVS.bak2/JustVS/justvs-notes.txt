@@ -1,0 +1,17 @@
+        "module": "commonjs",
+
+npm init          create packages.json, next to webpack config file
+npm install --save-dev glob
+
+npm i -g webpack
+npm i -g webpack-cli
+
+npm install --save react react-dom @types/react @types/react-dom
+
+webpack --mode=development
+
+cd C:\Dev\trial\React\JustVS\WebApplication1
+msbuild.exe WebApplication1.sln /t:Build /p:Configuration=Release
+
+>>>>>>>>>>>>
+to solve: importing types without using import, just use ///  ?
