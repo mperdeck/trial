@@ -1,6 +1,7 @@
 // wyam --input .\input --output .\output -v
 
 Pipelines.Add(
-    ReadFiles("*.nuspec"),
+ReadFiles("*.nuspec"),
+	Append(ReadFiles("template.txt")),
     WriteFiles()
 );
