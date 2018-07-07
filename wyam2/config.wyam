@@ -1,0 +1,6 @@
+// wyam --input .\input --output .\output -v
+
+Pipelines.Add(
+    ReadFiles("*.nuspec"),
+    WriteFiles()
+);
