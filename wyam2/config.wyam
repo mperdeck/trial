@@ -9,5 +9,6 @@ Pipelines.Add(
     Replace("{{Title}}", @doc.Get("Title", "Default Title")), 
     Replace("{{Description}}", @doc.Get("Description", "Default Description")), 
     Replace("{{OnlyA}}", @doc.Get("OnlyA", "")), 
+    Meta("RelativeFilePath", @doc.Get("Title", "xxxx") + "\\" + @doc.Get("Title", "xxxx") + ".txt"),
     WriteFiles()
 );
