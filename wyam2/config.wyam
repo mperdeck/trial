@@ -1,7 +1,11 @@
 // wyam --input .\input --output .\output -v
 
+#n Wyam.Yaml
+
 Pipelines.Add(
-ReadFiles("*.nuspec"),
+	ReadFiles("*.nuspec"),
+	FrontMatter(Yaml()),  // Move the frontmatter to metadata
 	Append(ReadFiles("template.txt")),
+    Replace("{{Title}}", @doc.Get("Title", "Default Title")), 
     WriteFiles()
 );
