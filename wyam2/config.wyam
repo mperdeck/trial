@@ -7,5 +7,7 @@ Pipelines.Add(
 	FrontMatter(Yaml()),  // Move the frontmatter to metadata
 	Append(ReadFiles("template.txt")),
     Replace("{{Title}}", @doc.Get("Title", "Default Title")), 
+    Replace("{{Description}}", @doc.Get("Description", "Default Description")), 
+    Replace("{{OnlyA}}", @doc.Get("OnlyA", "")), 
     WriteFiles()
 );
