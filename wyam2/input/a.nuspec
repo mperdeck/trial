@@ -2,5 +2,6 @@ Title: atitle
 Description: adescription
 OnlyA: aonlya
 RelativeFilePath: apath\aoutput.nuspec
+cf: readmea.txt
 ---
 aaaaaa
