@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using RazorClassLibrary.Models;
 using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
@@ -12,7 +13,12 @@ namespace WebApplication1.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            var testViewModel = new TestViewModel()
+            {
+                P1 = "passed in via local view model"
+            };
+
+            return View(testViewModel);
         }
 
         public IActionResult About()
