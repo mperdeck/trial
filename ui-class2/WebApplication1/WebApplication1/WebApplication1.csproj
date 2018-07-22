@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="RazorClassLibrary" />
+    <PackageReference Include="RazorClassLibrary" Version="1.*" />
   </ItemGroup>
 
   <ItemGroup>
