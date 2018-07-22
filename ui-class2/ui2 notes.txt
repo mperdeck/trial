@@ -1,0 +1,12 @@
+C:\Dev\trial\ui-class2\RazorClassLibrary
+
+
+c:
+cd  C:\Dev\trial\ui-class2\RazorClassLibrary
+msbuild /t:pack /p:Configuration=Release /p:PackageVersion=1.99.0
+copy C:\Dev\trial\ui-class2\RazorClassLibrary\bin\Release\*.nupkg C:\Dev\@NuGet\GeneratedPackages
+
+
+
+
+
