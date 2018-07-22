@@ -12,4 +12,8 @@
     <ProjectReference Include="..\..\RazorClassLibrary\RazorClassLibrary.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Shared\" />
+  </ItemGroup>
+
 </Project>
