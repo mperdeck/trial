@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="jsnlog" Version="2.28.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 

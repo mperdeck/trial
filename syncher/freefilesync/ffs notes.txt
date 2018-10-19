@@ -1,0 +1,13 @@
+
+FreeFileSync.exe  jobname.ffs_batch
+FreeFileSync.exe 
+
+or just 
+jobname.ffs_batch
+
+ & "C:\Dev\trial\syncher\freefilesync\test2.ffs_batch"
+
+
+"C:\Dev\trial\syncher\freefilesync\test.ffs_batch" & "C:\Dev\trial\syncher\freefilesync\test2.ffs_batch"
+
+

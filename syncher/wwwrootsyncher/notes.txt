@@ -1,0 +1,9 @@
+
+cd "C:\Dev\trial\syncher\wwwrootsyncher\wwwrootsyncher"
+
+dotnet publish -c Debug -r win10-x64
+
+C:\Dev\trial\syncher\wwwrootsyncher\wwwrootsyncher\bin\Debug\netcoreapp2.1\win10-x64\wwwrootsyncher.exe
+
+
+
