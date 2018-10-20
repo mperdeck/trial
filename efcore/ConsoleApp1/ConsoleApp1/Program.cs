@@ -29,9 +29,10 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            var client2 = new Client { ClientName = "client 2" };
+            var client2 = new Client { Id = 0, ClientName = "client 2" };
 
-            var person2 = new Person { Surname = "person 2", MyClient = client2 };
+            var person2 = new Person { Id = 0, Surname = "person 2", MyClient = client2 };
+            client2.People.Add(person2);
 
             using (var db = new OptimizewareContext())
             {
