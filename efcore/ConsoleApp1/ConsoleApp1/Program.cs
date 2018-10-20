@@ -1,4 +1,5 @@
-﻿using ConsoleApp1.Entities;
+﻿// using ConsoleApp1.Entities;
+using ConsoleApp1.Eftest;
 using System;
 using System.Linq;
 
@@ -28,12 +29,29 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
+            var client2 = new Client { ClientName = "client 2" };
+
+            var person2 = new Person { Surname = "person 2", MyClient = client2 };
+
             using (var db = new OptimizewareContext())
             {
-                var blogs = db.Acctypes
-                    .OrderBy(b => b.AcctypeId)
-                    .ToList();
+                db.Clients.Add(client2);
+                db.People.Add(person2);
+
+                db.SaveChanges();
             }
+
+
+
+
+
+
+            //using (var db = new OptimizewareContext())
+            //{
+            //    var blogs = db.Acctypes
+            //        .OrderBy(b => b.AcctypeId)
+            //        .ToList();
+            //}
 
 
 
