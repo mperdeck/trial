@@ -33,6 +33,14 @@ using System.Linq;
     //
     // templ.Id should not be an Identity
 
+    // ===========================
+    // do not do SaveChanges after each Add. Instead, do SaveChanges once after all Adds.
+    //
+    // set Ids (identity fields) to 0
+    //
+    // all entities do not have to be in same context.
+    // they will be saved,
+// even though you can't call SaveChanges on the second context.    
 
 
 namespace ConsoleApp1
@@ -59,7 +67,9 @@ namespace ConsoleApp1
 
             using (var db = new OptimizewareContext())
             {
-                var countryInDb = db.Countries.SingleOrDefault(c => c.CountryName == "A better place");
+                using (var db2 = new OptimizewareContext2())
+                {
+                    var countryInDb = db.Countries.SingleOrDefault(c => c.CountryName == "A better place");
                 if (countryInDb == null)
                 {
                     db.Countries.Add(country);
@@ -79,12 +89,14 @@ namespace ConsoleApp1
 
 
                 db.ClientSuppliers.Add(clientsupplier2);
-                db.People.Add(person2);
+                db2.People.Add(person2);
                 db.Clients.Add(client2);
                 db.Templ2.Add(templ2);
                 db.Suppliers.Add(supplier2);
 
                 db.SaveChanges();
+         //           db2.SaveChanges();
+                }
             }
 
 

@@ -9,7 +9,6 @@ namespace ConsoleApp1.Eftest
         public virtual DbSet<Client> Clients { get; set; }
         public virtual DbSet<ClientSupplier> ClientSuppliers { get; set; }
         public virtual DbSet<Country> Countries { get; set; }
-        public virtual DbSet<Person> People { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
         public virtual DbSet<Templ> Templs { get; set; }
         public virtual DbSet<Templ2> Templ2 { get; set; }
@@ -18,7 +17,6 @@ namespace ConsoleApp1.Eftest
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Data Source=MPERDECKPC\\MSSQLSERVER01;Initial Catalog=eftest1;Integrated Security=True");
             }
         }
@@ -46,14 +44,6 @@ namespace ConsoleApp1.Eftest
                     .HasForeignKey(d => d.SupplierId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_ClientSupplier_Supplier");
-            });
-
-            modelBuilder.Entity<Person>(entity =>
-            {
-                entity.HasOne(d => d.MyClient)
-                    .WithMany(p => p.People)
-                    .HasForeignKey(d => d.MyClientId)
-                    .HasConstraintName("FK_Person_Client");
             });
 
             modelBuilder.Entity<Templ>(entity =>
