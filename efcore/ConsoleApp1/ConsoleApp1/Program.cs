@@ -29,7 +29,10 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            var client2 = new Client { Id = 0, ClientName = "client 2" };
+            var country = new Country { Id = 0, CountryName = "A better place" };
+
+            var client2 = new Client { Id = 0, ClientName = "client 2", Country = country };
+            country.Clients.Add(client2);
 
             var supplier2 = new Supplier { Id = 0, SupplierName = "supplier 2" };
 
@@ -39,12 +42,27 @@ namespace ConsoleApp1
             var clientsupplier2 = new ClientSupplier { Id = 0,  Client = client2, Supplier = supplier2 };
 
 
-
-
-
-
             using (var db = new OptimizewareContext())
             {
+                var countryInDb = db.Countries.SingleOrDefault(c => c.CountryName == "A better place");
+                if (countryInDb == null)
+                {
+                    db.Countries.Add(country);
+                }
+                else
+                {
+                    // Repoint all entities with references to country to the newly loaded
+                    // pre-existing countryInDb
+                    foreach (var client in country.Clients)
+                    {
+                        client.Country = countryInDb;
+                    }
+
+                    // Don't copy country.Clients, because EF doesn't need it, and it will fill this in itself.
+                }
+
+
+
                 db.ClientSuppliers.Add(clientsupplier2);
                 db.People.Add(person2);
                 db.Clients.Add(client2);
