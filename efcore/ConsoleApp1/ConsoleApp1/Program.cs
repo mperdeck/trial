@@ -21,6 +21,18 @@ using System.Linq;
 // doco says to update properties template for nav properties,
 // but you don't have to do that anymore.
 
+    // >>>>>>>>>>>>>>>>>
+    // one column cannot be foregn key to 2 tables.
+    // just point acctype to templ and templ.orgid to org.
+    // in ef we'll have to join via templ
+    //
+    // Or: acctype points at Org, and
+    // templ.Id points at Org.Id
+    // So both templ.Id and templ.OrgId point at Org.Id
+    // ensuring they are always the same.
+    //
+    // templ.Id should not be an Identity
+
 
 
 namespace ConsoleApp1
@@ -33,6 +45,9 @@ namespace ConsoleApp1
 
             var client2 = new Client { Id = 0, ClientName = "client 2", Country = country };
             country.Clients.Add(client2);
+
+            var templ2 = new Templ2 { Id = 0, Templ2name = "templ2name", Client = client2, IdNavigation = client2 };
+
 
             var supplier2 = new Supplier { Id = 0, SupplierName = "supplier 2" };
 
@@ -66,6 +81,7 @@ namespace ConsoleApp1
                 db.ClientSuppliers.Add(clientsupplier2);
                 db.People.Add(person2);
                 db.Clients.Add(client2);
+                db.Templ2.Add(templ2);
                 db.Suppliers.Add(supplier2);
 
                 db.SaveChanges();

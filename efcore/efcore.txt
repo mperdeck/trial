@@ -55,7 +55,14 @@ PRIMARY KEY CLUSTERED
 
 GO
 
+----------------------
 
+select * from [dbo].[Client]
+select * from [dbo].[Supplier]
+select * from [dbo].Person
+select * from [dbo].[ClientSupplier]
+select * from [dbo].[Country]
+select * from [dbo].[templ2]
 
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

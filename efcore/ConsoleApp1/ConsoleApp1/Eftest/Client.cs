@@ -12,6 +12,8 @@ namespace ConsoleApp1.Eftest
         {
             ClientSuppliers = new HashSet<ClientSupplier>();
             People = new HashSet<Person>();
+            Templ2Client = new HashSet<Templ2>();
+            Templs = new HashSet<Templ>();
         }
 
         public int Id { get; set; }
@@ -24,9 +26,15 @@ namespace ConsoleApp1.Eftest
             [ForeignKey("CountryId")]
             [InverseProperty("Clients")]
                 public Country Country { get; set; }
+            [InverseProperty("IdNavigation")]
+                public Templ2 Templ2IdNavigation { get; set; }
             [InverseProperty("Client")]
             public ICollection<ClientSupplier> ClientSuppliers { get; set; }
             [InverseProperty("MyClient")]
             public ICollection<Person> People { get; set; }
+            [InverseProperty("Client")]
+            public ICollection<Templ2> Templ2Client { get; set; }
+            [InverseProperty("Client")]
+            public ICollection<Templ> Templs { get; set; }
     }
 }
