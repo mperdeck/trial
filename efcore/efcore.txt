@@ -63,18 +63,39 @@ GO
 
 
 
-{System.Data.SqlClient.SqlException (0x80131904): Cannot insert explicit value for identity column in table 'Person' when IDENTITY_INSERT is set to OFF.
-   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
-   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
-   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
-   at System.Data.SqlClient.SqlDataReader.get_MetaData()
-   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
-   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
-   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
-   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
-   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
-ClientConnectionId:f403c218-4ce4-4f0e-92be-1acfb3b4dbdd
-Error Number:544,State:1,Class:16}
+
+Unable to identify the primary key for table 'dbo.compare'.
+Unable to generate entity type for table 'dbo.compare'.
+Unable to identify the primary key for table 'dbo.factmplc'.
+Unable to generate entity type for table 'dbo.factmplc'.
+Unable to identify the primary key for table 'dbo.rtooltmpl'.
+Unable to generate entity type for table 'dbo.rtooltmpl'.
+Unable to identify the primary key for table 'dbo.decperioddoc'.
+Unable to generate entity type for table 'dbo.decperioddoc'.
+Unable to identify the primary key for table 'dbo.teamorgunit'.
+Unable to generate entity type for table 'dbo.teamorgunit'.
+Unable to identify the primary key for table 'dbo.rolemst'.
+Unable to generate entity type for table 'dbo.rolemst'.
+Unable to identify the primary key for table 'dbo.title'.
+Unable to generate entity type for table 'dbo.title'.
+Unable to identify the primary key for table 'dbo.eyservice'.
+Unable to generate entity type for table 'dbo.eyservice'.
+Unable to identify the primary key for table 'dbo.specialty'.
+Unable to generate entity type for table 'dbo.specialty'.
+Unable to identify the primary key for table 'dbo.auditmst'.
+Unable to generate entity type for table 'dbo.auditmst'.
+Unable to identify the primary key for table 'dbo.rattatch'.
+Unable to generate entity type for table 'dbo.rattatch'.
+Unable to identify the primary key for table 'dbo.deceyserv'.
+Unable to generate entity type for table 'dbo.deceyserv'.
+Unable to identify the primary key for table 'dbo.period'.
+Unable to generate entity type for table 'dbo.period'.
+Unable to identify the primary key for table 'dbo.factmplm'.
+Unable to generate entity type for table 'dbo.factmplm'.
+Unable to identify the primary key for table 'dbo.onwatch'.
+Unable to generate entity type for table 'dbo.onwatch'.
+Unable to identify the primary key for table 'dbo.geography'.
+Unable to generate entity type for table 'dbo.geography'.
+Unable to identify the primary key for table 'dbo.decdown'.
+
 

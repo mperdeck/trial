@@ -37,9 +37,8 @@ namespace ConsoleApp1
             using (var db = new OptimizewareContext())
             {
                 db.Clients.Add(client2);
-                db.SaveChanges();
-
                 db.People.Add(person2);
+
                 db.SaveChanges();
             }
 
