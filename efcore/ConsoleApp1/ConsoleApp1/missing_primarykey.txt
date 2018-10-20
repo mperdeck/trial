@@ -1,0 +1,104 @@
+Unable to identify the primary key for table 'dbo.factmplc'.
+Unable to generate entity type for table 'dbo.factmplc'.
+Unable to identify the primary key for table 'dbo.rtooltmpl'.
+Unable to generate entity type for table 'dbo.rtooltmpl'.
+Unable to identify the primary key for table 'dbo.decperioddoc'.
+Unable to generate entity type for table 'dbo.decperioddoc'.
+Unable to identify the primary key for table 'dbo.teamorgunit'.
+Unable to generate entity type for table 'dbo.teamorgunit'.
+Unable to identify the primary key for table 'dbo.rolemst'.
+Unable to generate entity type for table 'dbo.rolemst'.
+Unable to identify the primary key for table 'dbo.title'.
+Unable to generate entity type for table 'dbo.title'.
+Unable to identify the primary key for table 'dbo.eyservice'.
+Unable to generate entity type for table 'dbo.eyservice'.
+Unable to identify the primary key for table 'dbo.specialty'.
+Unable to generate entity type for table 'dbo.specialty'.
+Unable to identify the primary key for table 'dbo.auditmst'.
+Unable to generate entity type for table 'dbo.auditmst'.
+Unable to identify the primary key for table 'dbo.rattatch'.
+Unable to generate entity type for table 'dbo.rattatch'.
+Unable to identify the primary key for table 'dbo.deceyserv'.
+Unable to generate entity type for table 'dbo.deceyserv'.
+Unable to identify the primary key for table 'dbo.period'.
+Unable to generate entity type for table 'dbo.period'.
+Unable to identify the primary key for table 'dbo.factmplm'.
+Unable to generate entity type for table 'dbo.factmplm'.
+Unable to identify the primary key for table 'dbo.onwatch'.
+Unable to generate entity type for table 'dbo.onwatch'.
+Unable to identify the primary key for table 'dbo.geography'.
+Unable to generate entity type for table 'dbo.geography'.
+Unable to identify the primary key for table 'dbo.decdown'.
+Unable to generate entity type for table 'dbo.decdown'.
+Unable to identify the primary key for table 'dbo.pagehit'.
+Unable to generate entity type for table 'dbo.pagehit'.
+Unable to identify the primary key for table 'dbo.custpers'.
+Unable to generate entity type for table 'dbo.custpers'.
+Unable to identify the primary key for table 'dbo.download'.
+Unable to generate entity type for table 'dbo.download'.
+Unable to identify the primary key for table 'dbo.person'.
+Unable to generate entity type for table 'dbo.person'.
+Unable to identify the primary key for table 'dbo.factor'.
+Unable to generate entity type for table 'dbo.factor'.
+Unable to identify the primary key for table 'dbo.orgunit'.
+Unable to generate entity type for table 'dbo.orgunit'.
+Unable to identify the primary key for table 'dbo.custorgunit'.
+Unable to generate entity type for table 'dbo.custorgunit'.
+Unable to identify the primary key for table 'dbo.choice'.
+Unable to generate entity type for table 'dbo.choice'.
+Unable to identify the primary key for table 'dbo.decision'.
+Unable to generate entity type for table 'dbo.decision'.
+Unable to identify the primary key for table 'dbo.relation'.
+Unable to generate entity type for table 'dbo.relation'.
+Unable to identify the primary key for table 'dbo.subacctype'.
+Unable to generate entity type for table 'dbo.subacctype'.
+Unable to identify the primary key for table 'dbo.dectmpl'.
+Unable to generate entity type for table 'dbo.dectmpl'.
+Unable to identify the primary key for table 'dbo.account'.
+Unable to generate entity type for table 'dbo.account'.
+Unable to identify the primary key for table 'dbo.textstore'.
+Unable to generate entity type for table 'dbo.textstore'.
+Unable to identify the primary key for table 'dbo.tooltmpl'.
+Unable to generate entity type for table 'dbo.tooltmpl'.
+Unable to identify the primary key for table 'dbo.repperiod'.
+Unable to generate entity type for table 'dbo.repperiod'.
+Unable to identify the primary key for table 'dbo.CentralDocument'.
+Unable to generate entity type for table 'dbo.CentralDocument'.
+Unable to identify the primary key for table 'dbo.factmpl'.
+Unable to generate entity type for table 'dbo.factmpl'.
+Unable to identify the primary key for table 'dbo.office'.
+Unable to generate entity type for table 'dbo.office'.
+Unable to identify the primary key for table 'dbo.rfactmplm'.
+Unable to generate entity type for table 'dbo.rfactmplm'.
+Unable to identify the primary key for table 'dbo.teamxr'.
+Unable to generate entity type for table 'dbo.teamxr'.
+Unable to identify the primary key for table 'dbo.CentralDocumentFile'.
+Unable to generate entity type for table 'dbo.CentralDocumentFile'.
+Unable to identify the primary key for table 'dbo.persrole'.
+Unable to generate entity type for table 'dbo.persrole'.
+Unable to identify the primary key for table 'dbo.country'.
+Unable to generate entity type for table 'dbo.country'.
+Unable to identify the primary key for table 'dbo.application'.
+Unable to generate entity type for table 'dbo.application'.
+Unable to identify the primary key for table 'dbo.session'.
+Unable to generate entity type for table 'dbo.session'.
+Unable to identify the primary key for table 'dbo.debug'.
+Unable to generate entity type for table 'dbo.debug'.
+Unable to identify the primary key for table 'dbo.variable'.
+Unable to generate entity type for table 'dbo.variable'.
+Unable to identify the primary key for table 'dbo.factorm'.
+Unable to generate entity type for table 'dbo.factorm'.
+Unable to identify the primary key for table 'dbo.auditlog'.
+Unable to generate entity type for table 'dbo.auditlog'.
+Unable to identify the primary key for table 'dbo.actionplan'.
+Unable to generate entity type for table 'dbo.actionplan'.
+Unable to identify the primary key for table 'dbo.email'.
+Unable to generate entity type for table 'dbo.email'.
+Unable to identify the primary key for table 'dbo.teamconf'.
+Unable to generate entity type for table 'dbo.teamconf'.
+Unable to identify the primary key for table 'dbo.teamr'.
+Unable to generate entity type for table 'dbo.teamr'.
+Unable to identify the primary key for table 'dbo.teamconfr'.
+Unable to generate entity type for table 'dbo.teamconfr'.
+Unable to identify the primary key for table 'dbo.teamspec'.
+Unable to generate entity type for table 'dbo.teamspec'.
