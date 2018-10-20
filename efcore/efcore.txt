@@ -61,6 +61,22 @@ GO
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
+Microsoft.EntityFrameworkCore.DbUpdateException
+  HResult=0x80131500
+  Message=An error occurred while updating the entries. See the inner exception for details.
+  Source=Microsoft.EntityFrameworkCore.Relational
+  StackTrace:
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.Execute(IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(Tuple`2 parameters)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.SqlServerExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.Execute(IEnumerable`1 commandBatches, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(IReadOnlyList`1 entriesToSave)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChanges(Boolean acceptAllChangesOnSuccess)
+   at ConsoleApp1.Program.Main(String[] args) in C:\Dev\trial\efcore\ConsoleApp1\ConsoleApp1\Program.cs:line 42
+
+Inner Exception 1:
+SqlException: Cannot insert explicit value for identity column in table 'Client' when IDENTITY_INSERT is set to OFF.
 
 
 
