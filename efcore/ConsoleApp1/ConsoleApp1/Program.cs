@@ -40,7 +40,8 @@ using System.Linq;
     //
     // all entities do not have to be in same context.
     // they will be saved,
-// even though you can't call SaveChanges on the second context.    
+// even though you can't call SaveChanges on the second context.   
+// this is ok for People and for Templ2
 
 
 namespace ConsoleApp1
@@ -91,7 +92,7 @@ namespace ConsoleApp1
                 db.ClientSuppliers.Add(clientsupplier2);
                 db2.People.Add(person2);
                 db.Clients.Add(client2);
-                db.Templ2.Add(templ2);
+                db2.Templ2.Add(templ2);
                 db.Suppliers.Add(supplier2);
 
                 db.SaveChanges();

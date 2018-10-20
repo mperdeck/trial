@@ -11,7 +11,6 @@ namespace ConsoleApp1.Eftest
         public virtual DbSet<Country> Countries { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
         public virtual DbSet<Templ> Templs { get; set; }
-        public virtual DbSet<Templ2> Templ2 { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -53,23 +52,6 @@ namespace ConsoleApp1.Eftest
                     .HasForeignKey(d => d.ClientId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_templ_Client");
-            });
-
-            modelBuilder.Entity<Templ2>(entity =>
-            {
-                entity.Property(e => e.Id).ValueGeneratedNever();
-
-                entity.HasOne(d => d.Client)
-                    .WithMany(p => p.Templ2Client)
-                    .HasForeignKey(d => d.ClientId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_templ2_Client");
-
-                entity.HasOne(d => d.IdNavigation)
-                    .WithOne(p => p.Templ2IdNavigation)
-                    .HasForeignKey<Templ2>(d => d.Id)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_templ2_Client_2");
             });
 
             OnModelCreatingPartial(modelBuilder);
