@@ -8,6 +8,7 @@ namespace ConsoleApp1.Eftest
     {
         public virtual DbSet<Client> Clients { get; set; }
         public virtual DbSet<ClientSupplier> ClientSuppliers { get; set; }
+        public virtual DbSet<Country> Countries { get; set; }
         public virtual DbSet<Person> People { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
 
@@ -15,13 +16,20 @@ namespace ConsoleApp1.Eftest
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Data Source=MPERDECKPC\\MSSQLSERVER01;Initial Catalog=eftest1;Integrated Security=True");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Client>(entity =>
+            {
+                entity.HasOne(d => d.Country)
+                    .WithMany(p => p.Clients)
+                    .HasForeignKey(d => d.CountryId)
+                    .HasConstraintName("FK_Client_Country");
+            });
+
             modelBuilder.Entity<ClientSupplier>(entity =>
             {
                 entity.HasOne(d => d.Client)

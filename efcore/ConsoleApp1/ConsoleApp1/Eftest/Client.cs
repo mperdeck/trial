@@ -17,8 +17,13 @@ namespace ConsoleApp1.Eftest
         public int Id { get; set; }
         [StringLength(100)]
         public string ClientName { get; set; }
+        [Column("country_id")]
+        public int? CountryId { get; set; }
 
 
+            [ForeignKey("CountryId")]
+            [InverseProperty("Clients")]
+                public Country Country { get; set; }
             [InverseProperty("Client")]
             public ICollection<ClientSupplier> ClientSuppliers { get; set; }
             [InverseProperty("MyClient")]
